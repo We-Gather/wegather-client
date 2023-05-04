@@ -4,6 +4,7 @@ import axios from 'axios';
 import Image from 'next/image'
 import Link from 'next/link';
 import styled from 'styled-components';
+import HorizonLine from '@/components/HorizonLine';
 
 const LoginPageDiv = styled.div`
   display: flex;
@@ -13,7 +14,7 @@ const LoginPageDiv = styled.div`
   justify-content: center;
   align-items: center;
   place-content: center;
-  border-radius: 0.5rem;
+  border-radius: 0.625rem;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
   background-color: #F2F2F2;;
 `;
@@ -25,12 +26,17 @@ const Form = styled.form`
   text-align: center;;
 `;
 
+const LoginInputBoxRabel = styled.label`
+  margin: 0.5rem;
+`;
+
 const LoginInputBox = styled.input`
   border: 1px solid #e5e7eb;
-  border-radius: 0.25rem;
+  border-radius: 0.625rem;
+  margin-bottom: 0.5rem;
   padding: 0.5rem 1rem;
   width: 22.5rem;
-  background-color: #f3f4f6;
+  height: 2.5rem;
   transition: background-color 0.2s ease-in-out;
 
   &:focus {
@@ -45,7 +51,7 @@ const SubmitButton = styled.button`
   height: 3.75rem;
   padding: 0.5rem 1rem;
   font-size: 1.25rem;
-  border-radius: 0.5rem;
+  border-radius: 0.675rem;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 
@@ -57,17 +63,21 @@ const SubmitButton = styled.button`
 const RowWrapper= styled.div`
   width: 22.5rem;
   display: flex;
-  padding: 0.25vrem;
+  font-size: 0.75rem;
+  padding: 0.25rem;
+  margin: 0.5rem;
   flex-direction: row;
   justify-content: space-between;
 	align-items: center;
 `;
 
 const ErrorMessage = styled.span`
-  color: red;
+  color: red;  
+  padding: 0.25rem 0.5rem;
+  width: 22.5rem;
+  text-align: left;;
   margin-right: auto;
   font-size: 0.8rem;
-  margin-bottom: 0.5rem;
 `;
 
 const LoginCheckBox = styled.input`
@@ -103,21 +113,19 @@ export default function Login() : JSX.Element {
             width={200} height={200}
             alt="logo" 
             />
-        <h4 className="mb-4">동아리 모집·일정·회계 관리를 위게더로 한 번에!</h4>
-        <label className="mb-4">
+        <h4>동아리 모집·일정·회계 관리를 위게더로 한 번에!</h4>
+        <LoginInputBoxRabel>
           <LoginInputBox type="text"
             value={email} placeholder="이메일"
             onChange={(e) => setEmail(e.target.value)}
             required />
-        </label>
-        <label className="mb-4">
           <LoginInputBox type="password" 
             value={password} 
             placeholder="비밀번호" 
             onChange={(e) => setPassword(e.target.value)} 
             required 
           />
-        </label>
+        </LoginInputBoxRabel>
         {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
         <SubmitButton type="submit" >Sign In</SubmitButton>
         <RowWrapper>
@@ -130,6 +138,7 @@ export default function Login() : JSX.Element {
           </Link>
         </RowWrapper>
       </Form>
+      <HorizonLine text="OR"/>
       <SubmitButton>Google Login</SubmitButton>
       <RowWrapper>
         <p>
