@@ -18,6 +18,7 @@ const MaxWidthDiv = styled.div`
 	flex-direction: row;
 	justify-content: space-between;
 `;
+
 const SytledDiv = styled.div`
   display: flex;
   flex-direction: row;
@@ -26,6 +27,7 @@ const SytledDiv = styled.div`
   align-items: center;
 	margin: 8px;
 `;
+
 export default function Footer() {
 	return (
 	<footer>

@@ -13,6 +13,7 @@ const StyledHeader = styled.header`
   box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.2);
 
 `;
+
 const MaxWidthDiv = styled.div`
   max-width: 1440px;
   height: 100%;
@@ -21,6 +22,7 @@ const MaxWidthDiv = styled.div`
   flex-direction: row;
   justify-content: space-between;
 `;
+
 const SytledDiv = styled.div`
   display: flex;
   flex-direction: row;
@@ -28,6 +30,7 @@ const SytledDiv = styled.div`
   place-content: center;
   align-items: center;
 `;
+
 const HeaderButton = styled.button`
   height: 40px;
   width: 100px;

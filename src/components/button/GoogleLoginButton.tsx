@@ -5,7 +5,7 @@ const SocialSubmitButton = styled.button`
   background-color: #36BF7F;
   color: #ffffff;
   width: 80%;
-  height: 10%;
+  height: 3.75rem;
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
