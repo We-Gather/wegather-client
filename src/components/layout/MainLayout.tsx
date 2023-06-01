@@ -1,5 +1,5 @@
-import Header from "@/components/header/Header"
-import Footer from "../components/footer/Footer"
+import Header from "@/components/header/Header";
+import Footer from "../footer/Footer";
 import React from "react";
 import styled from "styled-components";
 
@@ -10,7 +10,7 @@ const StyledContainer = styled.div`
   width: 100vw;
 `;
 
-const StyledMain = styled.main `
+const StyledMain = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,14 +18,12 @@ const StyledMain = styled.main `
   height: calc(100% - 160px);
 `;
 
-export default function MainLayout({children}:any) {
+export default function MainLayout({ children }: any) {
   return (
     <StyledContainer>
-      <Header/>
-      <StyledMain>
-        {children}
-      </StyledMain>
-      <Footer/>
+      <Header />
+      <StyledMain>{children}</StyledMain>
+      <Footer />
     </StyledContainer>
   );
 }
