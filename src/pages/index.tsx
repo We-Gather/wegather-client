@@ -2,8 +2,9 @@ import { Inter } from "next/font/google";
 
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
-import React from "react";
+import React, { ReactElement } from "react";
 import styled from "styled-components";
+import Layout from "@/components/layout/MainLayout";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -24,4 +25,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return <div>Test.</div>;
+}
+
+Home.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>
 }

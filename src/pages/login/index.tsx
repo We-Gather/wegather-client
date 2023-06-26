@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react";
 import { useState } from 'react';
 // import axios from 'axios';
 import Image from 'next/image'
@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import HorizonLine from '@/components/HorizonLine';
 import LoginButton from '@/components/button/LoginButton';
 import GoogleLoginButton from '@/components/button/GoogleLoginButton';
+import Layout from "@/components/layout/MainLayout";
 
 const LoginContainerDiv = styled.div`
 	max-width: 440px;
@@ -18,10 +19,10 @@ const LoginContainerDiv = styled.div`
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
 	background-color: #F2F2F2;;
 	justify-content: center;
-  	align-items: center;
-  	place-content: center;
+  align-items: center;
+  place-content: center;
 	display: flex;
-  	flex-direction: column;
+  flex-direction: column;
 `;
 
 
@@ -143,4 +144,8 @@ export default function Login() : JSX.Element {
       </StyledForm>
     </LoginContainerDiv>
   );
+};
+Login.getLayout = function getLayout(page: React.ReactElement)
+{
+  return <Layout>{page}</Layout>;
 };
