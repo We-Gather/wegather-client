@@ -10,11 +10,8 @@ import GoogleLoginButton from '@/components/button/GoogleLoginButton';
 import Layout from "@/components/layout/MainLayout";
 
 const LoginContainerDiv = styled.div`
-	max-width: 440px;
-  max-height: 590px;
-  
-	height: 55vh;
-	width: 23vw;
+  width: 27.5rem;
+  height: 36.875rem;
 	border-radius: 0.625rem;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
 	background-color: #F2F2F2;;
@@ -24,7 +21,6 @@ const LoginContainerDiv = styled.div`
 	display: flex;
   flex-direction: column;
 `;
-
 
 const WegatherTextSpan = styled.span`
   color: #36BF7F;
@@ -36,8 +32,6 @@ const StyledP = styled.p`
 `;
 
 const StyledForm = styled.form`
-  width: 100%;
-  height: 100%;
   justify-content: center;
   align-items: center;
   place-content: center;
@@ -46,9 +40,9 @@ const StyledForm = styled.form`
 `;
 
 const RowWrapper= styled.div`
-  width: 80%;
+  width: 22.5rem;
   display: flex;
-  margin: 8px;
+  margin: 0.5rem;
   font-size: 0.75rem;
   flex-direction: row;
   justify-content: space-between;
@@ -57,22 +51,27 @@ const RowWrapper= styled.div`
 
 const ErrorMessage = styled.span`
   color: red;  
-  width: 80%;
-  margin-bottom: 8px;
+  width: 22.5rem;
+  margin-bottom: 0.5rem;
   text-align: left;;
   font-size: 0.6rem;
 `;
 
 const LoginInput = styled.input`
+  display: flex;
+  width: 22.5rem;
+  height: 2.5rem;
+  align-items: center;
+  flex-shrink: 0;
+  
   border: 1px solid #e5e7eb;
   border-radius: 10px;
-  width: 80%;
-  height: 2.5rem;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
   transition: background-color 0.2s ease-in-out;
   &:focus {
   background-color: #ffffff;
   }
+
 `;
 
 export type loginInfoType = {

@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 const StyledFooter = styled.div`
-  height: 80px;
+	height: 9rem;
 	width: 100%;
+	flex-shrink: 0;
 	position:fixed;
   display: flex;
   flex-direction: row;
@@ -25,7 +26,7 @@ const SytledDiv = styled.div`
   justify-content: center;
   place-content: center;
   align-items: center;
-	margin: 8px;
+	margin: 0.5rem;
 `;
 
 export default function Footer() {

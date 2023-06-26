@@ -2,8 +2,8 @@ import React from "react"
 import styled from "styled-components";
 
 const HorizonLineDiv = styled.div`
-	width: 80%;
-	margin-bottom: 3%;
+	width: 22.5rem;
+	margin-bottom: 0.75rem;
 	text-align: center;
 	line-height: 0.1rem;
 	border-bottom: 0.1rem solid #aaa;

@@ -15,7 +15,7 @@ const StyledMain = styled.main`
   align-items: center;
   justify-content: center;
   place-content: center;
-  height: calc(100% - 160px);
+  height: calc(100% - 13.5rem);
 `;
 
 export default function MainLayout({ children }: any) {

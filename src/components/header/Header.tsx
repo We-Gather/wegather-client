@@ -5,8 +5,9 @@ import Image from "next/image";
 import styled from 'styled-components';
 
 const StyledHeader = styled.header`
-  height: 80px;
   width: 100%;
+  height: 4.5rem;
+  flex-shrink: 0;
   display: flex;
   justify-content: center;
 	align-items: center;
@@ -32,13 +33,15 @@ const SytledDiv = styled.div`
 `;
 
 const HeaderButton = styled.button`
-  height: 40px;
-  width: 100px;
+  width: 5.625rem;
+  height: 2.1875rem;
+  flex-shrink: 0;
   display: flex;
-  margin: 4px;
+  margin: 0.25rem;
+  
   justify-content: center;
   align-items: center;
-  border-radius: 30px;
+  border-radius: 50px;
   color: #ffffff;
   background-color: #36BF7F;
   border: #36BF7F;

@@ -4,8 +4,9 @@ import styled from "styled-components";
 const SubmitButton = styled.button`
   background-color: #36BF7F;
   color: #ffffff;
-  width: 80%;
-  height: 10%;
+  width: 22.5rem;
+  height: 3.75rem;
+  flex-shrink: 0;
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
