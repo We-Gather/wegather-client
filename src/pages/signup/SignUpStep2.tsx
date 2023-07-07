@@ -1,4 +1,4 @@
-import LoginButton from "@/components/button/LoginButton";
+import SignUpButton from "@/components/button/SignUpButton";
 import DeleteToggleInput from "@/components/input/DeleteToggleInput";
 import VisibleDeleteToggleInput from "@/components/input/VisibleDeleteToggleInput";
 import { useState } from "react";
@@ -158,7 +158,7 @@ export default function SignUpStep2({schoolEmail, setSchoolEmail,verificationCod
           </>
           :<></>}
         </SignUpWrapper>
-        <LoginButton text="회원가입" type="submit" />
+        <SignUpButton text="회원가입" type="submit" />
       </StyledForm>
     </SingupContainerDiv>
 
