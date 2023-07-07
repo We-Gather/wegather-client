@@ -1,4 +1,4 @@
-import LoginButton from "@/components/button/LoginButton";
+import SignUpButton from "@/components/button/SignUpButton";
 import DeleteToggleInput from "@/components/input/DeleteToggleInput";
 import VisibleDeleteToggleInput from "@/components/input/VisibleDeleteToggleInput";
 
@@ -183,7 +183,7 @@ export default function SignUpStep1({signUpInfo, setSignUpInfo, passwordCheck, s
             school: "",
           })}}
           />
-        <LoginButton text="회원가입" type="submit" />
+        <SignUpButton text="회원가입" type="submit" />
       </StyledForm>
       </SingupContainerDiv>
 
