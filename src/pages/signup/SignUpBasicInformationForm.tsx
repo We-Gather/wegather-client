@@ -67,6 +67,7 @@ export type props = {
   setErrorMessage: React.Dispatch<React.SetStateAction<string>>
   handleNext: any;
 }
+
 export default function SignUpStep1({signUpInfo, setSignUpInfo, passwordCheck, setPasswordCheck, errorMessage, setErrorMessage, handleNext}: props) : JSX.Element {
 
   const isEmailValid = (email: string): boolean => {

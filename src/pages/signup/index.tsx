@@ -4,9 +4,9 @@ import Image from 'next/image'
 import Link from 'next/link';
 import styled from 'styled-components';
 import Layout from '@/components/layout/NoHeaderFooterLayout'
-import SignUpStep1 from './SignUpStep1';
-import SignUpStep2 from './SignUpStep2';
-import SignUpStep3 from './SignUpStep3';
+import SignUpBasicInformationForm from './SignUpBasicInformationForm';
+import SignUpEmailVerificationForm from './SignUpEmailVerificationForm';
+import SignUpCompleteForm from './SignUpCompleteForm';
 
 
 export type signUpInfo = {
@@ -46,7 +46,7 @@ export default function SignUp() : JSX.Element {
   return (
     <div>
       {step === 1 && 
-        <SignUpStep1 
+        <SignUpBasicInformationForm 
           signUpInfo={signUpInfo} 
           setSignUpInfo={setSignUpInfo} 
           passwordCheck={passwordCheck} 
@@ -56,7 +56,7 @@ export default function SignUp() : JSX.Element {
           handleNext={handleNext}   
         />}
       {step === 2 && 
-        <SignUpStep2
+        <SignUpEmailVerificationForm
           schoolEmail={schoolEmail}
           setSchoolEmail={setSchoolEmail}
           verificationCode={verificationCode}
@@ -66,10 +66,8 @@ export default function SignUp() : JSX.Element {
           handleNext={handleNext}   
         />}
       {step === 3 && 
-        <SignUpStep3/>}  
+        <SignUpCompleteForm/>}  
     </div>
-
-      
   );
 };
 

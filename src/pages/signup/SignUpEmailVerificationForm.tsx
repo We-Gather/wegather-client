@@ -1,6 +1,4 @@
 import SignUpButton from "@/components/button/SignUpButton";
-import DeleteToggleInput from "@/components/input/DeleteToggleInput";
-import VisibleDeleteToggleInput from "@/components/input/VisibleDeleteToggleInput";
 import { useState } from "react";
 
 import styled from "styled-components";
