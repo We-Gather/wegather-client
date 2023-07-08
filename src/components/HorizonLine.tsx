@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import styled from "styled-components";
 
 const HorizonLineDiv = styled.div`
@@ -9,9 +9,9 @@ const HorizonLineDiv = styled.div`
 `;
 
 const HorizonLineSpan = styled.span`
-	background-color: #F2F2F2;
-	font-size: 0.75rem;
-	padding: 0.5rem;
+  background-color: #f2f2f2;
+  font-size: 0.75rem;
+  padding: 0.5rem;
 `;
 
 export default function HorizonLine({text} : any) {
