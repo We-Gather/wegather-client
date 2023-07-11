@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import * as React from "react";
 import { NextPage } from "next";
-import styled, { createGlobalStyle, css, ThemeProps, ThemeProvider } from 'styled-components';
+import {createGlobalStyle, css, ThemeProvider } from 'styled-components';
 import theme from '@/styles/theme';
 
 
