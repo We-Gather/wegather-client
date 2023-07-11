@@ -1,5 +1,3 @@
-import { css, DefaultTheme, CSSObject } from 'styled-components';
-
 interface MyTheme {
   device: {
     tablet: string;
