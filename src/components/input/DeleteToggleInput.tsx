@@ -25,7 +25,7 @@ const SignUpInput = styled.input`
   border-radius: 10px;
   border: 1px solid #9C9C9C;
   background: #FFF;
-
+  color:#000;
   transition: background-color 0.2s ease-in-out;
 `;
 
@@ -36,8 +36,12 @@ const PasswordInputContainer = styled.div`
 
 const DeleteButton = styled.button`
   position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
   top: 50%;
   right: 1.15rem;
+  border: none;
+  border-radius: 5rem;
   transform: translateY(-50%);
   cursor: pointer;
 `;

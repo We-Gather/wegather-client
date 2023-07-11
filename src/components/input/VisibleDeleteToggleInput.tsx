@@ -1,5 +1,7 @@
 import { ChangeEventHandler, MouseEventHandler, useState } from "react";
 import styled from "styled-components";
+import Image from 'next/image'
+import UnVisibleIcon from "/public/img/UnVisibleIcon.png"
 
 const SignUpWrapper = styled.div`
   display: flex;
@@ -25,7 +27,7 @@ const SignUpInput = styled.input`
   border-radius: 10px;
   border: 1px solid #9C9C9C;
   background: #FFF;
-
+  color:#000;
   transition: background-color 0.2s ease-in-out;
 `;
 
@@ -36,21 +38,28 @@ const PasswordInputContainer = styled.div`
 
 const VisibleButton = styled.button`
   position: absolute;
+  width: 1.875rem;
+  height: 1.875rem;
   top: 50%;
   right: 3.25rem;
+  background-color: #FFF;
+  border: none;
   transform: translateY(-50%);
   cursor: pointer;
 `;
 const DeleteButton = styled.button`
   position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
   top: 50%;
   right: 1.15rem;
+  border: none;
+  border-radius: 5rem;
   transform: translateY(-50%);
   cursor: pointer;
 `;
 
-
-export type props = {
+ export type props = {
   text: string;
   value: string;
   placeholder: string;
@@ -78,7 +87,7 @@ export default function VisibleDeleteToggleInput ({text, value, placeholder, onC
           required 
         />
         <VisibleButton onClick={setVisibility}>
-          {visibleInput ? 'Hide' : 'Show'}
+          <Image src={UnVisibleIcon} alt="" fill	/>
         </VisibleButton>
         <DeleteButton onClick={deleteInput}>
           X
