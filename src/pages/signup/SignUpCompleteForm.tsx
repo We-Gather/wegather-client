@@ -1,7 +1,4 @@
-import DeleteToggleInput from "@/components/input/DeleteToggleInput";
-import VisibleDeleteToggleInput from "@/components/input/VisibleDeleteToggleInput";
 import { useState } from "react";
-
 import styled from "styled-components";
 
 const SingupContainerDiv = styled.div`
@@ -44,7 +41,7 @@ const HorizonLineDiv = styled.div`
 
 
 
-export default function SignUpStep3() : JSX.Element {
+export default function SignUpCompleteForm() : JSX.Element {
 
   return (
     <SingupContainerDiv>

@@ -1,4 +1,4 @@
-import SignUpButton from "@/components/button/SignUpButton";
+import LargeSignUpButtonGreen from "@/components/button/LargeSignUpButtonGreen";
 import DeleteToggleInput from "@/components/input/DeleteToggleInput";
 import VisibleDeleteToggleInput from "@/components/input/VisibleDeleteToggleInput";
 
@@ -58,6 +58,8 @@ export type signUpInfo = {
   school: string;
 };
 
+type HandleNextFunction = () => void;
+
 export type props = {
   signUpInfo: signUpInfo;
   setSignUpInfo: React.Dispatch<React.SetStateAction<signUpInfo>>
@@ -65,17 +67,17 @@ export type props = {
   setPasswordCheck: React.Dispatch<React.SetStateAction<string>>
   errorMessage: string;
   setErrorMessage: React.Dispatch<React.SetStateAction<string>>
-  handleNext: any;
+  handleNext: HandleNextFunction;
 }
 
-export default function SignUpStep1({signUpInfo, setSignUpInfo, passwordCheck, setPasswordCheck, errorMessage, setErrorMessage, handleNext}: props) : JSX.Element {
+export default function SignUpBasicInformationForm({signUpInfo, setSignUpInfo, passwordCheck, setPasswordCheck, errorMessage, setErrorMessage, handleNext}: props) : JSX.Element {
 
   const isEmailValid = (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.[a-zA-Z]{2,4}$/;
     return emailRegex.test(email);
   };
   const isPasswordValid = (password: string): boolean => {
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,20}$/;
+    const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*\W).{8,20}$/;
     return passwordRegex.test(password);
   };
   const isPasswordMatch = (password: string, passwordCheck: string): boolean => {
@@ -84,13 +86,13 @@ export default function SignUpStep1({signUpInfo, setSignUpInfo, passwordCheck, s
 
   const handleSubmit = async (event : React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!isEmailValid(signUpInfo.email)
-    && !isPasswordValid(signUpInfo.password)
-    && !isPasswordMatch(signUpInfo.password, passwordCheck)){
-      setErrorMessage('이메일, 비밀번호를 확인해주세요');
+    if (isEmailValid(signUpInfo.email)
+    && isPasswordValid(signUpInfo.password)
+    && isPasswordMatch(signUpInfo.password, passwordCheck)){
+      handleNext();
     }
     else {
-      handleNext();
+      setErrorMessage('이메일, 비밀번호를 확인해주세요');
     }
   };
 
@@ -184,7 +186,7 @@ export default function SignUpStep1({signUpInfo, setSignUpInfo, passwordCheck, s
             school: "",
           })}}
           />
-        <SignUpButton text="회원가입" type="submit" />
+        <LargeSignUpButtonGreen text="회원가입" type="submit" />
       </StyledForm>
       </SingupContainerDiv>
 

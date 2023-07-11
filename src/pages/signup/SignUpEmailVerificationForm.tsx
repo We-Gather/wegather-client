@@ -1,7 +1,8 @@
-import SignUpButton from "@/components/button/SignUpButton";
+import LargeSignUpButtonGreen from "@/components/button/LargeSignUpButtonGreen";
 import { useState } from "react";
-
 import styled from "styled-components";
+import RegularSignUpButtonGreen from "@/components/button/RegularSignUpButtonGreen";
+import RegularSignUpButtonGray from "@/components/button/RegularSignUpButtonGray";
 
 const SingupContainerDiv = styled.div`
   width: 48.75rem;
@@ -75,6 +76,7 @@ const SignUpInput = styled.input`
   border-radius: 10px;
   border: 1px solid #9C9C9C;
   background: #FFF;
+  color: #000;
 
   transition: background-color 0.2s ease-in-out;
 `;
@@ -92,7 +94,13 @@ const EmailButton = styled.button`
   background: #303030;
   color: #FFF;
 `;
-
+const NextButtonWrapper = styled.div`
+  width: 29rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
 export type props = {
   schoolEmail: string;
   setSchoolEmail: React.Dispatch<React.SetStateAction<string>>
@@ -102,7 +110,7 @@ export type props = {
   handleVerificationCodeSend: any;
   handleNext: any;
 }
-export default function SignUpStep2({schoolEmail, setSchoolEmail,verificationCode, setVerificationCode,  checkVerificationCode, handleVerificationCodeSend, handleNext}: props) : JSX.Element {
+export default function SignUpEmailVerificationForm({schoolEmail, setSchoolEmail,verificationCode, setVerificationCode,  checkVerificationCode, handleVerificationCodeSend, handleNext}: props) : JSX.Element {
 
   const [isSubmitClicked, setIsSubmitClicked] = useState(false);
 
@@ -156,7 +164,11 @@ export default function SignUpStep2({schoolEmail, setSchoolEmail,verificationCod
           </>
           :<></>}
         </SignUpWrapper>
-        <SignUpButton text="회원가입" type="submit" />
+        <NextButtonWrapper>
+          <RegularSignUpButtonGray text="건너뛰기" type="submit" />
+          <RegularSignUpButtonGreen text="회원가입" type="submit" />
+        </NextButtonWrapper>
+        
       </StyledForm>
     </SingupContainerDiv>
 
