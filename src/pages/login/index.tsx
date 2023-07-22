@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import Image from 'next/image'
 import Link from 'next/link';
 import styled from 'styled-components';
@@ -79,7 +79,10 @@ const ImageWrapper = styled.div`
   height: 3.17456rem;
   position: relative;
 `;
-
+function validateEmail(email: string): boolean {
+  const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+  return emailRegex.test(email);
+}
 export type loginInfoType = {
   email: string;
   password: string;
@@ -93,16 +96,19 @@ export default function Login() : JSX.Element {
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (event : React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setErrorMessage('이메일, 비밀번호를 확인해주세요');
-
-    // try {
-    //   const response = await axios.post<LoginResponse>('/api/login', { email, password });
-    //   const token = response.data.token;
-    // } catch (error) {
-    //   console.error(error);
-    //   setErrorMessage('로그인에 실패했습니다.');
-    // }
+    event.preventDefault();    
+    try {
+      if (!validateEmail(loginInfo.email))
+        throw new Error();
+      console.log("test");
+      const response = await axios.post('/api/login', 
+        { email:loginInfo.email, password:loginInfo.password});
+      const token = response.data.token;
+      console.log(token);
+    } catch (error) {
+      console.error(error);
+      setErrorMessage('이메일과 비밀번호를 확인해주세요.');
+    }
   };
 
   return (
