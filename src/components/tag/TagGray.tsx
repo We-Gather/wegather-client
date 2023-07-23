@@ -1,3 +1,4 @@
+import { Tag } from '@/types/profile';
 import styled from 'styled-components';
 
 const TagWrapper = styled.div`
@@ -19,12 +20,7 @@ const TagWord = styled.p`
 `;
 
 
-interface Props {
-	id: number;
-	text: string;
-}
-
-export default function TagOrange ({text} : Props) {
+export default function TagOrange ({text} : Tag) {
 	return (
 		<TagWrapper>
 			<TagWord>{text}</TagWord>

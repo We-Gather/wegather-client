@@ -1,9 +1,11 @@
-interface clubProfile {
+export interface clubProfile {
+	id: number;
 	name: string;
 	image: string;
 	description: string;
 	url: string;
-	tag: Array<string>;
+	tag: Array<Tag>;
 }
-  
-export default clubProfile;
+export interface Tag {
+	text: string;
+}
