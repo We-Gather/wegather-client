@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import {Tag} from '@/types/profile'
 const TagWrapper = styled.div`
 	display: inline-flex;
 	margin: 0 0.25rem 0 0.25rem;
@@ -19,15 +19,10 @@ const TagWord = styled.p`
 	line-height: normal;
 `;
 
-interface Props {
-	id: number;
-	text: string;
-}
-
-export default function TagOrange ({text} : Props) {
+export default function TagOrange ({text} : Tag) {
 	return (
 		<TagWrapper>
-			<TagWord>{text}</TagWord>
+      <TagWord>{text}</TagWord>
 		</TagWrapper>
 	);
 };
