@@ -19,7 +19,7 @@ const mockProfile: clubProfile = {
 	url: 'test',
 	tag: ['test','test','test','test','test','test','test']
 };
-export default function clubMain() {
+export default function ClubMain() {
 	const [currentTab, clickTab] = useState(0);
   const selectMenuHandler = (index: number) => {
     clickTab(index);
