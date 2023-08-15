@@ -1,20 +1,27 @@
-import clubProfile from "@/types/profile";
-import styled from "styled-components";
-import TagOrange from "../tag/TagOrange";
-import TagGray from "../tag/TagGray";
+import { clubProfile } from '@/types/profile';
+import styled from 'styled-components';
+import Image from 'next/image';
+import TagOrange from '@/components/tag/TagOrange';
+import TagGray from '@/components/tag/TagGray';
+import { useState } from 'react';
+import LikeButton from '@/components/button/LikeButton';
+import BookMarkButton from '@/components/button/BookMarkButton';
+import ShareButton from '@/components/button/ShareButton';
+import MailButton from '@/components/button/MailButton';
+import Cat from '/public/cat.png'
 
 const ClubMainContainer = styled.div`
 	width: 71.875rem;
 	height: 18.75rem;
 	flex-shrink: 0;
 	border-radius: 0.625rem;
-	border: 1px solid #D9D9D9;
-	background: #FFF;
+	border: 1px solid #d9d9d9;
+	background: #fff;
 	display: flex;
 	flex-direction: column;
-  justify-content: center;
-  place-content: center;
-  align-items: center;
+	justify-content: center;
+	place-content: center;
+	align-items: center;
 `;
 const ClubRowContainer = styled.div`
 	display: flex;
@@ -54,9 +61,9 @@ const ClubTitle = styled.h2`
 const ClubDescription = styled.p`
 	color: black;
 	display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 	color: #000;
 	font-size: 0.875rem;
 	font-style: normal;
@@ -78,7 +85,7 @@ const HorizonLine = styled.div`
 	line-height: 0.1rem;
 `;
 const HashBlack = styled.p`
-	color: #C9C9C9;
+	color: #c9c9c9;
 	font-size: 1rem;
 	font-style: normal;
 	font-weight: 400;
@@ -87,38 +94,40 @@ const HashBlack = styled.p`
 const ClubColumnContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	margin: 1rem 0 1rem 1rem
+	margin: 1rem 0 1rem 1rem;
 `;
 const IconRowContainer = styled.div`
 	display: flex;
 	margin-right: 2rem;
 	min-width: 15rem;
 	justify-content: flex-end;
-`
-const IconWrapper = styled.div`
-	width: 2.5rem;
-	height: 2.5rem;
+`;
+const ImageWrapper = styled(Image)`
+	width: 7.5rem;
+	height: 7.5rem;
+	flex-shrink: 0;
 	border-radius: 50%;
-	margin-left: 1.5rem;
-	stroke-width: 1px;
-	stroke: #9C9C9C;
-	background-color: #000;
-`
+`;
+
 interface Props {
 	profile: clubProfile;
 }
 
+export default function ClubProfile({ profile }: Props) {
+	const [isLikeButtonClicked, setLikeButtonClicked] = useState(false);
+	const [isBookmarkButtonClicked, setBookmarkButtonClicked] = useState(false);
+	const [isShareButtonClicked, setShareButtonClicked] = useState(false);
+	const [isMailButtonClicked, setMailButtonClicked] = useState(false);
 
-export default function ClubProfile({profile}: Props) {
 	return (
-    <ClubMainContainer>
+		<ClubMainContainer>
 			<ClubRowContainer>
 				<ClubImgaeWapper>
-      		{/* <Image src={'/public/cat.jpg'} width={100} height={100}alt="Profile" />					 */}
+					<ImageWrapper src={Cat} alt="Profile" />					
 				</ClubImgaeWapper>
 				<ClubTitleWrapper>
 					<ClubTitle>{profile.name}</ClubTitle>
-      		<ClubDescription>{profile.description}</ClubDescription>
+					<ClubDescription>{profile.description}</ClubDescription>
 				</ClubTitleWrapper>
 			</ClubRowContainer>
 			<HorizonLine />
@@ -126,25 +135,24 @@ export default function ClubProfile({profile}: Props) {
 				<ClubColumnContainer>
 					<ClubTagContainer>
 						<HashBlack># </HashBlack>
-						{profile.tag.map((el: string,index: number) => (
-							(index !== 0)?	<TagGray id={index} text={el}/> :<TagOrange id={index} text={el}/>
-						))}
+						{profile.tag.map((el, index) =>
+							index !== 0 ? <TagGray key={index} text={el.text} /> : <TagOrange key={index} text={el.text} />
+						)}
 					</ClubTagContainer>
 					<ClubTagContainer>
 						<HashBlack># </HashBlack>
-						{profile.tag.map((el: string,index: number) => (
-							<TagGray id={index} text={el}/>
+						{profile.tag.map((el, index) => (
+							<TagGray key={index} text={el.text} />
 						))}
 					</ClubTagContainer>
 				</ClubColumnContainer>
 				<IconRowContainer>
-					<IconWrapper></IconWrapper>
-					<IconWrapper></IconWrapper>
-					<IconWrapper></IconWrapper>
-					<IconWrapper></IconWrapper>
+					<LikeButton isClicked={isLikeButtonClicked} setClicked={setLikeButtonClicked} />
+					<BookMarkButton isClicked={isBookmarkButtonClicked} setClicked={setBookmarkButtonClicked} />
+					<ShareButton isClicked={isShareButtonClicked} setClicked={setShareButtonClicked} />
+					<MailButton isClicked={isMailButtonClicked} setClicked={setMailButtonClicked} />
 				</IconRowContainer>
 			</ClubTagIconRowContainer>
-			
-    </ClubMainContainer>
-  );
+		</ClubMainContainer>
+	);
 }
