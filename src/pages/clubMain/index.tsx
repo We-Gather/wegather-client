@@ -2,6 +2,7 @@ import ClubProfile from '@/components/profile/ClubProfile';
 import styled from 'styled-components';
 import clubProfile from '@/types/profile';
 import { useState } from 'react';
+import ClubInfoRecruitCardList from './ClubInfoRecruitCardList';
 
 const ClubMainContainer = styled.div`
 	display: flex;
