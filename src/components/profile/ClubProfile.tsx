@@ -1,4 +1,4 @@
-import { clubProfile } from '@/types/profile';
+import clubProfile from '@/types/profile';
 import styled from 'styled-components';
 import Image from 'next/image';
 import TagOrange from '@/components/tag/TagOrange';
@@ -135,14 +135,14 @@ export default function ClubProfile({ profile }: Props) {
 				<ClubColumnContainer>
 					<ClubTagContainer>
 						<HashBlack># </HashBlack>
-						{profile.tag.map((el, index) =>
-							index !== 0 ? <TagGray key={index} text={el.text} /> : <TagOrange key={index} text={el.text} />
+						{profile.tag.map((el:string, index:number) =>
+							index !== 0 ? <TagGray key={index} text={el} id={0} /> : <TagOrange key={index} text={el} id={0} />
 						)}
 					</ClubTagContainer>
 					<ClubTagContainer>
 						<HashBlack># </HashBlack>
-						{profile.tag.map((el, index) => (
-							<TagGray key={index} text={el.text} />
+						{profile.tag.map((el:string, index:number) => (
+							<TagGray key={index} text={el} id={0} />
 						))}
 					</ClubTagContainer>
 				</ClubColumnContainer>
