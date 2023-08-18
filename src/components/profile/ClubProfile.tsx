@@ -14,7 +14,7 @@ const ClubMainContainer = styled.div`
 	width: 71.875rem;
 	height: 18.75rem;
 	flex-shrink: 0;
-	border-radius: 0.625rem;
+	border-radius: 10px;
 	border: 1px solid #d9d9d9;
 	background: #fff;
 	display: flex;

@@ -6,7 +6,7 @@ const TagWrapper = styled.div`
 	padding: 0.3125rem 1.25rem;
 	align-items: flex-start;
 	gap: 0.625rem;
-	border-radius: 3.125rem;
+	border-radius: 50px;
 	background: #E5E5E5;	
 `;
 
