@@ -19,7 +19,7 @@ const ClubRecuitContainer = styled.div`
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-	border-radius: 0.625rem 0.625rem 0 0;
+	border-radius: 10px 10px 0 0;
 	border: 1px solid #c9c9c9;
 	background: #fff;
 `;
@@ -67,7 +67,7 @@ const ClubSubmitButton = styled.button`
 	height: 2.25rem;
 	flex-shrink: 0;
 	margin: 1rem 2rem 1rem 2rem;
-	border-radius: 1.875rem;
+	border-radius: 30px;
 	border: 1px solid #36bf7f;
 	background: #36bf7f;
 	color: #fff;
@@ -110,7 +110,7 @@ const ClubApplicantCountSpan = styled.span`
 const ToggleButton = styled.button`
 	height: 1.5rem;
 	border: none;
-	border-radius: 0 0 0.625rem 0.625rem;
+	border-radius: 0 0 10px 10px;
 	color: #000;
 	background: none;
 `;
@@ -154,7 +154,7 @@ const PreviewWrapper = styled.div<StyledPreviewProps>`
 	display: flex;
 	flex-direction: column;
 	width: 62.5rem;
-	border-radius: 0 0 0.625rem 0.625rem;
+	border-radius: 0 0 10px 10px;
 	border: 1px solid #c9c9c9;
 	${activeExist};
 	color: #000;

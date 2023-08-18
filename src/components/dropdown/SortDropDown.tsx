@@ -6,7 +6,7 @@ const StyledSelectbox = styled.div`
 	width: 6.875rem;
 	height: 1.875rem;
 	flex-shrink: 0;
-	border-radius: 1.875rem;
+	border-radius: 30px;
 	color: #000;
 	background: transparent;
 	cursor: pointer;
@@ -19,7 +19,7 @@ const StyledSelectedLabel = styled.button`
 	width: inherit;
 	height: inherit;
 	justify-content: center;
-	border-radius: 1.875rem;
+	border-radius: 30px;
 	color: #000;
 	background: #e5e5e5;
 	cursor: pointer;

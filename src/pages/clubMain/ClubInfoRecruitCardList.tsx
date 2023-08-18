@@ -27,7 +27,7 @@ const RecruitSearchInput = styled.input`
 	width: 23.75rem;
 	height: 2.5rem;
 	flex-shrink: 0;
-	border-radius: 1.875rem;
+	border-radius: 30px;
 	border: 1px solid #c9c9c9;
 	background: #fff;
 `;

@@ -14,7 +14,7 @@ const ClubMainContainer = styled.div`
 
 const TabMenu = styled.ul`
 	width: 65rem;
-	border-radius: 0.625rem 0.625rem 0rem 0rem;
+	border-radius: 10px 10px 0rem 0rem;
 	/* border: 1px solid #C9C9C9; */
 	background: #F4F6F8;
 	color: rgb(232, 234, 237);
@@ -36,7 +36,7 @@ const TabMenu = styled.ul`
 		transition: 0.5s;
 		width: 15.625rem;
 		height: 3.75rem;
-		border-radius: 0.625rem 0.625rem 0rem 0rem;
+		border-radius: 10px 10px 0rem 0rem;
 		border: 1px solid #c9c9c9;
 		background: #e5e5e5;
 	}
@@ -67,7 +67,7 @@ const Desc = styled.div`
 	min-height: 28.25rem;
 	text-align: center;
 	flex-shrink: 0;
-	border-radius: 0.625rem;
+	border-radius: 10px;
 	background: #fff;
 `;
 const PosterWrapper = styled.div`
@@ -75,7 +75,7 @@ const PosterWrapper = styled.div`
 	height: 40rem;
 	flex-shrink: 0;
 	margin-top: 4rem;
-	border-radius: 0.625rem;
+	border-radius: 10px;
 	border: 1px solid #d9d9d9;
 	background: #fff;
 `;
