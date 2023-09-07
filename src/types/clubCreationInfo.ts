@@ -6,7 +6,7 @@ export interface clubCreationInfo {
 	logo: string;
 	introduction: string;
 	explanation: string;
-	catagory: string;
-	tag: string;
+	// catagory: string;
+	// tag: string;
 	poster: string;
 };
