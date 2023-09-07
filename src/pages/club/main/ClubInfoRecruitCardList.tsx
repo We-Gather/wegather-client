@@ -3,6 +3,7 @@ import SortDropDown from '@/components/dropdown/SortDropDown';
 import { clubRecruitCard } from '@/types/clubRecruitCard';
 import { styled } from 'styled-components';
 import { SearchAlt2 } from '@styled-icons/boxicons-regular/SearchAlt2';
+
 const MainContainer = styled.div`
 	display: flex;
 	flex-direction: column;
