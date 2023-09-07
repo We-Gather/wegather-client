@@ -1,81 +1,21 @@
 import styled from 'styled-components';
 import { clubCreationInfo } from '@/types/clubCreationInfo';
 import { useState } from 'react';
-const MainContainer = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-`;
-const HeaderMenuConatainer = styled.div`
-	width: 66.875rem;
-	display: flex;
-	flex-direction: row;
-	position: fixed;
-`;
-const HeaderButtonContainer = styled.div`
-	display: flex;
-	flex-direction: row;
-`;
-const EssentialInfoConatainer = styled.div`
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	background-color: #fff;
-	color: #000;
-	border-radius: 10px;
-`;
-const AditionalInfoConatainer = styled.div`
-	display: flex;
-	flex-direction: column;
-`;
-const ClubRowWrapper = styled.div`
-	width: 58.625rem;
-	display: flex;
-	margin: 1rem 0;
-	flex-direction: row;
-	align-items: start;
-	background-color: #fff;
-	/* justify-content: space-between; */
-`;
-const InfoText = styled.span`
-	width: 8rem;
-	color: #585858;
-	flex-shrink: 0;
-	font-size: 0.875rem;
-	font-weight: 800;
-	padding-left: 1rem;
-	margin-top: 0.45rem;
-`;
-const ClubNameInput = styled.input`
-	width: 50.625rem;
-	height: 1.875rem;
-	border-radius: 5px;
-	border: 1px solid #c9c9c9;
-	background: #fff;
-	color: #000;
-`;
-const ClubTypeContainer = styled.div`
-	height: 5.5rem;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-`;
-const ClubTypeWrapper = styled.div`
-	width: 50.625rem;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-`;
-const ClubTypeRadio = styled.input.attrs(() => ({
-	type: 'radio',
-}))`
-	color: #fff;
-	&:checked {
-		background-color: #36bf7f;
-		border: 2px solid yellowgreen;
-	}
-`;
+import {
+	AditionalInfoConatainer,
+	ClubNameInput,
+	ClubRowWrapper,
+	ClubTypeContainer,
+	ClubTypeRadio,
+	ClubTypeWrapper,
+	EssentialInfoConatainer,
+	HeaderButtonContainer,
+	HeaderMenuConatainer,
+	InfoText,
+	MainContainer,
+} from './styles';
+import { axios } from '@/config/axiosConfig';
+
 const ClubTypeRadioSpan = styled.span`
 	color: #585858;
 	font-size: 0.875rem;
@@ -142,10 +82,9 @@ const ClubExplanationInput = styled.textarea`
 	min-height: 18rem;
 	border-radius: 5px;
 	border: 1px solid #c9c9c9;
-	background: #FFF;
+	background: #fff;
 	color: #000;
 	resize: none;
-
 `;
 
 export default function CreateClub() {
@@ -156,10 +95,28 @@ export default function CreateClub() {
 		logo: '',
 		introduction: '',
 		explanation: '',
-		catagory: '',
-		tag: '',
+		// catagory: '',
+		// tag: '',
 		poster: '',
 	});
+
+	const handler = () => {
+		setClubCreationInfo({
+			name: 'test',
+			type: 'union',
+			schoolId: 1,
+			logo: '',
+			introduction: 'adf',
+			explanation: 'dddd',
+			// catagory: '',
+			// tag: '',
+			poster: '',
+		});
+		axios
+			.post('/club', clubCreationInfo)
+			.then((res) => {console.log(res)})
+			.catch((err) => {console.log(err)});
+	};
 
 	return (
 		<>
@@ -167,7 +124,7 @@ export default function CreateClub() {
 				<HeaderMenuConatainer>
 					<p>동아리 생성</p>
 					<HeaderButtonContainer>
-						<button>test1</button>
+						<button onClick={handler}>test1test1test1</button>
 						<button>test1</button>
 						<button>test1</button>
 						<button>test1</button>
