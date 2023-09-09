@@ -1,4 +1,4 @@
-import ClubRecruitCard from '@/components/ClubRecruitCard';
+import ClubRecruitCard from './ClubRecruitCard';
 import SortDropDown from '@/components/dropdown/SortDropDown';
 import { clubRecruitCard } from '@/types/clubRecruitCard';
 import { styled } from 'styled-components';
