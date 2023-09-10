@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useState } from 'react';
-import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -14,7 +13,7 @@ import {
 	StyledP,
 	UpperDescription,
 	WegatherTextSpan,
-} from './style';
+} from '@/styles/login/style';
 import HorizonLine from '@/components/HorizonLine';
 import LoginButton from '@/components/button/LoginButton';
 import SocialLoginButton from '@/components/button/SocialLoginButton';
@@ -33,23 +32,9 @@ export default function Login(): JSX.Element {
 	});
 	const [errorMessage, setErrorMessage] = useState('');
 
-	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-		event.preventDefault();
-		try {
-			if (!validateEmail(loginInfo.email)) throw new Error();
-			console.log('test');
-			const response = await axios.post('/api/login', { email: loginInfo.email, password: loginInfo.password });
-			const token = response.data.token;
-			console.log(token);
-		} catch (error) {
-			console.error(error);
-			setErrorMessage('이메일과 비밀번호를 확인해주세요.');
-		}
-	};
-
 	return (
 		<LoginContainerDiv>
-			<StyledForm onSubmit={handleSubmit}>
+			<StyledForm>
 				<ImageWrapper>
 					<Image src="/Logo/wegather.svg" fill alt={''}/>
 				</ImageWrapper>
