@@ -5,12 +5,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
 	ErrorMessage,
+	HorizonWrapper,
 	ImageWrapper,
 	LoginContainerDiv,
 	LoginInput,
 	RowWrapper,
 	StyledForm,
 	StyledP,
+	UpperDescription,
 	WegatherTextSpan,
 } from './style';
 import HorizonLine from '@/components/HorizonLine';
@@ -49,15 +51,15 @@ export default function Login(): JSX.Element {
 		<LoginContainerDiv>
 			<StyledForm onSubmit={handleSubmit}>
 				<ImageWrapper>
-					<Image src="/wegather_logo.png" fill alt="logo" />
+					<Image src="/Logo/wegather.svg" fill alt={''}/>
 				</ImageWrapper>
-				<StyledP>
+				<UpperDescription>
 					동아리 모집·일정·회계 관리를{' '}
 					<Link href="/" style={{ textDecoration: 'none' }}>
 						<WegatherTextSpan>위게더</WegatherTextSpan>
 					</Link>
 					로 한 번에!
-				</StyledP>
+				</UpperDescription>
 				<LoginInput
 					type="text"
 					value={loginInfo.email}
@@ -94,7 +96,9 @@ export default function Login(): JSX.Element {
 						비밀번호 찾기/재설정
 					</Link>
 				</RowWrapper>
-				<HorizonLine text="OR" />
+        <HorizonWrapper>
+  				<HorizonLine text="OR" />
+        </HorizonWrapper>
 				<SocialLoginButton text="Google" type="submit" />
 				<StyledP>
 					위게더가 처음이시라면?{' '}

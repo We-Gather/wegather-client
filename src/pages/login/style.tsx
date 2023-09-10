@@ -17,13 +17,17 @@ export const WegatherTextSpan = styled.span`
   color: #36BF7F;
 `;
 
+export const UpperDescription = styled.p`
+  margin-bottom: 2.5rem;
+  font-size: 0.75rem;
+`;
 export const StyledP = styled.p`
   margin-bottom: 0.5rem;
   font-size: 0.75rem;
 `;
-
 export const StyledForm = styled.form`
-  justify-content: center;
+  width: 22.5rem;
+	justify-content: center;
   align-items: center;
   place-content: center;
   display: flex;
@@ -31,7 +35,7 @@ export const StyledForm = styled.form`
 `;
 
 export const RowWrapper= styled.div`
-  width: 22.5rem;
+	width: 100%;
   display: flex;
   margin: 0.5rem;
   font-size: 0.75rem;
@@ -42,7 +46,7 @@ export const RowWrapper= styled.div`
 
 export const ErrorMessage = styled.span`
   color: red;  
-  width: 22.5rem;
+	width: 100%;
   margin-bottom: 0.5rem;
   text-align: left;;
   font-size: 0.6rem;
@@ -50,11 +54,13 @@ export const ErrorMessage = styled.span`
 
 export const LoginInput = styled.input`
   display: flex;
-  width: 22.5rem;
+	width: 100%;
   height: 2.5rem;
+	box-sizing : border-box;
   align-items: center;
   flex-shrink: 0;
-  
+	padding: 0 0 0 1.5rem;
+  /* padding-left: 1.5rem; */
   border: 1px solid #e5e7eb;
   border-radius: 10px;
   margin-bottom: 0.5rem;
@@ -64,7 +70,10 @@ export const LoginInput = styled.input`
   }
 
 `;
-
+export const HorizonWrapper = styled.div`
+	width: 100%;
+	margin: 1.5rem 0 2rem 0;
+`
 export const ImageWrapper = styled.div`
   width: 11.25rem;
   height: 3.17456rem;
