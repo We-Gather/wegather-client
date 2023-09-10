@@ -1,91 +1,28 @@
-import styled from 'styled-components';
 import { clubCreationInfo } from '@/types/clubCreationInfo';
 import { useState } from 'react';
 import {
 	AditionalInfoConatainer,
+	ClubExplanationInput,
+	ClubIntroductionInput,
 	ClubNameInput,
 	ClubRowWrapper,
 	ClubTypeContainer,
 	ClubTypeRadio,
+	ClubTypeRadioSpan,
 	ClubTypeWrapper,
-	EssentialInfoConatainer,
+	CreateForm,
+	InfoConatainer,
 	HeaderButtonContainer,
 	HeaderMenuConatainer,
 	InfoText,
+	LogoButton,
+	LogoInput,
+	LogoRowWrapper,
 	MainContainer,
+	SchoolSelectInput,
+	SchoolSelectWrapper,
 } from './styles';
-import { axios } from '@/config/axiosConfig';
-
-const ClubTypeRadioSpan = styled.span`
-	color: #585858;
-	font-size: 0.875rem;
-	font-weight: 400;
-	letter-spacing: 0.0625rem;
-	margin: 0 1.2rem 0 0.4rem;
-`;
-const SchoolSelectWrapper = styled.div`
-	display: flex;
-	height: 5.5rem;
-	flex-direction: row;
-	align-items: center;
-`;
-const SchoolSelectInput = styled.input`
-	width: 15.625rem;
-	height: 1.875rem;
-	border-radius: 5px;
-	border: 1px solid #c9c9c9;
-	background: #fff;
-`;
-const CreateForm = styled.form`
-	width: 66.875rem;
-	padding-top: 100px;
-`;
-const LogoColWrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-`;
-const LogoRowWrapper = styled.div`
-	display: flex;
-	flex-direction: row;
-`;
-const LogoInput = styled.label`
-	width: 22.25rem;
-	height: 1.875rem;
-	border-radius: 5px;
-	border: 1px solid #c9c9c9;
-	background: #eee;
-	display: flex;
-	align-items: center;
-	margin-right: 0.5rem;
-`;
-const LogoButton = styled.label`
-	width: 6.0625rem;
-	height: 1.875rem;
-	border-radius: 5px;
-	border: 1px solid #585858;
-	background: #fff;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-`;
-const ClubIntroductionInput = styled.textarea`
-	width: 50.625rem;
-	min-height: 4.6875rem;
-	border-radius: 5px;
-	border: 1px solid #c9c9c9;
-	background: #fff;
-	color: #000;
-	resize: none;
-`;
-const ClubExplanationInput = styled.textarea`
-	width: 50.625rem;
-	min-height: 18rem;
-	border-radius: 5px;
-	border: 1px solid #c9c9c9;
-	background: #fff;
-	color: #000;
-	resize: none;
-`;
+// import { axios } from '@/config/axiosConfig';
 
 export default function CreateClub() {
 	const [clubCreationInfo, setClubCreationInfo] = useState<clubCreationInfo>({
@@ -100,23 +37,27 @@ export default function CreateClub() {
 		poster: '',
 	});
 
-	const handler = () => {
-		setClubCreationInfo({
-			name: 'test',
-			type: 'union',
-			schoolId: 1,
-			logo: '',
-			introduction: 'adf',
-			explanation: 'dddd',
-			// catagory: '',
-			// tag: '',
-			poster: '',
-		});
-		axios
-			.post('/club', clubCreationInfo)
-			.then((res) => {console.log(res)})
-			.catch((err) => {console.log(err)});
-	};
+	// const handler = () => {
+	// 	setClubCreationInfo({
+	// 		name: 'test',
+	// 		type: 'union',
+	// 		schoolId: 1,
+	// 		logo: '',
+	// 		introduction: 'adf',
+	// 		explanation: 'dddd',
+	// 		// catagory: '',
+	// 		// tag: '',
+	// 		poster: '',
+	// 	});
+	// 	axios
+	// 		.post('/club', clubCreationInfo)
+	// 		.then((res: any) => {
+	// 			console.log(res);
+	// 		})
+	// 		.catch((err: any) => {
+	// 			console.log(err);
+	// 		});
+	// };
 
 	return (
 		<>
@@ -124,14 +65,14 @@ export default function CreateClub() {
 				<HeaderMenuConatainer>
 					<p>동아리 생성</p>
 					<HeaderButtonContainer>
-						<button onClick={handler}>test1test1test1</button>
+						<button>test1test1test1</button>
 						<button>test1</button>
 						<button>test1</button>
 						<button>test1</button>
 					</HeaderButtonContainer>
 				</HeaderMenuConatainer>
 				<CreateForm>
-					<EssentialInfoConatainer>
+					<InfoConatainer>
 						<ClubRowWrapper>
 							<InfoText>동아리 명</InfoText>
 							<ClubNameInput
@@ -233,10 +174,12 @@ export default function CreateClub() {
 								required
 							/>
 						</ClubRowWrapper>
-					</EssentialInfoConatainer>
-					<AditionalInfoConatainer>추가정보</AditionalInfoConatainer>
+					</InfoConatainer>
+					<InfoConatainer>추가정보</InfoConatainer>
+					
 				</CreateForm>
 			</MainContainer>
+
 		</>
 	);
 }
