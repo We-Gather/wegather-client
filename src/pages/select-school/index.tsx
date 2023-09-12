@@ -97,6 +97,7 @@ export default function SelectSchool(): JSX.Element {
             <SchoolCardWrapper>
               <SchoolInfo />
               <SchoolInfo />
+              <SchoolInfo />
             </SchoolCardWrapper>
           </SchoolListContent>
         </SchoolListContentDiv>

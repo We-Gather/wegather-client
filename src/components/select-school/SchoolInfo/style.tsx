@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 
 export const ContainerDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+`;
+
+export const SchoolButton = styled.div<{ hovering: string }>`
   width: 8.75rem;
   height: 8.125rem;
   flex-shrink: 0;
@@ -15,6 +23,12 @@ export const ContainerDiv = styled.div`
   padding: 0.5rem 0;
   cursor: pointer;
   position: relative;
+  ${(props) => {
+    if (props.hovering == 'true') {
+      return 'border: 1px solid #36bf7f; background: #fff; box-shadow: 0px 0px 6px 6px rgba(54, 191, 127, 0.25);';
+    }
+    return '';
+  }}
 `;
 
 export const SchoolLogoDiv = styled.div<{ $url: string }>`
@@ -52,4 +66,25 @@ export const MarkWrapper = styled.div`
   height: 1.25rem;
   width: 1.25rem;
   flex-shrink: 0;
+`;
+
+export const CheckWrapper = styled.div<{ hovering: string }>`
+  visibility: ${(props) => (props.hovering == 'true' ? 'visible' : 'hidden')};
+  display: flex;
+  gap: 0.44rem;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  & div {
+    color: #585858;
+    text-align: center;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 1.125rem */
+    letter-spacing: 0.0625rem;
+    & span {
+      color: #36bf7f;
+    }
+  }
 `;

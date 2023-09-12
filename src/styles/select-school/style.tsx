@@ -171,9 +171,9 @@ export const SchoolListContent = styled.div`
 export const SchoolCardWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 55rem;
+  width: 58rem;
   padding-bottom: 2.13rem;
   box-sizing: border-box;
   column-gap: 2.19rem;
-  row-gap: 3.12rem;
+  row-gap: 1.25rem;
 `;
