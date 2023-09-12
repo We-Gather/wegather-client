@@ -8,7 +8,7 @@ export const ContainerDiv = styled.div`
   position: relative;
 `;
 
-export const SchoolButton = styled.div<{ hovering: string }>`
+export const SchoolButton = styled.div`
   width: 8.75rem;
   height: 8.125rem;
   flex-shrink: 0;
@@ -23,12 +23,12 @@ export const SchoolButton = styled.div<{ hovering: string }>`
   padding: 0.5rem 0;
   cursor: pointer;
   position: relative;
-  ${(props) => {
-    if (props.hovering == 'true') {
-      return 'border: 1px solid #36bf7f; background: #fff; box-shadow: 0px 0px 6px 6px rgba(54, 191, 127, 0.25);';
-    }
-    return '';
-  }}
+  border: 1px solid #36bf7f;
+  background: #fff;
+  box-shadow: 0px 0px 6px 6px rgba(54, 191, 127, 0.25);
+  &:hover {
+    background-color: #f3f3f3;
+  }
 `;
 
 export const SchoolLogoDiv = styled.div<{ $url: string }>`
@@ -68,8 +68,8 @@ export const MarkWrapper = styled.div`
   flex-shrink: 0;
 `;
 
-export const CheckWrapper = styled.div<{ hovering: string }>`
-  visibility: ${(props) => (props.hovering == 'true' ? 'visible' : 'hidden')};
+export const CheckWrapper = styled.div`
+  visibility: visible;
   display: flex;
   gap: 0.44rem;
   align-items: center;

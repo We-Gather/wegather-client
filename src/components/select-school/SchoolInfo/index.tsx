@@ -32,7 +32,7 @@ function SchoolInfo() {
         setHovering(false);
       }}
     >
-      <SchoolButton hovering={hovering.toString()}>
+      <SchoolButton>
         {/* 인증된 경우 인증마크 제공 */}
         <MarkWrapper>
           <Image src="/Icon/authentication-mark.svg" fill alt="mark" />
@@ -44,7 +44,7 @@ function SchoolInfo() {
           <SchoolNameDiv>서울캠</SchoolNameDiv>
         </VerticalContainer>
       </SchoolButton>
-      <CheckWrapper hovering={hovering.toString()}>
+      <CheckWrapper>
         <Checkbox
           checked={checked}
           onClick={(e) => {
