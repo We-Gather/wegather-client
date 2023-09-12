@@ -17,11 +17,11 @@ export const ContainerDiv = styled.div`
   position: relative;
 `;
 
-export const SchoolLogoDiv = styled.div<{ url: string }>`
+export const SchoolLogoDiv = styled.div<{ $url: string }>`
   width: 4.375rem;
   height: 4.375rem;
   flex-shrink: 0;
-  background-image: url(${(props) => props.url});
+  background-image: url(${(props) => props.$url});
   background-repeat: no-repeat;
   background-size: 4.375rem 4.375rem;
 `;

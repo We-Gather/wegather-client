@@ -68,19 +68,19 @@ export const ButtonWrapper = styled.div`
   width: 23.75rem;
 `;
 
-export const DirectButton = styled.button<{ colored?: string }>`
+export const DirectButton = styled.button<{ $colored?: string }>`
   display: inline-flex;
   padding: 0.75rem 1.625rem;
   align-items: center;
   gap: 1.125rem;
   border-radius: 3.125rem;
-  border: 1px solid ${(props) => (props.colored ? '#36bf7f;' : '#585858')};
+  border: 1px solid ${(props) => (props.$colored ? '#36bf7f;' : '#585858')};
   background: #fff;
   box-shadow: 0px 2px 4px 0px #c8dbd2;
   cursor: pointer;
   word-break: keep-all;
   & div {
-    color: ${(props) => (props.colored ? '#36bf7f;' : '#585858')};
+    color: ${(props) => (props.$colored ? '#36bf7f;' : '#585858')};
     text-align: center;
     font-size: 0.875rem;
     font-weight: 400;

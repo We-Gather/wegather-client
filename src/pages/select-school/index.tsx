@@ -62,7 +62,7 @@ export default function SelectSchool(): JSX.Element {
                   </div>
                 </DirectButton>
               )}
-              <DirectButton colored="true">
+              <DirectButton $colored="true">
                 <div>
                   <b>내 동아리</b> 바로가기
                 </div>
