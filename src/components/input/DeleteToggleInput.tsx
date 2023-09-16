@@ -1,14 +1,15 @@
 import { ChangeEventHandler, MouseEventHandler, useState } from "react";
 import styled from "styled-components";
+import x_icon from "/public/img/x_icon.svg";
+import Image from 'next/image';
 
 const SignUpWrapper = styled.div`
   display: flex;
-  width: 41.4375rem;
+  width: 100%;
   flex-shrink: 0;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 1.15rem;
 `;
 const SignUpP = styled.p`
   color: #303030;
@@ -69,7 +70,7 @@ export default function DeleteToggleInput ({text, value, placeholder, onChange, 
           required 
         />
         <DeleteButton onClick={deleteInput}>
-          X
+          <Image src={x_icon} alt="delete" fill/>
         </DeleteButton>
       </PasswordInputContainer>
     </SignUpWrapper>

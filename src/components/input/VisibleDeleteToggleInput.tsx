@@ -1,16 +1,15 @@
 import { ChangeEventHandler, MouseEventHandler, useState } from "react";
 import styled from "styled-components";
 import Image from 'next/image'
-import UnVisibleIcon from "/public/img/UnVisibleIcon.png"
+import visible_icon from "/public/img/visible_icon.svg"
+import x_icon from "/public/img/x_icon.svg";
 
 const SignUpWrapper = styled.div`
   display: flex;
-  width: 41.4375rem;
-  flex-shrink: 0;
+  width: 100%;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 1.15rem;
 `;
 const SignUpP = styled.p`
   color: #303030;
@@ -87,10 +86,10 @@ export default function VisibleDeleteToggleInput ({text, value, placeholder, onC
           required 
         />
         <VisibleButton onClick={setVisibility}>
-          <Image src={UnVisibleIcon} alt="" fill	/>
+          <Image src={visible_icon} alt="" fill	/>
         </VisibleButton>
         <DeleteButton onClick={deleteInput}>
-          X
+          <Image src={x_icon} alt="delete" fill/>
         </DeleteButton>
       </PasswordInputContainer>
     </SignUpWrapper>
