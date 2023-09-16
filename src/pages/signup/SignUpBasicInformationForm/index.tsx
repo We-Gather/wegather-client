@@ -8,10 +8,13 @@ import {
 	SignUpTitle,
 	SingupContainerDiv,
 	StyledForm,
+	TitleWrapper,
 } from './style';
 import { signUpInfoType } from '@/types/signup';
 import { useState } from 'react';
-
+import Image from 'next/image';
+import ProgressModalIcon from '/public/img/first_progress_modal.svg';
+import HorizonLine from '@/components/HorizonLine';
 type HandleNextFunction = () => void;
 
 export type props = {
@@ -45,10 +48,11 @@ export default function SignUpBasicInformationForm({
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		if (
-			isEmailValid(signUpInfo.email) &&
-			isPasswordValid(signUpInfo.password) &&
-			isPasswordMatch(signUpInfo.password, passwordCheck)
+		console.log(signUpInfo);
+		if ( true
+			// isEmailValid(signUpInfo.email) &&
+			// isPasswordValid(signUpInfo.password) &&
+			// isPasswordMatch(signUpInfo.password, passwordCheck)
 		) {
 			handleNext();
 		} else {
@@ -58,10 +62,16 @@ export default function SignUpBasicInformationForm({
 
 	return (
 		<SingupContainerDiv>
-			<SignUpTitle>회원가입</SignUpTitle>
-			<SignUpSubTitle>위게더의 회원이 되어 다양한 서비스를 경험해 보세요</SignUpSubTitle>
-			<SignUpModal>모달</SignUpModal>
-			<HorizonLineDiv />
+			<TitleWrapper>
+				<SignUpTitle>위게더 <span>회원가입</span></SignUpTitle>
+				<SignUpSubTitle>위게더의 회원이 되어 다양한 서비스를 경험해 보세요</SignUpSubTitle>
+			</TitleWrapper>
+			<SignUpModal>
+				<Image src={ProgressModalIcon} alt='first' fill/>
+			</SignUpModal>
+			<HorizonLineDiv>
+				<HorizonLine/>
+			</HorizonLineDiv>
 			<StyledForm onSubmit={handleSubmit}>
 				<DeleteToggleInput
 					text="이메일"

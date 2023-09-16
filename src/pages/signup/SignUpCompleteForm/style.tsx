@@ -14,26 +14,36 @@ export const SingupContainerDiv = styled.div`
   background: #FFF;
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.20);
 `;
+export const TitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
 export const SignUpTitle = styled.p`
   color: #36BF7F;
   font-size: 2rem;
+  margin: 0;
+  span {
+    color: #000;
+  }
 `;
 export const SignUpSubTitle = styled.p`
   color: #303030;
   font-size: 0.875rem;
-`
+  margin: 0.5rem 0 0 0;
+`;
 export const SignUpModal =  styled.div`
   display: flex;
+	position: relative;
   width: 11.5rem;
   height: 1.5rem;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+	margin: 1.25rem 0;
 `;
 export const HorizonLineDiv = styled.div`
   width: 43.75rem;
 	margin-bottom: 1rem;
-	text-align: center;
-	line-height: 0.1rem;
-	border-bottom: 0.1rem solid #aaa;
 `;
