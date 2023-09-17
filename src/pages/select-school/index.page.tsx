@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Pagination from '@/components/pagination';
 import {
   ContainerDiv,
   TitleDiv,
@@ -16,9 +17,8 @@ import {
   ButtonWrapper,
   SchoolListContent,
   SchoolCardWrapper,
-} from '@/styles/select-school/style';
-import Pagination from '@/components/pagination';
-import SchoolInfo from '@/components/select-school/SchoolInfo';
+} from './style';
+import SchoolInfo from './SchoolInfo';
 
 /**
  * 학교 선택 페이지
@@ -95,7 +95,7 @@ export default function SelectSchool(): JSX.Element {
           {/* 학교 목록 조회 컴포넌트 */}
           <SchoolListContent>
             <SchoolCardWrapper>
-              <SchoolInfo />
+              <SchoolInfo authenticationSchool />
               <SchoolInfo />
               <SchoolInfo />
             </SchoolCardWrapper>

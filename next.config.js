@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-const nextConfig = {
-}
+const nextConfig = {};
 
 module.exports = {
   reactStrictMode: true,
@@ -9,4 +8,5 @@ module.exports = {
   compiler: {
     styledComponents: true,
   },
+  pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
 };

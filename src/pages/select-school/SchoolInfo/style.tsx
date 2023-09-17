@@ -8,7 +8,7 @@ export const ContainerDiv = styled.div`
   position: relative;
 `;
 
-export const SchoolButton = styled.div`
+export const SchoolButton = styled.div<{ $borderEffect?: boolean }>`
   width: 8.75rem;
   height: 8.125rem;
   flex-shrink: 0;
@@ -23,9 +23,12 @@ export const SchoolButton = styled.div`
   padding: 0.5rem 0;
   cursor: pointer;
   position: relative;
-  border: 1px solid #36bf7f;
   background: #fff;
-  box-shadow: 0px 0px 6px 6px rgba(54, 191, 127, 0.25);
+  ${(props) =>
+    props.$borderEffect
+      ? 'border: 1px solid #36bf7f;' +
+        'box-shadow: 0px 0px 6px 6px rgba(54, 191, 127, 0.25);'
+      : ''};
   &:hover {
     background-color: #f3f3f3;
   }
