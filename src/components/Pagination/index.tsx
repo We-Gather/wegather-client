@@ -59,7 +59,6 @@ export default function Pagination({
           if (page !== 1) setPage(page - 1);
         }}
       >
-        {' '}
         {'< 이전'}
       </PrevNextButton>
       <ButtonWrapper>
