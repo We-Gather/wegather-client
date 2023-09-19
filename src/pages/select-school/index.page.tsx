@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import Pagination from '@/components/pagination';
+import SchoolInfo from '@/components/SchoolInfo';
+import Pagination from '@/components/Pagination';
+
 import {
   ContainerDiv,
   TitleDiv,
@@ -18,7 +20,6 @@ import {
   SchoolListContent,
   SchoolCardWrapper,
 } from './style';
-import SchoolInfo from './SchoolInfo';
 
 /**
  * 학교 선택 페이지
@@ -34,6 +35,24 @@ export default function SelectSchool(): JSX.Element {
   // 로그인, 인증 여부 (임시)
   const isLogin = true;
   const isAuthenticated = true;
+  // 학교 데이터 (임시)
+  const schoolList = [
+    {
+      name: '한양대학교',
+      campus: '서울',
+      icon: 'https://s3-alpha-sig.figma.com/img/3b6d/def5/c72f2489a8779375f46e1fb9fd5c9eb1?Expires=1695600000&Signature=gv-Cfg2rHrJ8XRT8K-gBfXdeo6ojMdvyTS9fu6zldNBZDwg6ab3lLeaa3obChhhaRU-QLmaji1ZybjTf-ButH66akjQjdlFdF1cm7shCcrrQCln7jbQRaDeC7iReSxBIJe4nA78fomP7bPb4MKX-KZ2AjKRC-MK0F9z3Mc4~bd12qCmzC-dEIsei4s0smpBvPUgZJ3QMltU-XlLD9X3tvWi2KJJosj54hLDAOxLvRZ0nSOED~z5EmO25FFgst6zkcyGxyiF0Kch39LGEUI0iAJFCEuDcnuYLsQ9pUlJKPYVc2klxbgKMGdQF2ivz3g0uF9b6yejZWq4FDMOFwsKalg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+    },
+    {
+      name: '한양대학교',
+      campus: '서울',
+      icon: 'https://s3-alpha-sig.figma.com/img/3b6d/def5/c72f2489a8779375f46e1fb9fd5c9eb1?Expires=1695600000&Signature=gv-Cfg2rHrJ8XRT8K-gBfXdeo6ojMdvyTS9fu6zldNBZDwg6ab3lLeaa3obChhhaRU-QLmaji1ZybjTf-ButH66akjQjdlFdF1cm7shCcrrQCln7jbQRaDeC7iReSxBIJe4nA78fomP7bPb4MKX-KZ2AjKRC-MK0F9z3Mc4~bd12qCmzC-dEIsei4s0smpBvPUgZJ3QMltU-XlLD9X3tvWi2KJJosj54hLDAOxLvRZ0nSOED~z5EmO25FFgst6zkcyGxyiF0Kch39LGEUI0iAJFCEuDcnuYLsQ9pUlJKPYVc2klxbgKMGdQF2ivz3g0uF9b6yejZWq4FDMOFwsKalg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+    },
+    {
+      name: '한양대학교',
+      campus: '서울',
+      icon: 'https://s3-alpha-sig.figma.com/img/3b6d/def5/c72f2489a8779375f46e1fb9fd5c9eb1?Expires=1695600000&Signature=gv-Cfg2rHrJ8XRT8K-gBfXdeo6ojMdvyTS9fu6zldNBZDwg6ab3lLeaa3obChhhaRU-QLmaji1ZybjTf-ButH66akjQjdlFdF1cm7shCcrrQCln7jbQRaDeC7iReSxBIJe4nA78fomP7bPb4MKX-KZ2AjKRC-MK0F9z3Mc4~bd12qCmzC-dEIsei4s0smpBvPUgZJ3QMltU-XlLD9X3tvWi2KJJosj54hLDAOxLvRZ0nSOED~z5EmO25FFgst6zkcyGxyiF0Kch39LGEUI0iAJFCEuDcnuYLsQ9pUlJKPYVc2klxbgKMGdQF2ivz3g0uF9b6yejZWq4FDMOFwsKalg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+    },
+  ];
 
   return (
     <ContainerDiv>
@@ -95,9 +114,13 @@ export default function SelectSchool(): JSX.Element {
           {/* 학교 목록 조회 컴포넌트 */}
           <SchoolListContent>
             <SchoolCardWrapper>
-              <SchoolInfo authenticationSchool />
-              <SchoolInfo />
-              <SchoolInfo />
+              {schoolList.map((school, i) => (
+                <SchoolInfo
+                  key={i}
+                  school={school}
+                  authenticationSchool={i == 0}
+                />
+              ))}
             </SchoolCardWrapper>
           </SchoolListContent>
         </SchoolListContentDiv>
