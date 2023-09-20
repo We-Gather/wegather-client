@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "yarn run open-browser | next dev -p 4200",
+    "open-browser": "URL=http://localhost:4200 && (open $URL || cmd.exe /c start $URL)",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
