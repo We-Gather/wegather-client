@@ -1,63 +1,21 @@
-import ClubRecruitCard from './ClubRecruitCard';
+import ClubRecruitCard from '../ClubRecruitCard';
 import SortDropDown from '@/components/dropdown/SortDropDown';
 import { clubRecruitCard } from '@/types/clubRecruitCard';
-import { styled } from 'styled-components';
-import { SearchAlt2 } from '@styled-icons/boxicons-regular/SearchAlt2';
+import {
+	InputWrapper,
+	MainContainer,
+	RecruitCardContainer,
+	RecruitCardWrapper,
+	RecruitSearchInput,
+	SearchButton,
+	SearchIcon,
+	SearchSortContainer,
+} from './style';
+import React from 'react';
 
-const MainContainer = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-`;
-
-const SearchSortContainer = styled.div`
-	height: 6.5rem;
-	width: 62.5rem;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-`;
-
-const InputWrapper = styled.div`
-	position: relative;
-	display: block;
-`;
-const RecruitSearchInput = styled.input`
-	width: 23.75rem;
-	height: 2.5rem;
-	flex-shrink: 0;
-	border-radius: 30px;
-	border: 1px solid #c9c9c9;
-	background: #fff;
-`;
-const SearchButton = styled.button`
-	display: inline-block;
-	position: absolute;
-	height: 100%;
-	right: 1rem;
-	background-color: transparent;
-	border: none;
-	color: #fff;
-`;
-const SearchIcon = styled(SearchAlt2)`
-	width: 1.5rem;
-	height: 1.5rem;
-	color: #585858;
-`;
-const RecruitCardContainer = styled.div`
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-`;
-
-const RecruitCardWrapper = styled.div`
-	display: flex;
-	align-items: center;
-	margin-bottom: 1.5rem;
-`;
-
+/*
+	테스트용 카드 (모집공고)
+*/
 const mockRecruitCard: clubRecruitCard = {
 	title: 'UX/UI 디자이너 모집',
 	description:
@@ -66,8 +24,8 @@ const mockRecruitCard: clubRecruitCard = {
 	endDate: '2023-06-29',
 	applicantCount: 10,
 };
-
 const mockCardList: Array<clubRecruitCard> = [mockRecruitCard, mockRecruitCard, mockRecruitCard, mockRecruitCard];
+
 const dropDownList = ['최신순', '즐겨찾기순', '마감일순'];
 
 export default function ClubInfoRecruitCardList() {
@@ -77,7 +35,7 @@ export default function ClubInfoRecruitCardList() {
 				<InputWrapper>
 					<RecruitSearchInput />
 					<SearchButton>
-						<SearchIcon/>
+						<SearchIcon />
 					</SearchButton>
 				</InputWrapper>
 				<SortDropDown list={dropDownList} />
