@@ -4,6 +4,7 @@ export const MainContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	background-color: gray;
 `;
 export const HeaderMenuConatainer = styled.div`
 	width: 66.875rem;

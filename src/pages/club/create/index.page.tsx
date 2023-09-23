@@ -21,7 +21,7 @@ import {
 	MainContainer,
 	SchoolSelectInput,
 	SchoolSelectWrapper,
-} from './styles';
+} from './style';
 // import { axios } from '@/config/axiosConfig';
 
 export default function CreateClub() {
@@ -176,10 +176,8 @@ export default function CreateClub() {
 						</ClubRowWrapper>
 					</InfoConatainer>
 					<InfoConatainer>추가정보</InfoConatainer>
-					
 				</CreateForm>
 			</MainContainer>
-
 		</>
 	);
 }
