@@ -1,7 +1,7 @@
 import { clubCreationInfo } from '@/types/clubCreationInfo';
 import { useState } from 'react';
+import TextEditor from '@/components/TextEditor';
 import {
-	AditionalInfoConatainer,
 	ClubExplanationInput,
 	ClubIntroductionInput,
 	ClubNameInput,
@@ -65,7 +65,9 @@ export default function CreateClub() {
 				<HeaderMenuConatainer>
 					<p>동아리 생성</p>
 					<HeaderButtonContainer>
-						<button>test1test1test1</button>
+						<button onClick={() => {
+							console.log(clubCreationInfo);
+						}}>test1test1test1</button>
 						<button>test1</button>
 						<button>test1</button>
 						<button>test1</button>
@@ -163,19 +165,39 @@ export default function CreateClub() {
 						</ClubRowWrapper>
 						<ClubRowWrapper>
 							<InfoText>상세설명</InfoText>
-							<ClubExplanationInput
-								value={clubCreationInfo.explanation}
+							<ClubExplanationInput>
+								<TextEditor
+									value={clubCreationInfo.explanation}
+									onChange={(value: string) =>
+										setClubCreationInfo({
+											...clubCreationInfo,
+											explanation: value,
+										})
+									}
+									minHeight='16rem'
+									borderRadius='5px'
+									placeholder={'상세설명'}
+								/>
+							</ClubExplanationInput>
+						</ClubRowWrapper>
+					</InfoConatainer>
+					<InfoConatainer>
+						<ClubRowWrapper>
+							<InfoText>동아리 명</InfoText>
+							<ClubNameInput
+								type="text"
+								value={clubCreationInfo.name}
+								placeholder="동아리 명"
 								onChange={(e: any) =>
 									setClubCreationInfo({
 										...clubCreationInfo,
-										explanation: e.target.value,
+										name: e.target.value,
 									})
 								}
 								required
 							/>
 						</ClubRowWrapper>
 					</InfoConatainer>
-					<InfoConatainer>추가정보</InfoConatainer>
 				</CreateForm>
 			</MainContainer>
 		</>

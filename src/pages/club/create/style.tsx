@@ -132,11 +132,9 @@ export const ClubIntroductionInput = styled.textarea`
 	color: #000;
 	resize: none;
 `;
-export const ClubExplanationInput = styled.textarea`
+export const ClubExplanationInput = styled.div`
 	width: 50.625rem;
 	min-height: 18rem;
-	border-radius: 5px;
-	border: 1px solid #c9c9c9;
 	background: #fff;
 	color: #000;
 	resize: none;
