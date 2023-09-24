@@ -5,6 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 2rem 0;
 `;
 
 export const FormItemDiv = styled.div`

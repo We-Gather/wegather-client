@@ -11,12 +11,16 @@ import {
   Desc,
   PosterWrapper,
 } from './style';
+import { Megaphone } from '@styled-icons/fluentui-system-regular/Megaphone';
+import { People } from '@styled-icons/fluentui-system-regular/People';
+import { DocumentText } from '@styled-icons/ionicons-outline/DocumentText';
+import { Info } from '@styled-icons/fluentui-system-regular/Info';
 
 const menuArr = [
-  { id: 1, name: '모집공고' },
-  { id: 2, name: '동아리원' },
-  { id: 3, name: '동아리 활동' },
-  { id: 4, name: '회계' },
+  { id: 1, name: '모집공고', icon: <Megaphone size="21" /> },
+  { id: 2, name: '동아리원', icon: <People size="21" /> },
+  { id: 3, name: '동아리 활동', icon: <Info size="21" /> },
+  { id: 4, name: '회계', icon: <DocumentText size="21" /> },
 ];
 
 const mockProfile: clubProfile = {
@@ -47,7 +51,10 @@ export default function ClubMain() {
                 className={currentTab === index ? 'submenu focused' : 'submenu'}
                 onClick={() => selectMenuHandler(index)}
               >
-                {tap.name}
+                <div>
+                  {tap.icon}&nbsp;
+                  {tap.name}
+                </div>
               </li>
             );
           })}

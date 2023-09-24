@@ -43,7 +43,6 @@ function ClubMember() {
       <FormItemDiv>
         <LabelDiv>동아리원</LabelDiv>
       </FormItemDiv>
-      <HorizonLine />
     </Container>
   );
 }
