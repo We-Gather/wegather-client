@@ -23,33 +23,16 @@ export default function Pagination({
   setPage,
 }: PaginationProps) {
   const [currentPageArray, setCurrentPageArray] = useState<Array<number>>([]);
-  const [totalPageArray, setTotalPageArray] = useState<Array<Array<number>>>(
-    []
-  );
 
-  // 전체 페이지 수와 한 번에 보여줄 페이지 수 가지고 페이지 2차원 배열 정보 생성
-  const sliceArrayByLimit = useCallback((totalPage: number, limit: number) => {
-    const totalPageArray = [...Array(totalPage)].map((_, i) => i);
-    return [...Array(Math.ceil(totalPage / limit))]
-      .map((_, i) => i)
-      .map(() => totalPageArray.splice(0, limit));
-  }, []);
-
-  // 현재 페이지 번호로 하단에 보여줄 페이지 배열 정보 설정
   useEffect(() => {
-    if (page % limit === 1) {
-      setCurrentPageArray(totalPageArray[Math.floor(page / limit)]);
-    } else if (page % limit === 0) {
-      setCurrentPageArray(totalPageArray[Math.floor(page / limit) - 1]);
+    const start = Math.floor((page - 1) / limit) * limit + 1;
+    const end = Math.ceil(page / limit) * limit;
+    let pageCount = limit;
+    if (totalPage < end) {
+      pageCount = totalPage - start + 1;
     }
-  }, [page, limit, totalPageArray]);
-
-  // 페이지 정보 생성
-  useEffect(() => {
-    const slicedPageArray = sliceArrayByLimit(totalPage, limit);
-    setTotalPageArray(slicedPageArray);
-    setCurrentPageArray(slicedPageArray[0]);
-  }, [totalPage, limit, sliceArrayByLimit]);
+    setCurrentPageArray(Array.from({ length: pageCount }, (_, i) => i + start));
+  }, [page, limit, totalPage]);
 
   return (
     <PaginationWrapper>
@@ -63,12 +46,8 @@ export default function Pagination({
       </PrevNextButton>
       <ButtonWrapper>
         {currentPageArray?.map((i) => (
-          <PageButton
-            key={i + 1}
-            onClick={() => setPage(i + 1)}
-            selected={page === i + 1}
-          >
-            {i + 1}
+          <PageButton key={i} onClick={() => setPage(i)} selected={page === i}>
+            {i}
           </PageButton>
         ))}
       </ButtonWrapper>
