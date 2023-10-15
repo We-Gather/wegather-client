@@ -60,11 +60,11 @@ export default function ClubMain() {
           })}
         </TabMenu>
         <Desc>
-          {currentTab === 0 ? <ClubInfoRecruitCardList /> : <></>}
-          {currentTab === 1 ? <ClubMember /> : <></>}
+          {currentTab === 0 && <ClubInfoRecruitCardList />}
+          {currentTab === 1 && <ClubMember />}
         </Desc>
       </TapMenuWrapper>
-      <PosterWrapper></PosterWrapper>
+      {currentTab === 0 && <PosterWrapper />}
     </ClubMainContainer>
   );
 }

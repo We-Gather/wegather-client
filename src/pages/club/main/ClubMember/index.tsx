@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Container,
   MasterInfoDiv,
@@ -9,12 +9,40 @@ import {
   VerticalLine,
 } from './style';
 import InviteMember from './InviteMember';
-import StaffMember from './StaffMember';
+import MemberInfo from './MemberInfo';
 
 /**
  * 동아리원 탭 내용 컴포넌트
  */
 function ClubMember() {
+  // 운영진 목록 (임시 데이터)
+  const [staffList, setStaffList] = useState([
+    {
+      id: 1,
+      role: '동아리장',
+      name: '장성혁',
+      studentNumber: '2021010101',
+      group: '평일반',
+      joinDate: new Date(),
+    },
+    {
+      id: 2,
+      role: '동아리부장',
+      name: '엄호용',
+      studentNumber: '2021010101',
+      group: '주말반',
+      joinDate: new Date(),
+    },
+    {
+      id: 3,
+      role: '동아리부장',
+      name: '엄호용',
+      studentNumber: '2021010101',
+      group: '주말반',
+      joinDate: new Date(),
+    },
+  ]);
+
   return (
     <Container>
       <MasterInfoDiv>
@@ -35,13 +63,16 @@ function ClubMember() {
       <FormItemDiv>
         <LabelDiv $paddingTop="1.5">운영진</LabelDiv>
         <ValueDiv>
-          <StaffMember />
+          <MemberInfo memberList={staffList} />
         </ValueDiv>
       </FormItemDiv>
       <HorizonLine />
 
       <FormItemDiv>
         <LabelDiv>동아리원</LabelDiv>
+        <ValueDiv>
+          <MemberInfo memberList={staffList} />
+        </ValueDiv>
       </FormItemDiv>
     </Container>
   );

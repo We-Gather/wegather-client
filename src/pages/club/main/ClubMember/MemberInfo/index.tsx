@@ -4,45 +4,27 @@ import { StyledTable } from '../style';
 import { CountInfo, NumWrapper } from './style';
 import dayjs from 'dayjs';
 
-/**
- * 운영진 목록 테이블 컴포넌트
- */
-function StaffMember() {
-  // 운영진 목록 (임시 데이터)
-  const [staffList, setStaffList] = useState([
-    {
-      id: 1,
-      role: '동아리장',
-      name: '장성혁',
-      studentNumber: '2021010101',
-      group: '평일반',
-      joinDate: new Date(),
-    },
-    {
-      id: 2,
-      role: '동아리부장',
-      name: '엄호용',
-      studentNumber: '2021010101',
-      group: '주말반',
-      joinDate: new Date(),
-    },
-    {
-      id: 3,
-      role: '동아리부장',
-      name: '엄호용',
-      studentNumber: '2021010101',
-      group: '주말반',
-      joinDate: new Date(),
-    },
-  ]);
+// 임시 타입
+interface MemberType {
+  id: number;
+  role: string;
+  name: string;
+  studentNumber: string;
+  group: string;
+  joinDate: Date;
+}
 
+/**
+ * 동아리원 목록 테이블 컴포넌트
+ */
+function MemberInfo({ memberList }: { memberList: MemberType[] }) {
   // 일괄 체크 버튼 클릭 핸들러
   const AllCheckButton = useCallback((e: CheckboxChangeEvent) => {}, []);
 
   return (
     <>
       <CountInfo>
-        총 인원 : <span>{staffList.length}</span>명
+        총 인원 : <span>{memberList.length}</span>명
       </CountInfo>
       <StyledTable width="100%">
         <thead>
@@ -60,19 +42,19 @@ function StaffMember() {
           </tr>
         </thead>
         <tbody>
-          {staffList.map((staff, i) => (
+          {memberList.map((member, i) => (
             <tr key={i}>
               <td>
                 <Checkbox />
               </td>
               <td>
-                <NumWrapper>{staff.id}</NumWrapper>
+                <NumWrapper>{member.id}</NumWrapper>
               </td>
-              <td>{staff.role}</td>
-              <td>{staff.name}</td>
-              <td>{staff.studentNumber}</td>
-              <td>{staff.group}</td>
-              <td>{dayjs(staff.joinDate).format('YYYY.MM.DD')}</td>
+              <td>{member.role}</td>
+              <td>{member.name}</td>
+              <td>{member.studentNumber}</td>
+              <td>{member.group}</td>
+              <td>{dayjs(member.joinDate).format('YYYY.MM.DD')}</td>
               <td>
                 <button>자세히보기</button>
               </td>
@@ -84,4 +66,4 @@ function StaffMember() {
   );
 }
 
-export default StaffMember;
+export default MemberInfo;
