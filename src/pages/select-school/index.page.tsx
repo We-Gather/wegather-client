@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import SchoolInfo from '@/components/SchoolInfo';
-import Pagination from '@/components/Pagination';
+import SchoolInfo from '@/components/schoolInfo';
+import Pagination from '@/components/pagination';
 
 import {
   ContainerDiv,
