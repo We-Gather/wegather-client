@@ -1,8 +1,10 @@
 import React, { useCallback, useState } from 'react';
-import Checkbox, { CheckboxChangeEvent } from 'rc-checkbox';
+// import Checkbox, { CheckboxChangeEvent } from 'rc-checkbox';
+import Checkbox from '@/components/checkbox';
 import { StyledTable } from '../style';
 import { BatchInviteButton, ButtonWrapper, TableButton } from './style';
 import { FileExcel2 as ExcelIcon } from '@styled-icons/remix-fill/FileExcel2';
+import ConfirmPopup from './ConfirmPopup';
 
 // 초대하기 멤버 목록 아이템 클래스
 class InviteItem {
@@ -20,11 +22,15 @@ class InviteItem {
 function InviteMember() {
   // 초대 하기 멤버 목록
   const [inviteList, setInviteList] = useState([new InviteItem()]);
+  // 전체 선택 여부
+  const [allChecked, setAllChecked] = useState(false);
+  // 초대하기 확인 창 열기
+  const [showConfirmPopup, setShowConfirmPopup] = useState(false);
 
   // 체크박스 클릭 핸들러
   const onChangeCheckBox = useCallback(
-    (e: CheckboxChangeEvent, index: number) => {
-      inviteList[index].isChecked = e.target.checked;
+    (index: number) => {
+      inviteList[index].isChecked = !inviteList[index].isChecked;
       setInviteList([...inviteList]);
     },
     [inviteList]
@@ -75,17 +81,20 @@ function InviteMember() {
   }, [inviteList]);
 
   // 일괄 체크 버튼 클릭 핸들러
-  const AllCheckButton = useCallback(
-    (e: CheckboxChangeEvent) => {
-      const isChecked = e.target.checked;
-      const newInviteList: InviteItem[] = inviteList.map((invite) => {
-        invite.isChecked = isChecked;
-        return invite;
-      });
-      setInviteList([...newInviteList]);
-    },
-    [inviteList]
-  );
+  const allCheckButton = useCallback(() => {
+    const isChecked = !allChecked;
+    setAllChecked((prev) => !prev);
+    const newInviteList: InviteItem[] = inviteList.map((invite) => {
+      invite.isChecked = isChecked;
+      return invite;
+    });
+    setInviteList([...newInviteList]);
+  }, [inviteList, allChecked]);
+
+  // 초대하기 버튼 클릭 핸들러
+  const clickInvite = useCallback(() => {
+    setShowConfirmPopup(true);
+  }, []);
 
   return (
     <>
@@ -96,7 +105,7 @@ function InviteMember() {
         <thead>
           <tr>
             <th>
-              <Checkbox onChange={AllCheckButton} />
+              <Checkbox checked={allChecked} onClickHandler={allCheckButton} />
             </th>
             <th>이메일 ID</th>
             <th>이름</th>
@@ -106,13 +115,13 @@ function InviteMember() {
           </tr>
         </thead>
         <tbody>
-          {inviteList.map((invite, i) => (
+          {inviteList.map((invite: InviteItem, i: number) => (
             <tr key={i}>
               <td>
                 <Checkbox
                   checked={invite.isChecked}
-                  onChange={(e) => {
-                    onChangeCheckBox(e, i);
+                  onClickHandler={() => {
+                    onChangeCheckBox(i);
                   }}
                 />
               </td>
@@ -149,7 +158,7 @@ function InviteMember() {
                 />
               </td>
               <td>
-                <button>초대하기</button>
+                <button onClick={clickInvite}>초대하기</button>
               </td>
             </tr>
           ))}
@@ -171,6 +180,12 @@ function InviteMember() {
           </TableButton>
         </div>
       </ButtonWrapper>
+      <ConfirmPopup
+        show={showConfirmPopup}
+        onClose={() => {
+          setShowConfirmPopup(false);
+        }}
+      />
     </>
   );
 }

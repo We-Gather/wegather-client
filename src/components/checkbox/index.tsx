@@ -11,7 +11,7 @@ function Checkbox({
 }) {
   return (
     <CheckBoxDiv onClick={onClickHandler}>
-      <div>{checked && <CheckIcon />}</div>
+      <div>{checked && <CheckIcon size="13" />}</div>
     </CheckBoxDiv>
   );
 }

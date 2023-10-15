@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import {
   Container,
   MasterInfoDiv,
@@ -10,6 +10,7 @@ import {
 } from './style';
 import InviteMember from './InviteMember';
 import MemberInfo from './MemberInfo';
+import DetailPopup from './DetailPopup';
 
 /**
  * 동아리원 탭 내용 컴포넌트
@@ -43,6 +44,12 @@ function ClubMember() {
     },
   ]);
 
+  const [showStaffDetail, setShowStaffDetail] = useState(false);
+
+  const onClickStaffDetail = useCallback(() => {
+    setShowStaffDetail((prev) => !prev);
+  }, []);
+
   return (
     <Container>
       <MasterInfoDiv>
@@ -63,7 +70,10 @@ function ClubMember() {
       <FormItemDiv>
         <LabelDiv $paddingTop="1.5">운영진</LabelDiv>
         <ValueDiv>
-          <MemberInfo memberList={staffList} />
+          <MemberInfo
+            memberList={staffList}
+            onDetailHandler={onClickStaffDetail}
+          />
         </ValueDiv>
       </FormItemDiv>
       <HorizonLine />
@@ -71,9 +81,18 @@ function ClubMember() {
       <FormItemDiv>
         <LabelDiv>동아리원</LabelDiv>
         <ValueDiv>
-          <MemberInfo memberList={staffList} />
+          <MemberInfo
+            memberList={staffList}
+            onDetailHandler={onClickStaffDetail}
+          />
         </ValueDiv>
       </FormItemDiv>
+      <DetailPopup
+        show={showStaffDetail}
+        onClose={() => {
+          setShowStaffDetail(false);
+        }}
+      />
     </Container>
   );
 }

@@ -1,5 +1,5 @@
-import React, { useCallback, useState } from 'react';
-import Checkbox, { CheckboxChangeEvent } from 'rc-checkbox';
+import React, { useCallback } from 'react';
+import Checkbox from '@/components/checkbox';
 import { StyledTable } from '../style';
 import { CountInfo, NumWrapper } from './style';
 import dayjs from 'dayjs';
@@ -17,10 +17,13 @@ interface MemberType {
 /**
  * 동아리원 목록 테이블 컴포넌트
  */
-function MemberInfo({ memberList }: { memberList: MemberType[] }) {
-  // 일괄 체크 버튼 클릭 핸들러
-  const AllCheckButton = useCallback((e: CheckboxChangeEvent) => {}, []);
-
+function MemberInfo({
+  memberList,
+  onDetailHandler,
+}: {
+  memberList: MemberType[];
+  onDetailHandler: () => void;
+}) {
   return (
     <>
       <CountInfo>
@@ -30,7 +33,7 @@ function MemberInfo({ memberList }: { memberList: MemberType[] }) {
         <thead>
           <tr>
             <th>
-              <Checkbox onChange={AllCheckButton} />
+              <Checkbox checked={false} />
             </th>
             <th>No.</th>
             <th>역할</th>
@@ -45,7 +48,7 @@ function MemberInfo({ memberList }: { memberList: MemberType[] }) {
           {memberList.map((member, i) => (
             <tr key={i}>
               <td>
-                <Checkbox />
+                <Checkbox checked={false} />
               </td>
               <td>
                 <NumWrapper>{member.id}</NumWrapper>
@@ -56,7 +59,7 @@ function MemberInfo({ memberList }: { memberList: MemberType[] }) {
               <td>{member.group}</td>
               <td>{dayjs(member.joinDate).format('YYYY.MM.DD')}</td>
               <td>
-                <button>자세히보기</button>
+                <button onClick={onDetailHandler}>자세히보기</button>
               </td>
             </tr>
           ))}

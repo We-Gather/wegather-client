@@ -9,6 +9,7 @@ export const CheckBoxDiv = styled.div`
   background: #fff;
   box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.25) inset;
   box-sizing: border-box;
+  display: inline-block;
   cursor: pointer;
   & div {
     color: #36bf7f;
