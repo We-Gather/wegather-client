@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import Image from 'next/image';
-import Checkbox from 'rc-checkbox';
+import Checkbox from '@/components/checkbox';
 import {
   ContainerDiv,
   SchoolButton,
@@ -46,18 +46,13 @@ function SchoolInfo({
         </VerticalContainer>
       </SchoolButton>
       {authenticationSchool && (
-        <CheckWrapper>
-          <Checkbox
-            checked={checked}
-            onClick={(e) => {
-              setChecked((prev) => !prev);
-            }}
-          />
-          <div
-            onClick={(e) => {
-              setChecked((prev) => !prev);
-            }}
-          >
+        <CheckWrapper
+          onClick={(e) => {
+            setChecked((prev) => !prev);
+          }}
+        >
+          <Checkbox checked={checked} />
+          <div>
             항상 <span>내 학교</span>로 시작
           </div>
         </CheckWrapper>
