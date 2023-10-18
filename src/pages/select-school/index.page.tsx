@@ -6,20 +6,21 @@ import {
   ContainerDiv,
   TitleDiv,
   TitleDescriptionDiv,
-  SchoolListHeaderDiv,
+  TitleContainerDiv,
   SearchInput,
   DirectButton,
   SchoolListContentDiv,
+  ContentContainerDiv,
   PaginationWrapper,
   SchoolListToolbarDiv,
   SortButton,
-  BorderLine,
   SortByWrapper,
   SearchIcon,
   ButtonWrapper,
-  SchoolListContent,
   SchoolCardWrapper,
+  CheckWrapper,
 } from './style';
+import Checkbox from '@/components/checkbox';
 
 /**
  * 학교 선택 페이지
@@ -39,97 +40,105 @@ export default function SelectSchool(): JSX.Element {
   const schoolList = [
     {
       name: '한양대학교',
-      campus: '서울',
-      icon: 'https://s3-alpha-sig.figma.com/img/3b6d/def5/c72f2489a8779375f46e1fb9fd5c9eb1?Expires=1695600000&Signature=gv-Cfg2rHrJ8XRT8K-gBfXdeo6ojMdvyTS9fu6zldNBZDwg6ab3lLeaa3obChhhaRU-QLmaji1ZybjTf-ButH66akjQjdlFdF1cm7shCcrrQCln7jbQRaDeC7iReSxBIJe4nA78fomP7bPb4MKX-KZ2AjKRC-MK0F9z3Mc4~bd12qCmzC-dEIsei4s0smpBvPUgZJ3QMltU-XlLD9X3tvWi2KJJosj54hLDAOxLvRZ0nSOED~z5EmO25FFgst6zkcyGxyiF0Kch39LGEUI0iAJFCEuDcnuYLsQ9pUlJKPYVc2klxbgKMGdQF2ivz3g0uF9b6yejZWq4FDMOFwsKalg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+      campus: 'ERICA 캠퍼스',
+      icon: 'https://s3-alpha-sig.figma.com/img/3b6d/def5/c72f2489a8779375f46e1fb9fd5c9eb1?Expires=1698624000&Signature=Lfmpj9kmAYq9gXM6hdurypt6nlhjQgCw7mW6f4WYvs1JXy44GFZ5aQIiiA6VEdzBegfAkYV5s5fT0iQ7~NpOc0BI0w~NikgOtcNgwcTbceSVVS9RJGSdcEV2OOtZrswJtSxov54aySD~00qP31CtG10LJGVCdrm-ovWnEjYqx4oSLdht4C77Qx1yolXH79J6mjTs0XwihZHgzM7pFfar01zlNi9nwJMJJFGLG5uUa0Lr95zjVyCMB7NJoyFqrEq1JAh22Vr5DRoF0zh32nVrwFjcLrzPbZ6f~R2WXIo1CURMQfOpyDlbZgPCMLVj23qsXu88toZElwNa7ga9LKgnnQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     },
     {
       name: '한양대학교',
-      campus: '서울',
-      icon: 'https://s3-alpha-sig.figma.com/img/3b6d/def5/c72f2489a8779375f46e1fb9fd5c9eb1?Expires=1695600000&Signature=gv-Cfg2rHrJ8XRT8K-gBfXdeo6ojMdvyTS9fu6zldNBZDwg6ab3lLeaa3obChhhaRU-QLmaji1ZybjTf-ButH66akjQjdlFdF1cm7shCcrrQCln7jbQRaDeC7iReSxBIJe4nA78fomP7bPb4MKX-KZ2AjKRC-MK0F9z3Mc4~bd12qCmzC-dEIsei4s0smpBvPUgZJ3QMltU-XlLD9X3tvWi2KJJosj54hLDAOxLvRZ0nSOED~z5EmO25FFgst6zkcyGxyiF0Kch39LGEUI0iAJFCEuDcnuYLsQ9pUlJKPYVc2klxbgKMGdQF2ivz3g0uF9b6yejZWq4FDMOFwsKalg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+      campus: 'ERICA 캠퍼스',
+      icon: 'https://s3-alpha-sig.figma.com/img/3b6d/def5/c72f2489a8779375f46e1fb9fd5c9eb1?Expires=1698624000&Signature=Lfmpj9kmAYq9gXM6hdurypt6nlhjQgCw7mW6f4WYvs1JXy44GFZ5aQIiiA6VEdzBegfAkYV5s5fT0iQ7~NpOc0BI0w~NikgOtcNgwcTbceSVVS9RJGSdcEV2OOtZrswJtSxov54aySD~00qP31CtG10LJGVCdrm-ovWnEjYqx4oSLdht4C77Qx1yolXH79J6mjTs0XwihZHgzM7pFfar01zlNi9nwJMJJFGLG5uUa0Lr95zjVyCMB7NJoyFqrEq1JAh22Vr5DRoF0zh32nVrwFjcLrzPbZ6f~R2WXIo1CURMQfOpyDlbZgPCMLVj23qsXu88toZElwNa7ga9LKgnnQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     },
     {
       name: '한양대학교',
-      campus: '서울',
-      icon: 'https://s3-alpha-sig.figma.com/img/3b6d/def5/c72f2489a8779375f46e1fb9fd5c9eb1?Expires=1695600000&Signature=gv-Cfg2rHrJ8XRT8K-gBfXdeo6ojMdvyTS9fu6zldNBZDwg6ab3lLeaa3obChhhaRU-QLmaji1ZybjTf-ButH66akjQjdlFdF1cm7shCcrrQCln7jbQRaDeC7iReSxBIJe4nA78fomP7bPb4MKX-KZ2AjKRC-MK0F9z3Mc4~bd12qCmzC-dEIsei4s0smpBvPUgZJ3QMltU-XlLD9X3tvWi2KJJosj54hLDAOxLvRZ0nSOED~z5EmO25FFgst6zkcyGxyiF0Kch39LGEUI0iAJFCEuDcnuYLsQ9pUlJKPYVc2klxbgKMGdQF2ivz3g0uF9b6yejZWq4FDMOFwsKalg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+      campus: 'ERICA 캠퍼스',
+      icon: 'https://s3-alpha-sig.figma.com/img/3b6d/def5/c72f2489a8779375f46e1fb9fd5c9eb1?Expires=1698624000&Signature=Lfmpj9kmAYq9gXM6hdurypt6nlhjQgCw7mW6f4WYvs1JXy44GFZ5aQIiiA6VEdzBegfAkYV5s5fT0iQ7~NpOc0BI0w~NikgOtcNgwcTbceSVVS9RJGSdcEV2OOtZrswJtSxov54aySD~00qP31CtG10LJGVCdrm-ovWnEjYqx4oSLdht4C77Qx1yolXH79J6mjTs0XwihZHgzM7pFfar01zlNi9nwJMJJFGLG5uUa0Lr95zjVyCMB7NJoyFqrEq1JAh22Vr5DRoF0zh32nVrwFjcLrzPbZ6f~R2WXIo1CURMQfOpyDlbZgPCMLVj23qsXu88toZElwNa7ga9LKgnnQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
     },
   ];
+
+  const [checked, setChecked] = useState(false);
 
   return (
     <ContainerDiv>
       {/* 상단 타이틀 */}
-      <TitleDiv>
-        <div>학교 선택</div>
+      <TitleContainerDiv>
+        <TitleDiv>학교 선택</TitleDiv>
         <TitleDescriptionDiv>
           카드 클릭 시 해당 학교의 <span>동아리 리스트</span>로 이동합니다.
         </TitleDescriptionDiv>
-      </TitleDiv>
-
-      <div>
-        {/* 학교 선택 컴포넌트 상단 검색창 및 버튼 */}
-        <SchoolListHeaderDiv>
-          {isLogin && <h3>다른 학교 둘러보기</h3>}
-          <SearchInput>
-            <input placeholder="검색"></input>
-            <SearchIcon />
-          </SearchInput>
-          {isLogin && (
-            <ButtonWrapper>
-              {!isAuthenticated && (
-                <DirectButton>
-                  <div>
-                    <b>학교 인증</b> 바로가기
-                  </div>
-                </DirectButton>
-              )}
-              <DirectButton $colored="true">
+        <SearchInput>
+          <input placeholder="검색"></input>
+          <SearchIcon />
+        </SearchInput>
+        {isLogin && (
+          <ButtonWrapper>
+            <DirectButton $colored="true">
+              <div>
+                <b>내 동아리</b> 바로가기
+              </div>
+            </DirectButton>
+            {!isAuthenticated && (
+              <DirectButton>
                 <div>
-                  <b>내 동아리</b> 바로가기
+                  <b>학교 인증</b> 바로가기
                 </div>
               </DirectButton>
-            </ButtonWrapper>
-          )}
-        </SchoolListHeaderDiv>
+            )}
+          </ButtonWrapper>
+        )}
+      </TitleContainerDiv>
 
+      <ContentContainerDiv>
+        {/* 상단 툴바 (정렬, 내 학교로 시작 체크박스) */}
+        <SchoolListToolbarDiv>
+          <SortByWrapper>
+            {sortByList.map((sortBy, i) => (
+              <SortButton
+                key={i}
+                selected={sortBy.label == curSortBy.label}
+                onClick={() => {
+                  setCurSortBy(sortBy);
+                }}
+              >
+                {sortBy.label}
+              </SortButton>
+            ))}
+          </SortByWrapper>
+          {isAuthenticated && (
+            <CheckWrapper>
+              <Checkbox
+                checked={checked}
+                onClickHandler={() => {
+                  setChecked((prev) => !prev);
+                }}
+              />
+              <div
+                onClick={() => {
+                  setChecked((prev) => !prev);
+                }}
+              >
+                항상 <span>내 학교</span>로 시작
+              </div>
+            </CheckWrapper>
+          )}
+        </SchoolListToolbarDiv>
         {/* 학교 선택 컴포넌트 */}
         <SchoolListContentDiv>
-          {/* 정렬 관련 툴바 */}
-          <SchoolListToolbarDiv>
-            <span>정렬</span>
-            <BorderLine />
-            <SortByWrapper>
-              {sortByList.map((sortBy, i) => (
-                <SortButton
-                  key={i}
-                  selected={sortBy.label == curSortBy.label}
-                  onClick={() => {
-                    setCurSortBy(sortBy);
-                  }}
-                >
-                  {sortBy.label}
-                </SortButton>
-              ))}
-            </SortByWrapper>
-          </SchoolListToolbarDiv>
-
           {/* 학교 목록 조회 컴포넌트 */}
-          <SchoolListContent>
-            <SchoolCardWrapper>
-              {schoolList.map((school, i) => (
-                <SchoolInfo
-                  key={i}
-                  school={school}
-                  authenticationSchool={i == 0}
-                />
-              ))}
-            </SchoolCardWrapper>
-          </SchoolListContent>
+          <SchoolCardWrapper>
+            {schoolList.map((school, i) => (
+              <SchoolInfo
+                key={i}
+                school={school}
+                authenticationSchool={i == 0}
+              />
+            ))}
+          </SchoolCardWrapper>
         </SchoolListContentDiv>
-      </div>
-
-      {/* 하단 페이지네이션 */}
-      <PaginationWrapper>
-        <Pagination totalPage={22} page={page} limit={10} setPage={setPage} />
-      </PaginationWrapper>
+        {/* 하단 페이지네이션 */}
+        <PaginationWrapper>
+          <Pagination totalPage={22} page={page} limit={10} setPage={setPage} />
+        </PaginationWrapper>
+      </ContentContainerDiv>
     </ContainerDiv>
   );
 }

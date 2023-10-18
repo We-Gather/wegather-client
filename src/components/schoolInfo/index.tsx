@@ -1,15 +1,12 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import Checkbox from '@/components/checkbox';
 import {
   ContainerDiv,
   SchoolButton,
   SchoolLogoDiv,
-  Border,
   SchoolNameDiv,
   VerticalContainer,
   MarkWrapper,
-  CheckWrapper,
 } from './style';
 import { SchoolType } from '@/types/school';
 
@@ -23,12 +20,6 @@ function SchoolInfo({
   authenticationSchool?: boolean;
   school: SchoolType;
 }) {
-  const [checked, setChecked] = useState(false);
-
-  const onChangeChecked = useCallback((e: any) => {
-    setChecked(e.target.value);
-  }, []);
-
   return (
     <ContainerDiv>
       <SchoolButton $borderEffect={authenticationSchool}>
@@ -39,24 +30,11 @@ function SchoolInfo({
           </MarkWrapper>
         )}
         <SchoolLogoDiv $url={school.icon} />
-        <Border />
         <VerticalContainer>
           <SchoolNameDiv>{school.name}</SchoolNameDiv>
           {school.campus && <SchoolNameDiv>{school.campus}</SchoolNameDiv>}
         </VerticalContainer>
       </SchoolButton>
-      {authenticationSchool && (
-        <CheckWrapper
-          onClick={(e) => {
-            setChecked((prev) => !prev);
-          }}
-        >
-          <Checkbox checked={checked} />
-          <div>
-            항상 <span>내 학교</span>로 시작
-          </div>
-        </CheckWrapper>
-      )}
     </ContainerDiv>
   );
 }
