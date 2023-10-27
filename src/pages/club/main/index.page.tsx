@@ -1,26 +1,26 @@
-import ClubProfile from '@/components/profile/ClubProfile';
+import ClubProfile from '@/components/profile';
 import clubProfile from '@/types/profile';
 import { useState } from 'react';
 import ClubInfoRecruitCardList from './ClubInfoRecruitCardList';
-import ClubMember from './ClubMember';
 import React from 'react';
 import {
   ClubMainContainer,
-  TapMenuWrapper,
+  TabMenuWrapper,
   TabMenu,
   Desc,
   PosterWrapper,
 } from './style';
 import { Megaphone } from '@styled-icons/fluentui-system-regular/Megaphone';
-import { People } from '@styled-icons/fluentui-system-regular/People';
 import { DocumentText } from '@styled-icons/ionicons-outline/DocumentText';
 import { Info } from '@styled-icons/fluentui-system-regular/Info';
+// import { People } from '@styled-icons/fluentui-system-regular/People';
+// import ClubMember from './ClubMember';
 
 const menuArr = [
-  { id: 1, name: '모집공고', icon: <Megaphone size="21" /> },
-  { id: 2, name: '동아리원', icon: <People size="21" /> },
-  { id: 3, name: '동아리 활동', icon: <Info size="21" /> },
-  { id: 4, name: '회계', icon: <DocumentText size="21" /> },
+  { id: 1, name: '모집공고', icon: <Megaphone size="15" /> },
+  // { id: 2, name: '동아리원', icon: <People size="15" /> },
+  { id: 3, name: '동아리 활동', icon: <Info size="15" /> },
+  { id: 4, name: '회계', icon: <DocumentText size="15" /> },
 ];
 
 const mockProfile: clubProfile = {
@@ -42,7 +42,7 @@ export default function ClubMain() {
   return (
     <ClubMainContainer>
       <ClubProfile profile={mockProfile} />
-      <TapMenuWrapper>
+      <TabMenuWrapper>
         <TabMenu>
           {menuArr.map((tap, index) => {
             return (
@@ -59,11 +59,8 @@ export default function ClubMain() {
             );
           })}
         </TabMenu>
-        <Desc>
-          {currentTab === 0 && <ClubInfoRecruitCardList />}
-          {currentTab === 1 && <ClubMember />}
-        </Desc>
-      </TapMenuWrapper>
+        <Desc>{currentTab === 0 && <ClubInfoRecruitCardList />}</Desc>
+      </TabMenuWrapper>
       {currentTab === 0 && <PosterWrapper />}
     </ClubMainContainer>
   );

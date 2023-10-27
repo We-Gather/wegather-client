@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { SearchAlt2 as Search } from '@styled-icons/boxicons-regular/SearchAlt2';
+import { Search } from '@styled-icons/boxicons-regular/Search';
 
 export const ContainerDiv = styled.div`
   display: flex;

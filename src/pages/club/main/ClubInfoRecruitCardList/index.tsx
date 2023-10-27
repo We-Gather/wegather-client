@@ -38,9 +38,9 @@ export default function ClubInfoRecruitCardList() {
     <MainContainer>
       <SearchSortContainer>
         <InputWrapper>
-          <RecruitSearchInput />
+          <RecruitSearchInput placeholder="공고명 검색" />
           <SearchButton>
-            <SearchIcon />
+            <SearchIcon size="31" />
           </SearchButton>
         </InputWrapper>
         <SortDropDown list={dropDownList} />

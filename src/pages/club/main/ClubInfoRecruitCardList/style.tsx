@@ -1,20 +1,25 @@
 import styled from 'styled-components';
-import { SearchAlt2 } from '@styled-icons/boxicons-regular/SearchAlt2';
+import { Search } from '@styled-icons/evil/Search';
 
 export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: #f3f3f3;
+  border-radius: 0.8125rem;
 `;
 
 export const SearchSortContainer = styled.div`
-  height: 6.5rem;
-  width: 62.5rem;
+  padding: 2.5rem 1.63rem 4.31rem 1.63rem;
+  box-sizing: border-box;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  gap: 1.31rem;
+  background-color: #fff;
+  border-top-right-radius: 0.8125rem;
 `;
 
 export const InputWrapper = styled.div`
@@ -22,7 +27,7 @@ export const InputWrapper = styled.div`
   display: block;
 `;
 export const RecruitSearchInput = styled.input`
-  width: 23.75rem;
+  width: 33.1875rem;
   height: 2.5rem;
   padding: 0 1rem;
   flex-shrink: 0;
@@ -39,19 +44,18 @@ export const SearchButton = styled.button`
   border: none;
   color: #fff;
 `;
-export const SearchIcon = styled(SearchAlt2)`
+export const SearchIcon = styled(Search)`
   width: 1.5rem;
   height: 1.5rem;
   color: #585858;
 `;
 export const RecruitCardContainer = styled.div`
   display: flex;
-  align-items: center;
+  width: 100%;
   flex-direction: column;
 `;
 
 export const RecruitCardWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 1.5rem;
 `;

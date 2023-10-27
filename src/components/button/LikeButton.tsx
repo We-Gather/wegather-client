@@ -1,41 +1,36 @@
-import { SetStateAction, Dispatch } from "react";
-import styled from "styled-components";
-import {Heart as EmptyHeartIcon} from '@styled-icons/boxicons-regular/Heart'
-import {Heart as FilledHeartIcon} from '@styled-icons/boxicons-solid/Heart'
+import { SetStateAction, Dispatch } from 'react';
+import styled from 'styled-components';
+import { Heart as EmptyHeartIcon } from '@styled-icons/boxicons-regular/Heart';
+import { Heart as FilledHeartIcon } from '@styled-icons/boxicons-solid/Heart';
 
-const IconButton = styled.button`
-	margin: 0.75rem;
-	background-color: #FFF;
-	border: none;
-	color: #FFF;
+const IconButton = styled.div`
+  border: none;
+  color: #fff;
 `;
 
 const EmptyHeart = styled(EmptyHeartIcon)`
-	width: 1.875rem;
-	height: 1.875rem;
-	color: #9C9C9C;
-	background-color: #FFF;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #9c9c9c;
 `;
 const FilledHeart = styled(FilledHeartIcon)`
-	width: 1.875rem;
-	height: 1.875rem;
-	color: #F88;
-	background-color: #FFF;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #f88;
 `;
 
 interface Props {
-	isClicked: boolean,
-	setClicked: Dispatch<SetStateAction<boolean>>
-};
-export default function LikeButton({isClicked, setClicked}: Props) {
-	
-	const handleClick = () => {
+  isClicked: boolean;
+  setClicked: Dispatch<SetStateAction<boolean>>;
+}
+export default function LikeButton({ isClicked, setClicked }: Props) {
+  const handleClick = () => {
     setClicked(!isClicked);
   };
-	
-	return (
-		<IconButton onClick={handleClick}>
-			{!isClicked ?	<EmptyHeart/> : <FilledHeart/>}
-		</IconButton>
-	);
+
+  return (
+    <IconButton onClick={handleClick}>
+      {!isClicked ? <EmptyHeart /> : <FilledHeart />}
+    </IconButton>
+  );
 }

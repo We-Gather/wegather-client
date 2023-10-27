@@ -9,60 +9,54 @@ export const ClubMainContainer = styled.div`
 `;
 
 export const TabMenu = styled.div`
-  width: 65rem;
   border-radius: 10px 10px 0rem 0rem;
-  /* border: 1px solid #C9C9C9; */
-  /* background: #f4f6f8; */
   color: rgb(232, 234, 237);
   font-weight: bold;
   display: flex;
-  justify-content: space-around;
+  gap: 0.25rem;
   align-items: flex-end;
   list-style: none;
   margin-top: 10px;
   .submenu {
     display: flex;
-    width: calc(100% / 4);
-    /* padding: 10px; */
     color: #000;
     align-items: center;
     justify-content: center;
     transition: height 0.5s;
-    width: 15.625rem;
-    height: 3.75rem;
+    width: 8.625rem;
+    height: 2.5rem;
     border-radius: 10px 10px 0rem 0rem;
-    border: 1px solid #c9c9c9;
     margin-bottom: -1px;
     background: #e5e5e5;
-    color: #777;
-    font-size: 1.125rem;
-    font-weight: 700;
-    letter-spacing: 0.0625rem;
+    color: #585858;
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 500;
     cursor: pointer;
     & div {
       display: flex;
-      align-items: center;
+      align-items: end;
+      height: 2.5rem;
+      padding-bottom: 0.4rem;
       justify-content: center;
-      width: 13rem;
-      height: 4.375rem;
+      box-sizing: border-box;
+      width: 7rem;
     }
   }
 
   .focused {
-    height: 4.375rem;
     border-top: 1px solid #585858;
     border-right: 1px solid #585858;
     border-left: 1px solid #585858;
     border-bottom: 1px solid #fff;
     z-index: 999;
     background: #fff;
-    color: #36bf7f;
+    color: #1ca526;
     text-align: center;
-    font-size: 1.125rem;
-    font-weight: 700;
-    letter-spacing: 0.0625rem;
-    & div {
-      border-bottom: 1px solid #36bf7f;
+    font-size: 0.875rem;
+    font-weight: 500;
+    > div {
+      border-bottom: 2px solid #1ca526;
     }
   }
 
@@ -71,21 +65,19 @@ export const TabMenu = styled.div`
   }
 `;
 
-export const TapMenuWrapper = styled.div`
+export const TabMenuWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin-top: 2rem;
 `;
 
 export const Desc = styled.div`
   width: 71.875rem;
-  min-height: 28.25rem;
   text-align: center;
   flex-shrink: 0;
   background: #fff;
-  border-radius: 0.625rem;
-  border: 1px solid #d9d9d9;
+  border-radius: 0rem 0.8125rem 0.8125rem 0.8125rem;
+  border: 1px solid #585858;
   background: #fff;
 `;
 export const PosterWrapper = styled.div`
