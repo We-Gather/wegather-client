@@ -9,12 +9,13 @@ export const PaginationWrapper = styled.div`
 
 export const PageButton = styled.div<{ selected?: boolean }>`
   width: 1.625rem;
-  height: 1.625rem;
+  height: calc(1.625rem - 1px);
   flex-shrink: 0;
-  border-radius: 50px;
+  border-radius: 50%;
   color: ${(props) => (props.selected ? 'white' : 'black')};
-  background-color: ${(props) => (props.selected ? '#36BF7F' : '')};
-  margin: 0 0.7rem 0 0.7rem;
+  background-color: ${(props) => (props.selected ? '#1ca526' : '')};
+  margin: 0 0.7rem;
+  padding-top: 2px;
   display: flex;
   justify-content: center;
   align-items: center;

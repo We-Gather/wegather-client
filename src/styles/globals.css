@@ -1,15 +1,15 @@
-
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 html,
 body {
+  font-family: 'Noto Sans KR', sans-serif;
   max-width: 100vw;
   overflow-x: hidden;
 }
 
 body {
   margin: 0;
-  -webkit-user-select:none;
-  -moz-user-select:none;
-  -ms-user-select:none;
-  user-select:none;
-  
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
