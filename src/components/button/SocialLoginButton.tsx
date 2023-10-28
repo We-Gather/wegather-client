@@ -1,8 +1,8 @@
-import { ButtonHTMLAttributes } from "react";
-import styled from "styled-components";
+import { ButtonHTMLAttributes } from 'react';
+import styled from 'styled-components';
 
 const SocialSubmitButton = styled.button`
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: #000;
   width: 22.5rem;
   height: 3.75rem;
@@ -17,14 +17,18 @@ const SocialSubmitButton = styled.button`
 `;
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-	text: string;
-	type?: "button" | "submit" | "reset";
+  text: string;
+  type?: 'button' | 'submit' | 'reset';
 };
 
-export default function SocialLoginButton({text, type = "submit", ...rest}: ButtonProps) {
-	return (
-		<SocialSubmitButton type={type} {...rest} >
-			{text}
-		</SocialSubmitButton>
-	);
+export default function SocialLoginButton({
+  text,
+  type = 'submit',
+  ...rest
+}: ButtonProps) {
+  return (
+    <SocialSubmitButton type={type} {...rest}>
+      {text}
+    </SocialSubmitButton>
+  );
 }

@@ -1,22 +1,24 @@
-import React, { useState, useCallback } from 'react';
-import {
-  Container,
-  MasterInfoDiv,
-  FormItemDiv,
-  LabelDiv,
-  ValueDiv,
-  HorizonLine,
-  VerticalLine,
-} from './style';
+import React, { useCallback, useState } from 'react';
+
+import DetailPopup from './DetailPopup';
 import InviteMember from './InviteMember';
 import MemberInfo from './MemberInfo';
-import DetailPopup from './DetailPopup';
+import {
+  Container,
+  FormItemDiv,
+  HorizonLine,
+  LabelDiv,
+  MasterInfoDiv,
+  ValueDiv,
+  VerticalLine
+} from './style';
 
 /**
  * 동아리원 탭 내용 컴포넌트
  */
 function ClubMember() {
   // 운영진 목록 (임시 데이터)
+  // eslint-disable-next-line no-unused-vars
   const [staffList, setStaffList] = useState([
     {
       id: 1,
@@ -47,7 +49,7 @@ function ClubMember() {
   const [showStaffDetail, setShowStaffDetail] = useState(false);
 
   const onClickStaffDetail = useCallback(() => {
-    setShowStaffDetail((prev) => !prev);
+    setShowStaffDetail(prev => !prev);
   }, []);
 
   return (
@@ -60,7 +62,7 @@ function ClubMember() {
       <HorizonLine />
 
       <FormItemDiv>
-        <LabelDiv $paddingTop="2">초대하기</LabelDiv>
+        <LabelDiv $paddingTop='2'>초대하기</LabelDiv>
         <ValueDiv>
           <InviteMember />
         </ValueDiv>
@@ -68,7 +70,7 @@ function ClubMember() {
       <HorizonLine />
 
       <FormItemDiv>
-        <LabelDiv $paddingTop="1.5">운영진</LabelDiv>
+        <LabelDiv $paddingTop='1.5'>운영진</LabelDiv>
         <ValueDiv>
           <MemberInfo
             memberList={staffList}

@@ -1,14 +1,16 @@
-import React from 'react';
 import Image from 'next/image';
+import React from 'react';
+
+import { SchoolType } from '@/types/school';
+
 import {
   ContainerDiv,
+  MarkWrapper,
   SchoolButton,
   SchoolLogoDiv,
   SchoolNameDiv,
-  VerticalContainer,
-  MarkWrapper,
+  VerticalContainer
 } from './style';
-import { SchoolType } from '@/types/school';
 
 /**
  * 학교 정보 컴포넌트 (학교 선택 시 학교 목록 조회 화면)
@@ -26,7 +28,7 @@ function SchoolInfo({
         {/* 인증된 경우 인증마크 제공 */}
         {authenticationSchool && (
           <MarkWrapper>
-            <Image src="/Icon/authentication-mark.svg" fill alt="mark" />
+            <Image src='/Icon/authentication-mark.svg' fill alt='mark' />
           </MarkWrapper>
         )}
         <SchoolLogoDiv $url={school.icon} />

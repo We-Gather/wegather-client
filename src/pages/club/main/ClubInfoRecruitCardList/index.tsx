@@ -1,6 +1,9 @@
-import ClubRecruitCard from '../ClubRecruitCard';
+import React from 'react';
+
 import SortDropDown from '@/components/dropdown/SortDropDown';
 import { clubRecruitCard } from '@/types/clubRecruitCard';
+
+import ClubRecruitCard from '../ClubRecruitCard';
 import {
   InputWrapper,
   MainContainer,
@@ -9,9 +12,8 @@ import {
   RecruitSearchInput,
   SearchButton,
   SearchIcon,
-  SearchSortContainer,
+  SearchSortContainer
 } from './style';
-import React from 'react';
 
 /*
 	테스트용 카드 (모집공고)
@@ -38,9 +40,9 @@ export default function ClubInfoRecruitCardList() {
     <MainContainer>
       <SearchSortContainer>
         <InputWrapper>
-          <RecruitSearchInput placeholder="공고명 검색" />
+          <RecruitSearchInput placeholder='공고명 검색' />
           <SearchButton>
-            <SearchIcon size="31" />
+            <SearchIcon size='31' />
           </SearchButton>
         </InputWrapper>
         <SortDropDown list={dropDownList} />

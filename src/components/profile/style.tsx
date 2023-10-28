@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import Image from 'next/image';
+import styled from 'styled-components';
 
 export const ClubMainContainer = styled.div`
   width: 71.875rem;

@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { Search } from '@styled-icons/evil/Search';
+import styled from 'styled-components';
 
 export const MainContainer = styled.div`
   display: flex;

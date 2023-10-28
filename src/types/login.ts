@@ -1,4 +1,4 @@
 export type loginInfoType = {
-	email: string;
-	password: string;
+  email: string;
+  password: string;
 };

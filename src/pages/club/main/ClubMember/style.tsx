@@ -39,7 +39,7 @@ export const LabelDiv = styled.div<{ $paddingTop?: string }>`
   font-weight: 800;
   line-height: 150%;
   letter-spacing: 0.09375rem;
-  ${(props) => props.$paddingTop && `padding-top: ${props.$paddingTop}rem`};
+  ${props => props.$paddingTop && `padding-top: ${props.$paddingTop}rem`};
 `;
 
 export const ValueDiv = styled.div`

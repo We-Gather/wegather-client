@@ -1,28 +1,31 @@
-import { clubRecruitCard } from '@/types/clubRecruitCard';
-import { useState } from 'react';
-import React from 'react';
+import 'dayjs/locale/ko';
+
 import { Person } from '@styled-icons/bootstrap/Person';
 import { Clock } from '@styled-icons/evil/Clock';
+import dayjs from 'dayjs';
+import { useState } from 'react';
+import React from 'react';
+
+import { clubRecruitCard } from '@/types/clubRecruitCard';
+
 import {
-  MainContainer,
-  ClubRecuitContainer,
+  ClubApplicantCount,
+  ClubDeadline,
+  ClubDeadlineCounter,
+  ClubDescription,
+  ClubDescriptionContainer,
   ClubNameDateContainer,
-  StarButton,
+  ClubRecruitName,
+  ClubRecuitContainer,
+  ClubSubmitButton,
   EmptyStar,
   FilledStar,
-  ClubDeadlineCounter,
-  ClubRecruitName,
-  ClubApplicantCount,
-  ClubDescriptionContainer,
-  ClubDescription,
-  ClubDeadline,
-  ClubSubmitButton,
-  ToggleButton,
+  MainContainer,
   PreviewWrapper,
+  StarButton,
   SubmitButtonWrapper,
+  ToggleButton
 } from './style';
-import dayjs from 'dayjs';
-import 'dayjs/locale/ko';
 dayjs.locale('ko');
 
 interface Props {
@@ -57,14 +60,14 @@ export default function ClubRecruitCard({ recruitInfo }: Props) {
           </ClubDeadlineCounter>
           <ClubRecruitName>{recruitInfo.title}</ClubRecruitName>
           <ClubApplicantCount>
-            <Person size="13" />
+            <Person size='13' />
             지원자 : <span>{recruitInfo.applicantCount}</span>명
           </ClubApplicantCount>
         </ClubNameDateContainer>
         <ClubDescriptionContainer>
           <ClubDescription>{recruitInfo.description}</ClubDescription>
           <ClubDeadline>
-            <Clock size="17" />
+            <Clock size='17' />
             <div>
               모집기간 :{' '}
               <span>{dayjs(recruitInfo.startDate).format('YYYY')}</span>년{' '}

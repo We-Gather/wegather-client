@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { Search } from '@styled-icons/boxicons-regular/Search';
+import styled from 'styled-components';
 
 export const ContainerDiv = styled.div`
   display: flex;
@@ -80,12 +80,12 @@ export const DirectButton = styled.button<{ $colored?: string }>`
   padding: 0.69rem 1.5rem;
   align-items: center;
   border-radius: 3.125rem;
-  border: 1px solid ${(props) => (props.$colored ? '#1CA526;' : '#585858')};
+  border: 1px solid ${props => (props.$colored ? '#1CA526;' : '#585858')};
   background: #fff;
   cursor: pointer;
   word-break: keep-all;
   & div {
-    color: ${(props) => (props.$colored ? '#1CA526;' : '#585858')};
+    color: ${props => (props.$colored ? '#1CA526;' : '#585858')};
     text-align: center;
     font-size: 0.875rem;
     font-weight: 400;
@@ -142,8 +142,8 @@ export const SortButton = styled.button<{ selected?: boolean }>`
   font-size: 0.75rem;
   font-weight: 500;
   border: none;
-  background-color: ${(props) => (props.selected ? '#1CA526' : '#E8E8E8')};
-  color: ${(props) => (props.selected ? '#fff' : '#585858')};
+  background-color: ${props => (props.selected ? '#1CA526' : '#E8E8E8')};
+  color: ${props => (props.selected ? '#fff' : '#585858')};
   cursor: pointer;
 `;
 

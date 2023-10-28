@@ -1,6 +1,6 @@
-import styled from 'styled-components';
 import { Star as EmptyStarIcon } from '@styled-icons/evil/Star';
 import { StarRate as FilledStarIcon } from '@styled-icons/material-sharp/StarRate';
+import styled from 'styled-components';
 
 export const MainContainer = styled.div`
   width: 100%;

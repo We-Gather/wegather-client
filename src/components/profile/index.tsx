@@ -1,20 +1,22 @@
-import clubProfile from '@/types/profile';
-import ClubTag from '@/components/tag/ClubTag';
 import { useState } from 'react';
-import LikeButton from '@/components/button/LikeButton';
-import BookMarkButton from '@/components/button/BookMarkButton';
-import ShareButton from '@/components/button/ShareButton';
-import MailButton from '@/components/button/MailButton';
+
 import Cat from '/public/cat.png';
+import BookMarkButton from '@/components/button/BookMarkButton';
+import LikeButton from '@/components/button/LikeButton';
+import MailButton from '@/components/button/MailButton';
+import ShareButton from '@/components/button/ShareButton';
+import ClubTag from '@/components/tag/ClubTag';
+import clubProfile from '@/types/profile';
+
 import {
-  ClubMainContainer,
-  ClubInfoContainer,
-  ImageWrapper,
-  ClubTitleWrapper,
-  ClubTitle,
   ClubDescription,
-  IconRowContainer,
+  ClubInfoContainer,
+  ClubMainContainer,
   ClubTagContainer,
+  ClubTitle,
+  ClubTitleWrapper,
+  IconRowContainer,
+  ImageWrapper
 } from './style';
 
 interface Props {
@@ -30,7 +32,7 @@ export default function ClubProfile({ profile }: Props) {
   return (
     <ClubMainContainer>
       <ClubInfoContainer>
-        <ImageWrapper src={Cat} alt="Profile" />
+        <ImageWrapper src={Cat} alt='Profile' />
         <ClubTitleWrapper>
           <ClubTitle>{profile.name}</ClubTitle>
           <ClubDescription>{profile.description}</ClubDescription>

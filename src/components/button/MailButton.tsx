@@ -1,7 +1,7 @@
-import { SetStateAction, Dispatch, useState } from 'react';
-import styled from 'styled-components';
 import { Envelope as EmptyMailIcon } from '@styled-icons/boxicons-regular/Envelope';
 import { Envelope as FilledMailIcon } from '@styled-icons/boxicons-solid/Envelope';
+import { Dispatch, SetStateAction, useState } from 'react';
+import styled from 'styled-components';
 
 const IconButton = styled.div`
   border: none;
