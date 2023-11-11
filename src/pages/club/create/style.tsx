@@ -68,7 +68,7 @@ export const ClubTypeWrapper = styled.div`
 	justify-content: space-between;
 `;
 export const ClubTypeRadio = styled.input.attrs(() => ({
-	type: 'radio',
+  type: 'radio',
 }))``;
 
 export const ClubTypeRadioSpan = styled.span`
@@ -98,30 +98,6 @@ export const CreateForm = styled.form`
 export const LogoColWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-`;
-export const LogoRowWrapper = styled.div`
-	display: flex;
-	flex-direction: row;
-`;
-export const LogoInput = styled.label`
-	width: 22.25rem;
-	height: 1.875rem;
-	border-radius: 5px;
-	border: 1px solid #c9c9c9;
-	background: #eee;
-	display: flex;
-	align-items: center;
-	margin-right: 0.5rem;
-`;
-export const LogoButton = styled.label`
-	width: 6.0625rem;
-	height: 1.875rem;
-	border-radius: 5px;
-	border: 1px solid #585858;
-	background: #fff;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 `;
 export const ClubIntroductionInput = styled.textarea`
 	width: 50.625rem;

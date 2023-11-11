@@ -3,7 +3,7 @@ export interface clubCreationInfo {
 	name: string;
 	type: string;
 	schoolId: number;
-	logo: string;
+	logo?: File;
 	introduction: string;
 	explanation: string;
 	// catagory: string;
