@@ -2,7 +2,7 @@ import { Close as CloseIcon } from '@styled-icons/ionicons-outline/Close';
 import dayjs from 'dayjs';
 import React, { useCallback, useState } from 'react';
 
-import CheckBox from '@/components/checkbox';
+import CheckBox from '@/components/checkbox/Checkbox';
 import Modal from '@/components/Modal';
 
 import {

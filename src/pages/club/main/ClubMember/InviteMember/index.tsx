@@ -2,7 +2,7 @@ import { FileExcel2 as ExcelIcon } from '@styled-icons/remix-fill/FileExcel2';
 import React, { useCallback, useState } from 'react';
 
 // import Checkbox, { CheckboxChangeEvent } from 'rc-checkbox';
-import Checkbox from '@/components/checkbox';
+import Checkbox from '@/components/checkbox/Checkbox';
 
 import { StyledTable } from '../style';
 import ConfirmPopup from './ConfirmPopup';
