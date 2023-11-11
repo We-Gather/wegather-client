@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
 import * as React from 'react';
@@ -6,7 +7,7 @@ import { useState } from 'react';
 import LoginButton from '@/components/button/LoginButton';
 import SocialLoginButton from '@/components/button/SocialLoginButton';
 import HorizonLine from '@/components/HorizonLine';
-import HeaderFooterLayout from '@/components/layout/HeaderFooterLayout';
+import DefaultLayout from '@/layout/DefaultLayout';
 import { loginInfoType } from '@/types/login';
 
 import {
@@ -97,5 +98,5 @@ export default function Login(): JSX.Element {
 }
 
 Login.getLayout = function getLayout(page: React.ReactElement) {
-  return <HeaderFooterLayout>{page}</HeaderFooterLayout>;
+  return <DefaultLayout>{page}</DefaultLayout>;
 };

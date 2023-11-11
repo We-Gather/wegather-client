@@ -11,7 +11,7 @@ interface MyAppProps extends AppProps {
   Component: NextPageWithLayout;
 }
 
-type NextPageWithLayout = NextPage & {
+export type NextPageWithLayout = NextPage & {
   getLayout?: (page: React.ReactElement) => React.ReactNode;
 };
 

@@ -4,7 +4,8 @@ import { DocumentText } from '@styled-icons/ionicons-outline/DocumentText';
 import { useState } from 'react';
 import React from 'react';
 
-import ClubProfile from '@/components/profile';
+import DefaultLayout from '@/layout/DefaultLayout';
+import ClubProfile from '@/pages/club/main/ClubProfile';
 import clubProfile from '@/types/profile';
 
 import ClubInfoRecruitCardList from './ClubInfoRecruitCardList';
@@ -67,3 +68,7 @@ export default function ClubMain() {
     </ClubMainContainer>
   );
 }
+
+ClubMain.getLayout = function getLayout(page: React.ReactElement) {
+  return <DefaultLayout>{page}</DefaultLayout>;
+};

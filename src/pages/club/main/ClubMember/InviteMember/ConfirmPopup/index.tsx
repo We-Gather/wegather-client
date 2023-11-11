@@ -1,7 +1,7 @@
 import { Close as CloseIcon } from '@styled-icons/ionicons-outline/Close';
 import React from 'react';
 
-import Modal from '@/components/modal';
+import Modal from '@/components/Modal';
 
 import {
   ButtonWrapper,

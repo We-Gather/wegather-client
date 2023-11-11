@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import React, { useCallback, useState } from 'react';
 
 import CheckBox from '@/components/checkbox';
-import Modal from '@/components/modal';
+import Modal from '@/components/Modal';
 
 import {
   BasicInfoWrapper,
