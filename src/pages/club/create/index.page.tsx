@@ -54,9 +54,6 @@ export default function CreateClub() {
     // tag: '',
     poster: undefined,
   });
-  const [logoImagePreview, setLogoImagePreview] = useState<string>('');
-  const [posterImagePreview, setPosterImagePreview] = useState<string>('');
-
 
   const [catagoryStep, setCatagoryStep] = useState<clubCatagoryStep>({
     first: {
@@ -235,8 +232,6 @@ export default function CreateClub() {
               <InfoText>로고</InfoText>
               <ImagePreview
 							  inputId='logo'
-                imagePreview={logoImagePreview}
-                setImagePreview={setLogoImagePreview}
                 setFile={(file:File) => setClubCreationInfo({
                   ...clubCreationInfo,
                   logo: file,
@@ -415,8 +410,6 @@ export default function CreateClub() {
               <InfoText>포스터</InfoText>
               <ImagePreview
                 inputId='poster'
-                imagePreview={posterImagePreview}
-                setImagePreview={setPosterImagePreview}
                 setFile={(file:File) => setClubCreationInfo({
                   ...clubCreationInfo,
                   poster: file,

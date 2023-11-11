@@ -1,19 +1,17 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { ImageContainer, LogoButton, LogoInput, LogoRowWrapper, PreviewBox } from './style';
 
 type ImagePreviewProps = {
   inputId: string;
-  imagePreview: string;
-  setImagePreview: React.Dispatch<React.SetStateAction<string>>;
 	setFile: (file: File) => void;
 	height?: number;
 	width?: number;
 };
 
-
-export default function ImagePreview({ inputId, imagePreview, setImagePreview, setFile, height=120, width=120 }: ImagePreviewProps) {
+export default function ImagePreview({ inputId, setFile, height=120, width=120 }: ImagePreviewProps) {
+  const [imagePreview, setImagePreview] = useState<string>('');
 
   const addPreviewImage = (image?:File) => {
     if (image) {
@@ -57,7 +55,6 @@ export default function ImagePreview({ inputId, imagePreview, setImagePreview, s
             {`${height} x ${width} px`}
           </PreviewBox>
         )}
-       
       </LogoRowWrapper>
     </ImageContainer>
   );
