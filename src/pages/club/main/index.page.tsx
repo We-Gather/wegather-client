@@ -1,26 +1,28 @@
-import ClubProfile from '@/components/profile';
-import clubProfile from '@/types/profile';
-import { useState } from 'react';
-import ClubInfoRecruitCardList from './ClubInfoRecruitCardList';
-import React from 'react';
-import {
-  ClubMainContainer,
-  TabMenuWrapper,
-  TabMenu,
-  Desc,
-  PosterWrapper,
-} from './style';
+import { Info } from '@styled-icons/fluentui-system-regular/Info';
 import { Megaphone } from '@styled-icons/fluentui-system-regular/Megaphone';
 import { DocumentText } from '@styled-icons/ionicons-outline/DocumentText';
-import { Info } from '@styled-icons/fluentui-system-regular/Info';
+import { useState } from 'react';
+import React from 'react';
+
+import ClubProfile from '@/components/profile';
+import clubProfile from '@/types/profile';
+
+import ClubInfoRecruitCardList from './ClubInfoRecruitCardList';
+import {
+  ClubMainContainer,
+  Desc,
+  PosterWrapper,
+  TabMenu,
+  TabMenuWrapper
+} from './style';
 // import { People } from '@styled-icons/fluentui-system-regular/People';
 // import ClubMember from './ClubMember';
 
 const menuArr = [
-  { id: 1, name: '모집공고', icon: <Megaphone size="15" /> },
+  { id: 1, name: '모집공고', icon: <Megaphone size='15' /> },
   // { id: 2, name: '동아리원', icon: <People size="15" /> },
-  { id: 3, name: '동아리 활동', icon: <Info size="15" /> },
-  { id: 4, name: '회계', icon: <DocumentText size="15" /> },
+  { id: 3, name: '동아리 활동', icon: <Info size='15' /> },
+  { id: 4, name: '회계', icon: <DocumentText size='15' /> },
 ];
 
 const mockProfile: clubProfile = {

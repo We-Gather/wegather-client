@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+
 import { ModalContainer } from './style';
 
 type ModalProps = {

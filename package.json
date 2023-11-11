@@ -7,7 +7,8 @@
     "open-browser": "URL=http://localhost:4200 && (open $URL || cmd.exe /c start $URL)",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "eslint --fix ./src"
   },
   "dependencies": {
     "@styled-icons/boxicons-regular": "^10.47.0",
@@ -26,5 +27,13 @@
     "styled-components": "^6.0.5",
     "styled-icons": "^10.47.0",
     "typescript": "5.0.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "prettier": "^3.0.3"
   }
 }

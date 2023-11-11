@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+
 import {
-  PaginationWrapper,
-  PageButton,
   ButtonWrapper,
-  PrevNextButton,
+  PageButton,
+  PaginationWrapper,
+  PrevNextButton
 } from './style';
 
 type PaginationProps = {
@@ -45,7 +46,7 @@ export default function Pagination({
         {'< 이전'}
       </PrevNextButton>
       <ButtonWrapper>
-        {currentPageArray?.map((i) => (
+        {currentPageArray?.map(i => (
           <PageButton key={i} onClick={() => setPage(i)} selected={page === i}>
             {i}
           </PageButton>

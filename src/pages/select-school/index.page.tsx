@@ -1,26 +1,27 @@
 import React, { useState } from 'react';
-import SchoolInfo from '@/components/schoolInfo';
+
+import Checkbox from '@/components/checkbox';
 import Pagination from '@/components/pagination';
+import SchoolInfo from '@/components/schoolInfo';
 
 import {
+  ButtonWrapper,
+  CheckWrapper,
   ContainerDiv,
-  TitleDiv,
-  TitleDescriptionDiv,
-  TitleContainerDiv,
-  SearchInput,
-  DirectButton,
-  SchoolListContentDiv,
   ContentContainerDiv,
+  DirectButton,
   PaginationWrapper,
+  SchoolCardWrapper,
+  SchoolListContentDiv,
   SchoolListToolbarDiv,
+  SearchIcon,
+  SearchInput,
   SortButton,
   SortByWrapper,
-  SearchIcon,
-  ButtonWrapper,
-  SchoolCardWrapper,
-  CheckWrapper,
+  TitleContainerDiv,
+  TitleDescriptionDiv,
+  TitleDiv
 } from './style';
-import Checkbox from '@/components/checkbox';
 
 /**
  * 학교 선택 페이지
@@ -66,12 +67,12 @@ export default function SelectSchool(): JSX.Element {
           카드 클릭 시 해당 학교의 <span>동아리 리스트</span>로 이동합니다.
         </TitleDescriptionDiv>
         <SearchInput>
-          <input placeholder="검색"></input>
+          <input placeholder='검색' />
           <SearchIcon />
         </SearchInput>
         {isLogin && (
           <ButtonWrapper>
-            <DirectButton $colored="true">
+            <DirectButton $colored='true'>
               <div>
                 <b>내 동아리</b> 바로가기
               </div>
@@ -108,12 +109,12 @@ export default function SelectSchool(): JSX.Element {
               <Checkbox
                 checked={checked}
                 onClickHandler={() => {
-                  setChecked((prev) => !prev);
+                  setChecked(prev => !prev);
                 }}
               />
               <div
                 onClick={() => {
-                  setChecked((prev) => !prev);
+                  setChecked(prev => !prev);
                 }}
               >
                 항상 <span>내 학교</span>로 시작

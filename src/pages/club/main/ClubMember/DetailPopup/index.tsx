@@ -1,22 +1,24 @@
-import React, { useState, useCallback } from 'react';
-import Modal from '@/components/modal';
-import {
-  Container,
-  PopupHeader,
-  PopupContent,
-  Label,
-  InfoItemWrapper,
-  BasicInfoWrapper,
-  InfoText,
-  RoleBox,
-  GroupBox,
-  BottomWrapper,
-  SaveButton,
-  ExileButton,
-} from './style';
-import CheckBox from '@/components/checkbox';
 import { Close as CloseIcon } from '@styled-icons/ionicons-outline/Close';
 import dayjs from 'dayjs';
+import React, { useCallback, useState } from 'react';
+
+import CheckBox from '@/components/checkbox';
+import Modal from '@/components/modal';
+
+import {
+  BasicInfoWrapper,
+  BottomWrapper,
+  Container,
+  ExileButton,
+  GroupBox,
+  InfoItemWrapper,
+  InfoText,
+  Label,
+  PopupContent,
+  PopupHeader,
+  RoleBox,
+  SaveButton
+} from './style';
 
 function DetailPopup({
   show,
@@ -57,7 +59,7 @@ function DetailPopup({
   return (
     <Modal show={show} onCloseModal={onClose}>
       <Container
-        onClick={(e) => {
+        onClick={e => {
           e.stopPropagation();
         }}
       >
@@ -65,7 +67,7 @@ function DetailPopup({
           <div>
             자세히 보기 : 운영진
             <CloseIcon
-              size="21"
+              size='21'
               style={{ cursor: 'pointer' }}
               onClick={onClose}
             />
@@ -96,7 +98,7 @@ function DetailPopup({
               </InfoItemWrapper>
             </div>
           </BasicInfoWrapper>
-          <InfoItemWrapper $alignItems="start">
+          <InfoItemWrapper $alignItems='start'>
             <Label>권한</Label>
             <RoleBox>
               {roleList.map((role, i) => (
@@ -112,10 +114,10 @@ function DetailPopup({
               ))}
             </RoleBox>
           </InfoItemWrapper>
-          <InfoItemWrapper $alignItems="start">
+          <InfoItemWrapper $alignItems='start'>
             <Label>그룹</Label>
             <GroupBox>
-              {groupList.map((group) => (
+              {groupList.map(group => (
                 <div key={group}>{group}</div>
               ))}
             </GroupBox>

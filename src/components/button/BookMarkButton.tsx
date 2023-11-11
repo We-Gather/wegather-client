@@ -1,7 +1,7 @@
-import { SetStateAction, Dispatch, useState } from 'react';
-import styled from 'styled-components';
 import { Bookmark as EmptyBookmarkIcon } from '@styled-icons/boxicons-regular/Bookmark';
 import { Bookmark as FilledBookmarkIcon } from '@styled-icons/boxicons-solid/Bookmark';
+import { Dispatch, SetStateAction, useState } from 'react';
+import styled from 'styled-components';
 
 const IconButton = styled.div`
   border: none;

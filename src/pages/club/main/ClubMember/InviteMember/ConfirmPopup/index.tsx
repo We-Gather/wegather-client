@@ -1,14 +1,16 @@
-import React from 'react';
-import Modal from '../../../../../../components/modal';
-import {
-  Container,
-  PopupHeader,
-  PopupContent,
-  ButtonWrapper,
-  ConfirmButton,
-  CancelButton,
-} from './style';
 import { Close as CloseIcon } from '@styled-icons/ionicons-outline/Close';
+import React from 'react';
+
+import Modal from '@/components/modal';
+
+import {
+  ButtonWrapper,
+  CancelButton,
+  ConfirmButton,
+  Container,
+  PopupContent,
+  PopupHeader
+} from './style';
 
 function ConfirmPopup({
   show,
@@ -20,7 +22,7 @@ function ConfirmPopup({
   return (
     <Modal show={show} onCloseModal={onClose}>
       <Container
-        onClick={(e) => {
+        onClick={e => {
           e.stopPropagation();
         }}
       >
@@ -28,7 +30,7 @@ function ConfirmPopup({
           <div>
             알림
             <CloseIcon
-              size="21"
+              size='21'
               style={{ cursor: 'pointer' }}
               onClick={onClose}
             />

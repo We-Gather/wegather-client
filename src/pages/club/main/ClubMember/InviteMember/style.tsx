@@ -19,9 +19,9 @@ export const TableButton = styled.button<{ $addButton?: boolean }>`
   height: 1.5625rem;
   flex-shrink: 0;
   border-radius: 0.3125rem;
-  border: 1px solid ${(props) => (props.$addButton ? '#585858' : '#9c9c9c')};
+  border: 1px solid ${props => (props.$addButton ? '#585858' : '#9c9c9c')};
   background: #fff;
-  color: ${(props) => (props.$addButton ? '#000' : '#585858')};
+  color: ${props => (props.$addButton ? '#000' : '#585858')};
   text-align: center;
   font-size: 0.75rem;
   font-weight: 400;

@@ -24,7 +24,6 @@ const device = {
   desktop: `(min-width: ${sizes.desktop})`,
 };
 
-
 const theme: MyTheme = {
   device,
 };

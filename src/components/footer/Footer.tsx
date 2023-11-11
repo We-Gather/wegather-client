@@ -1,23 +1,23 @@
 import styled from 'styled-components';
 
 const StyledFooter = styled.div`
-	height: 9rem;
-	width: 100%;
-	flex-shrink: 0;
-	position:fixed;
+  height: 9rem;
+  width: 100%;
+  flex-shrink: 0;
+  position: fixed;
   display: flex;
   flex-direction: row;
-	align-items: center;
-	background-color: #EEEEEE;
+  align-items: center;
+  background-color: #eeeeee;
 `;
 
 const MaxWidthDiv = styled.div`
-	max-width: 1440px;
-	height: 100%;
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+  max-width: 1440px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `;
 
 const SytledDiv = styled.div`
@@ -26,29 +26,23 @@ const SytledDiv = styled.div`
   justify-content: center;
   place-content: center;
   align-items: center;
-	margin: 0.5rem;
+  margin: 0.5rem;
 `;
 
 export default function Footer() {
-	return (
-	<footer>
-		<StyledFooter>
-			<MaxWidthDiv>
-				<SytledDiv>
-					<h3>
-						Test Footer
-					</h3>
-				</SytledDiv>
-				<SytledDiv>
-					<div>
-						Read Documentation
-					</div>
-					<div>
-						View on GitHub
-					</div>
-				</SytledDiv>
-			</MaxWidthDiv>
-		</StyledFooter>
+  return (
+    <footer>
+      <StyledFooter>
+        <MaxWidthDiv>
+          <SytledDiv>
+            <h3>Test Footer</h3>
+          </SytledDiv>
+          <SytledDiv>
+            <div>Read Documentation</div>
+            <div>View on GitHub</div>
+          </SytledDiv>
+        </MaxWidthDiv>
+      </StyledFooter>
     </footer>
-	);
+  );
 }

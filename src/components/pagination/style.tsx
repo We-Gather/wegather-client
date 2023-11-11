@@ -12,8 +12,8 @@ export const PageButton = styled.div<{ selected?: boolean }>`
   height: calc(1.625rem - 1px);
   flex-shrink: 0;
   border-radius: 50%;
-  color: ${(props) => (props.selected ? 'white' : 'black')};
-  background-color: ${(props) => (props.selected ? '#1ca526' : '')};
+  color: ${props => (props.selected ? 'white' : 'black')};
+  background-color: ${props => (props.selected ? '#1ca526' : '')};
   margin: 0 0.7rem;
   padding-top: 2px;
   display: flex;

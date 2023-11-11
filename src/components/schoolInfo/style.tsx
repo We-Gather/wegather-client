@@ -24,7 +24,7 @@ export const SchoolButton = styled.div<{ $borderEffect?: boolean }>`
   cursor: pointer;
   position: relative;
   background: #fff;
-  ${(props) => (props.$borderEffect ? 'border: 2px solid #1CA526;' : '')};
+  ${props => (props.$borderEffect ? 'border: 2px solid #1CA526;' : '')};
   &:hover {
     background-color: #f3f3f3;
   }
@@ -34,7 +34,7 @@ export const SchoolLogoDiv = styled.div<{ $url: string }>`
   height: 5rem;
   width: 5rem;
   flex-shrink: 0;
-  background-image: url(${(props) => props.$url});
+  background-image: url(${props => props.$url});
   background-repeat: no-repeat;
   background-size: 5rem 5rem;
 `;

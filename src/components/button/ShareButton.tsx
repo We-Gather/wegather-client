@@ -1,7 +1,7 @@
-import { SetStateAction, Dispatch, useState } from 'react';
-import styled from 'styled-components';
 import { ShareAlt as EmptyShareIcon } from '@styled-icons/boxicons-regular/ShareAlt';
 import { ShareAlt as FilledShareIcon } from '@styled-icons/boxicons-solid/ShareAlt';
+import { Dispatch, SetStateAction, useState } from 'react';
+import styled from 'styled-components';
 
 const IconButton = styled.div`
   border: none;

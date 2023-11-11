@@ -1,8 +1,10 @@
-import React, { useCallback } from 'react';
+import dayjs from 'dayjs';
+import React from 'react';
+
 import Checkbox from '@/components/checkbox';
+
 import { StyledTable } from '../style';
 import { CountInfo, NumWrapper } from './style';
-import dayjs from 'dayjs';
 
 // 임시 타입
 interface MemberType {
@@ -29,7 +31,7 @@ function MemberInfo({
       <CountInfo>
         총 인원 : <span>{memberList.length}</span>명
       </CountInfo>
-      <StyledTable width="100%">
+      <StyledTable width='100%'>
         <thead>
           <tr>
             <th>

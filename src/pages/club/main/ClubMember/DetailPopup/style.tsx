@@ -54,7 +54,7 @@ export const InfoItemWrapper = styled.div<{ $alignItems?: string }>`
   display: flex;
   align-items: center;
   width: 100%;
-  ${(props) => props.$alignItems && `align-items: ${props.$alignItems};`}
+  ${props => props.$alignItems && `align-items: ${props.$alignItems};`}
 `;
 
 export const InfoText = styled.span`

@@ -1,10 +1,12 @@
+import { FileExcel2 as ExcelIcon } from '@styled-icons/remix-fill/FileExcel2';
 import React, { useCallback, useState } from 'react';
+
 // import Checkbox, { CheckboxChangeEvent } from 'rc-checkbox';
 import Checkbox from '@/components/checkbox';
+
 import { StyledTable } from '../style';
-import { BatchInviteButton, ButtonWrapper, TableButton } from './style';
-import { FileExcel2 as ExcelIcon } from '@styled-icons/remix-fill/FileExcel2';
 import ConfirmPopup from './ConfirmPopup';
+import { BatchInviteButton, ButtonWrapper, TableButton } from './style';
 
 // 초대하기 멤버 목록 아이템 클래스
 class InviteItem {
@@ -38,17 +40,17 @@ function InviteMember() {
 
   // 초대 폼 추가
   const addInvite = useCallback(() => {
-    setInviteList((prev) => [...prev, new InviteItem()]);
+    setInviteList(prev => [...prev, new InviteItem()]);
   }, []);
 
   // 초대 폼 삭제
   const deleteInvite = useCallback(() => {
     let newInviteList: InviteItem[] = inviteList
-      .map((invite) => {
+      .map(invite => {
         if (!invite.isChecked) return invite;
         invite.isChecked = false;
       })
-      .filter((invite) => invite !== undefined) as InviteItem[]; // undefined 제거
+      .filter(invite => invite !== undefined) as InviteItem[]; // undefined 제거
     if (newInviteList.length === 0) {
       newInviteList = [new InviteItem()];
     }
@@ -71,20 +73,20 @@ function InviteMember() {
   // 일괄 초대 버튼 클릭 핸들러
   const onClickBatchInvite = useCallback(() => {
     const newInviteList: InviteItem[] = inviteList
-      .map((invite) => {
+      .map(invite => {
         if (invite.isChecked) {
           return invite;
         }
       })
-      .filter((invite) => invite !== undefined) as InviteItem[]; // undefined 제거
+      .filter(invite => invite !== undefined) as InviteItem[]; // undefined 제거
     console.log(newInviteList);
   }, [inviteList]);
 
   // 일괄 체크 버튼 클릭 핸들러
   const allCheckButton = useCallback(() => {
     const isChecked = !allChecked;
-    setAllChecked((prev) => !prev);
-    const newInviteList: InviteItem[] = inviteList.map((invite) => {
+    setAllChecked(prev => !prev);
+    const newInviteList: InviteItem[] = inviteList.map(invite => {
       invite.isChecked = isChecked;
       return invite;
     });
@@ -128,7 +130,7 @@ function InviteMember() {
               <td>
                 <input
                   value={invite.emailId}
-                  onChange={(e) => {
+                  onChange={e => {
                     onChangeFormInput(e, i, 'emailId');
                   }}
                 />
@@ -136,7 +138,7 @@ function InviteMember() {
               <td>
                 <input
                   value={invite.name}
-                  onChange={(e) => {
+                  onChange={e => {
                     onChangeFormInput(e, i, 'name');
                   }}
                 />
@@ -144,7 +146,7 @@ function InviteMember() {
               <td>
                 <input
                   value={invite.studentNumber}
-                  onChange={(e) => {
+                  onChange={e => {
                     onChangeFormInput(e, i, 'studentNumber');
                   }}
                 />
@@ -152,7 +154,7 @@ function InviteMember() {
               <td>
                 <input
                   value={invite.role}
-                  onChange={(e) => {
+                  onChange={e => {
                     onChangeFormInput(e, i, 'role');
                   }}
                 />
@@ -173,10 +175,10 @@ function InviteMember() {
         </div>
         <div>
           <TableButton>
-            <ExcelIcon size="15" color="#5d8c6d" /> 양식 다운로드
+            <ExcelIcon size='15' color='#5d8c6d' /> 양식 다운로드
           </TableButton>
           <TableButton>
-            <ExcelIcon size="15" color="#5d8c6d" /> 엑셀 업로드
+            <ExcelIcon size='15' color='#5d8c6d' /> 엑셀 업로드
           </TableButton>
         </div>
       </ButtonWrapper>

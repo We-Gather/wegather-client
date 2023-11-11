@@ -1,7 +1,7 @@
-import { SetStateAction, Dispatch } from 'react';
-import styled from 'styled-components';
 import { Heart as EmptyHeartIcon } from '@styled-icons/boxicons-regular/Heart';
 import { Heart as FilledHeartIcon } from '@styled-icons/boxicons-solid/Heart';
+import { Dispatch, SetStateAction } from 'react';
+import styled from 'styled-components';
 
 const IconButton = styled.div`
   border: none;
