@@ -1,18 +1,19 @@
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React from 'react';
 
 import { ImageContainer, LogoButton, LogoInput, LogoRowWrapper, PreviewBox } from './style';
 
 type ImagePreviewProps = {
+  inputId: string;
+  imagePreview: string;
+  setImagePreview: React.Dispatch<React.SetStateAction<string>>;
 	setFile: (file: File) => void;
-	onChange: (value: string) => void;
 	height?: number;
 	width?: number;
 };
 
 
-export default function ImagePreview({setFile, onChange, height=120, width=120 }: ImagePreviewProps) {
-  const [imagePreview, setImagePreview] = useState<string>('');
+export default function ImagePreview({ inputId, imagePreview, setImagePreview, setFile, height=120, width=120 }: ImagePreviewProps) {
 
   const addPreviewImage = (image?:File) => {
     if (image) {
@@ -32,10 +33,10 @@ export default function ImagePreview({setFile, onChange, height=120, width=120 }
     <ImageContainer>
       <LogoRowWrapper>
         <LogoInput>파일을 업로드하세요 (JPG, JPEG, PNG)</LogoInput>
-        <LogoButton htmlFor="input-file">찾아보기</LogoButton>
+        <LogoButton htmlFor={inputId}>찾아보기</LogoButton>
         <input
           type="file"
-          id="input-file"
+          id={inputId}
           style={{ display: 'none' }}
           onChange={(e) => addPreviewImage(e.target.files?.[0])}
         />
@@ -43,11 +44,10 @@ export default function ImagePreview({setFile, onChange, height=120, width=120 }
       <LogoRowWrapper>
         {imagePreview ? (
           <Image
-            priority
             src={imagePreview}
             width={width}
             height={height}
-            alt="프로필 이미지 미리보기"
+            alt="이미지 미리보기"
           />
         ): (
           <PreviewBox

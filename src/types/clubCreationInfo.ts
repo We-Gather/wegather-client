@@ -8,5 +8,17 @@ export interface clubCreationInfo {
 	explanation: string;
 	// catagory: string;
 	// tag: string;
-	poster: string;
+	poster?: File;
+};
+
+export type clubCatagory = {
+	id: string;
+	name: string;
+	sub: Array<clubCatagory>;
+}
+
+export interface clubCatagoryStep {
+	first: clubCatagory;
+	second: clubCatagory;
+	third: clubCatagory;
 };
