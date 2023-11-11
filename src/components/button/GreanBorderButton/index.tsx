@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { StyledButton } from './style';
 
 type ButtonProps = {
@@ -9,9 +10,9 @@ type ButtonProps = {
 };
 
 export default function GreenMediumButton({ backgroundColor, text, textColor, onClick }: ButtonProps) {
-	return (
-		<StyledButton type="button" backgroundColor={backgroundColor} textColor={textColor} onClick={onClick}>
-			{text}
-		</StyledButton>
-	);
+  return (
+    <StyledButton type="button" backgroundColor={backgroundColor} textColor={textColor} onClick={onClick}>
+      {text}
+    </StyledButton>
+  );
 }
