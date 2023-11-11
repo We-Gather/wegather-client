@@ -1,10 +1,10 @@
-import styled from 'styled-components';
 import dynamic from 'next/dynamic';
 import React from 'react';
+import styled from 'styled-components';
 
 const QuillWrapper = dynamic(() => import('react-quill'), {
-	ssr: false,
-	loading: () => <p>Loading ...</p>,
+  ssr: false,
+  loading: () => <p>Loading ...</p>,
 });
 
 export const StyledQuillWrapper = styled(QuillWrapper)<{ minHeight?: string, borderRadius?: string }>`
