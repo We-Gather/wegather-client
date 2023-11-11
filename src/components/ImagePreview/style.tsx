@@ -35,7 +35,7 @@ interface PreviewBoxProps {
 export const PreviewBox = styled.div<PreviewBoxProps>`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
-	border-radius: 0.3125rem;
+	border-radius: 5px;
 	border: 1px dashed #585858;
 	background: #EEE;
 	display: flex;

@@ -6,19 +6,19 @@ export interface clubCreationInfo {
 	logo?: File;
 	introduction: string;
 	explanation: string;
-	// catagory: string;
+	// category: string;
 	// tag: string;
 	poster?: File;
 };
 
-export type clubCatagory = {
+export type clubCategory = {
 	id: string;
 	name: string;
-	sub: Array<clubCatagory>;
+	sub: clubCategory[];
 }
 
-export interface clubCatagoryStep {
-	first: clubCatagory;
-	second: clubCatagory;
-	third: clubCatagory;
+export interface clubCategoryStep {
+	first: clubCategory;
+	second: clubCategory;
+	third: clubCategory;
 };

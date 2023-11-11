@@ -2,18 +2,12 @@ import { useState } from 'react';
 import React from 'react';
 
 import GreenBorderButton from '@/components/button/GreanMediumButton';
+import CategoryList from '@/components/Category/CategoryList';
 import ImagePreview from '@/components/ImagePreview';
 import TextEditor from '@/components/TextEditor';
-import { clubCatagory, clubCatagoryStep, clubCreationInfo } from '@/types/clubCreationInfo';
+import { clubCategory, clubCreationInfo } from '@/types/clubCreationInfo';
 
 import {
-  CatagoryContainer,
-  CatagoryInput,
-  CatagoryLabel,
-  CatagoryList,
-  CatagoryListElement,
-  CatagoryRowContainer,
-  CatagoryWrapper,
   ClubExplanationInput,
   ClubIntroductionInput,
   ClubNameInput,
@@ -29,12 +23,9 @@ import {
   InfoConatainer,
   InfoText,
   InfoType,
-  InputWrapper,
   MainContainer,
   SchoolSelectInput,
   SchoolSelectWrapper,
-  SearchButton,
-  SearchIcon,
   TagContainer,
   TextCountInputWrapper,
   TextCountWrapper
@@ -50,29 +41,13 @@ export default function CreateClub() {
     logo: undefined,
     introduction: '',
     explanation: '',
-    // catagory: '',
+    // category: '',
     // tag: '',
     poster: undefined,
   });
 
-  const [catagoryStep, setCatagoryStep] = useState<clubCatagoryStep>({
-    first: {
-      id: '',
-      name: '',
-      sub: [],
-    },
-    second: {
-      id: '',
-      name: '',
-      sub: [],
-    },
-    third: {
-      id: '',
-      name: '',
-      sub: [],
-    },
-  });
-  const clubCatagoryList: Array<clubCatagory> = [
+
+  const clubCategoryList: clubCategory[] = [
     {
       id: '1',
       name: '테스트1',
@@ -118,7 +93,7 @@ export default function CreateClub() {
   // 		logo: '',
   // 		introduction: 'adf',
   // 		explanation: 'dddd',
-  // 		// catagory: '',
+  // 		// category: '',
   // 		// tag: '',
   // 		poster: '',
   // 	});
@@ -287,117 +262,10 @@ export default function CreateClub() {
           <InfoConatainer>
             <ClubRowWrapper>
               <InfoText>카테고리</InfoText>
-              <CatagoryContainer>
-                <CatagoryRowContainer>
-                  <CatagoryLabel>{catagoryStep.first.name}</CatagoryLabel>
-                  <CatagoryLabel>{catagoryStep.second.name}</CatagoryLabel>
-                  <CatagoryLabel>{catagoryStep.third.name}</CatagoryLabel>
-                </CatagoryRowContainer>
-                <CatagoryRowContainer>
-                  <CatagoryWrapper>
-                    <CatagoryWrapper>
-                      <InputWrapper>
-                        <CatagoryInput
-                          placeholder="검색"
-                          onClick={(e: any) => {
-                            e.preventDefault();
-                          }}
-                        />
-                        <SearchButton>
-                          <SearchIcon />
-                        </SearchButton>
-                      </InputWrapper>
-                      <CatagoryList>
-                        {clubCatagoryList.map((catagory) => (
-                          <CatagoryListElement
-                            key={catagory.id}
-                            onClick={(e: any) => {
-                              setCatagoryStep((prevStep) => ({
-                                ...prevStep,
-                                first: {
-                                  id: catagory.id,
-                                  name: catagory.name,
-                                  sub: catagory.sub,
-                                },
-                              }));
-                            }}
-                          >
-                            {catagory.name}
-                          </CatagoryListElement>
-                        ))}
-                      </CatagoryList>
-                    </CatagoryWrapper>
-                  </CatagoryWrapper>
-                  <CatagoryWrapper>
-                    <CatagoryWrapper>
-                      <InputWrapper>
-                        <CatagoryInput
-                          placeholder="검색"
-                          onClick={(e: any) => {
-                            e.preventDefault();
-                          }}
-                        />
-                        <SearchButton>
-                          <SearchIcon />
-                        </SearchButton>
-                      </InputWrapper>
-                      <CatagoryList>
-                        {catagoryStep.first.sub.map((catagory) => (
-                          <CatagoryListElement
-                            key={catagory.id}
-                            onClick={(e: any) => {
-                              setCatagoryStep((prevStep) => ({
-                                ...prevStep,
-                                second: {
-                                  id: catagory.id,
-                                  name: catagory.name,
-                                  sub: catagory.sub,
-                                },
-                              }));
-                            }}
-                          >
-                            {catagory.name}
-                          </CatagoryListElement>
-                        ))}
-                      </CatagoryList>
-                    </CatagoryWrapper>
-                  </CatagoryWrapper>
-                  <CatagoryWrapper>
-                    <CatagoryWrapper>
-                      <InputWrapper>
-                        <CatagoryInput
-                          placeholder="검색"
-                          onClick={(e: any) => {
-                            e.preventDefault();
-                          }}
-                        />
-                        <SearchButton>
-                          <SearchIcon />
-                        </SearchButton>
-                      </InputWrapper>
-                      <CatagoryList>
-                        {catagoryStep.second.sub.map((catagory) => (
-                          <CatagoryListElement
-                            key={catagory.id}
-                            onClick={(e: any) => {
-                              setCatagoryStep((prevStep) => ({
-                                ...prevStep,
-                                third: {
-                                  id: catagory.id,
-                                  name: catagory.name,
-                                  sub: catagory.sub,
-                                },
-                              }));
-                            }}
-                          >
-                            {catagory.name}
-                          </CatagoryListElement>
-                        ))}
-                      </CatagoryList>
-                    </CatagoryWrapper>
-                  </CatagoryWrapper>
-                </CatagoryRowContainer>
-              </CatagoryContainer>
+              <CategoryList
+                clubCategoryList={clubCategoryList}
+                // setClubCreationInfo로 다시 가져와야함.
+              />
             </ClubRowWrapper>
             <ClubRowWrapper>
               <InfoText>태그</InfoText>
