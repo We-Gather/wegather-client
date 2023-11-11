@@ -1,16 +1,16 @@
 import { useState } from 'react';
 
-import { clubCategory, clubCategoryStep } from '@/types/clubCreationInfo';
+import { ClubCategory, ClubCategoryStep } from '@/types/clubCreationInfo';
 
 import CategoryStepBox from '../CategoryStepBox';
 import { CategoryContainer, CategoryLabel, CategoryRowContainer } from './style';
 
 type CategoryProps = {
-	clubCategoryList: clubCategory[];
+	clubCategoryList: ClubCategory[];
 }
 
 export default function CategoryList({ clubCategoryList }:CategoryProps) {
-  const [categoryStep, setCategoryStep] = useState<clubCategoryStep>({
+  const [categoryStep, setCategoryStep] = useState<ClubCategoryStep>({
     first: {
       id: '',
       name: '',
@@ -39,7 +39,7 @@ export default function CategoryList({ clubCategoryList }:CategoryProps) {
         <CategoryStepBox
           categoryStep={categoryStep}
           clubCategoryList={clubCategoryList}
-          setCategoryStep={((categoryStep: clubCategoryStep, category: clubCategory) => setCategoryStep({
+          setCategoryStep={((categoryStep: ClubCategoryStep, category: ClubCategory) => setCategoryStep({
             ...categoryStep,
             first: {
               id: category.id,
@@ -51,7 +51,7 @@ export default function CategoryList({ clubCategoryList }:CategoryProps) {
         <CategoryStepBox
           categoryStep={categoryStep}
           clubCategoryList={categoryStep.first.sub}
-          setCategoryStep={((categoryStep: clubCategoryStep, category: clubCategory) => setCategoryStep({
+          setCategoryStep={((categoryStep: ClubCategoryStep, category: ClubCategory) => setCategoryStep({
             ...categoryStep,
             second: {
               id: category.id,
@@ -63,7 +63,7 @@ export default function CategoryList({ clubCategoryList }:CategoryProps) {
         <CategoryStepBox
           categoryStep={categoryStep}
           clubCategoryList={categoryStep.second.sub}
-          setCategoryStep={((categoryStep: clubCategoryStep, category: clubCategory) => setCategoryStep({
+          setCategoryStep={((categoryStep: ClubCategoryStep, category: ClubCategory) => setCategoryStep({
             ...categoryStep,
             third: {
               id: category.id,

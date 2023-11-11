@@ -1,12 +1,12 @@
 
-import { clubCategory, clubCategoryStep } from '@/types/clubCreationInfo';
+import { ClubCategory, ClubCategoryStep } from '@/types/clubCreationInfo';
 
 import { CategoryInput, CategoryList, CategoryListElement, CategoryWrapper, InputWrapper, SearchButton, SearchIcon } from './style';
 
 type CategoryStepProps = {
-  categoryStep: clubCategoryStep;
-	clubCategoryList: clubCategory[];
-  setCategoryStep: (categoryStep: clubCategoryStep, category: clubCategory) => void;
+  categoryStep: ClubCategoryStep;
+	clubCategoryList: ClubCategory[];
+  setCategoryStep: (categoryStep: ClubCategoryStep, category: ClubCategory) => void;
 }
 
 export default function CategoryStep({ categoryStep, clubCategoryList, setCategoryStep }:CategoryStepProps) {

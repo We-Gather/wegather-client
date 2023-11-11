@@ -1,5 +1,5 @@
 
-export interface clubCreationInfo {
+export interface ClubCreationInfo {
 	name: string;
 	type: string;
 	schoolId: number;
@@ -11,14 +11,14 @@ export interface clubCreationInfo {
 	poster?: File;
 };
 
-export type clubCategory = {
+export type ClubCategory = {
 	id: string;
 	name: string;
-	sub: clubCategory[];
+	sub: ClubCategory[];
 }
 
-export interface clubCategoryStep {
-	first: clubCategory;
-	second: clubCategory;
-	third: clubCategory;
+export interface ClubCategoryStep {
+	first: ClubCategory;
+	second: ClubCategory;
+	third: ClubCategory;
 };
