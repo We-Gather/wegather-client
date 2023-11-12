@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import React from 'react';
 
-import Checkbox from '@/components/checkbox';
+import Checkbox from '@/components/checkbox/Checkbox';
 
 import { StyledTable } from '../style';
 import { CountInfo, NumWrapper } from './style';
