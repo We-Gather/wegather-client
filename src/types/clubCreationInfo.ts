@@ -7,7 +7,7 @@ export interface ClubCreationInfo {
 	introduction: string;
 	explanation: string;
 	// category: string;
-	// tag: string;
+	tag: string[];
 	poster?: File;
 };
 

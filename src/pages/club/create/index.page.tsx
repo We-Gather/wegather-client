@@ -4,8 +4,9 @@ import React from 'react';
 import GreenBorderButton from '@/components/button/GreanMediumButton';
 import CategoryList from '@/components/Category/CategoryList';
 import ImagePreview from '@/components/ImagePreview';
+import TagList from '@/components/tag/TagList';
 import TextEditor from '@/components/TextEditor';
-import { clubCategory, clubCreationInfo } from '@/types/clubCreationInfo';
+import { ClubCategory, ClubCreationInfo } from '@/types/clubCreationInfo';
 
 import {
   ClubExplanationInput,
@@ -26,7 +27,10 @@ import {
   MainContainer,
   SchoolSelectInput,
   SchoolSelectWrapper,
+  TagAddButtom,
+  TagAddInput,
   TagContainer,
+  TagRowWrapper,
   TextCountInputWrapper,
   TextCountWrapper
 } from './style';
@@ -34,7 +38,7 @@ import {
 // import { axios } from '@/config/axiosConfig';
 
 export default function CreateClub() {
-  const [clubCreationInfo, setClubCreationInfo] = useState<clubCreationInfo>({
+  const [clubCreationInfo, setClubCreationInfo] = useState<ClubCreationInfo>({
     name: '',
     type: '',
     schoolId: 0,
@@ -42,12 +46,12 @@ export default function CreateClub() {
     introduction: '',
     explanation: '',
     // category: '',
-    // tag: '',
+    tag: [],
     poster: undefined,
   });
+  const [tag, setTag] = useState<string>('');
 
-
-  const clubCategoryList: clubCategory[] = [
+  const clubCategoryList: ClubCategory[] = [
     {
       id: '1',
       name: '테스트1',
@@ -270,8 +274,40 @@ export default function CreateClub() {
             <ClubRowWrapper>
               <InfoText>태그</InfoText>
               <TagContainer>
-                <div>인풋</div>
-                <div>태그들</div>
+                <TagRowWrapper>
+                  <TagAddInput
+                    value={tag}
+                    onChange={(e: any) => 
+                      setTag(e.target.value)
+                    }
+                  />
+                  <TagAddButtom 
+                    onClick={(e: any) => {
+                      e.preventDefault();
+                      if (tag.trim() !== '') {
+                        setClubCreationInfo((prevInfo) => ({
+                          ...prevInfo,
+                          tag: [...prevInfo.tag, tag],
+                        }));
+                        setTag('');
+                      }
+                    }}
+                  />
+                </TagRowWrapper>
+                <TagList 
+                  tagList={clubCreationInfo.tag}
+                  deleteFunc={(index:number) => {
+                    const updatedTags = [...clubCreationInfo.tag];
+                    updatedTags.splice(index, 1);
+                
+                    setClubCreationInfo((prevInfo) => ({
+                      ...prevInfo,
+                      tag: updatedTags,
+                    }));
+                  }}
+                  width={'33.375rem'}
+                  height={'6.5rem'}
+                />
               </TagContainer>
             </ClubRowWrapper>
             <ClubRowWrapper>

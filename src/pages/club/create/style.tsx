@@ -189,3 +189,22 @@ export const ClubExplanationInput = styled.div`
 	resize: none;
 	padding: 0;
 `;
+export const TagAddInput = styled.input`
+	width: 15.625rem;
+	height: 1.875rem;
+	border-radius: 5px;
+	border: 1px solid #C9C9C9;
+	background: #FFF;
+	padding: 0;
+	text-indent: 10px;
+`;
+export const TagAddButtom = styled.button`
+	height: 1.875rem;
+	width: 1.875rem;
+	border-radius: 5px;
+	border: 1px solid #C9C9C9;
+`;
+export const TagRowWrapper = styled.div`
+	display: flex;
+	flex-direction: row;
+`;
