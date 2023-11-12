@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { TagWrapper } from './style';
 
 interface Props {
