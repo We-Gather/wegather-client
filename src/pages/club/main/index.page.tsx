@@ -4,6 +4,7 @@ import { DocumentText } from '@styled-icons/ionicons-outline/DocumentText';
 import { useState } from 'react';
 import React from 'react';
 
+import ClubInfoHeader from '@/components/header/ClubInfoHeader';
 import DefaultLayout from '@/layout/DefaultLayout';
 import ClubProfile from '@/pages/club/main/ClubProfile';
 import clubProfile from '@/types/profile';
@@ -27,6 +28,8 @@ const menuArr = [
 ];
 
 const mockProfile: clubProfile = {
+  type: '연합동아리',
+  categories: ['이공', '컴퓨터공학', '개발'],
   name: '웹사이트 제작 동아리 Wegather',
   image: '/public/cat.jpg',
   description:
@@ -44,6 +47,10 @@ export default function ClubMain() {
 
   return (
     <ClubMainContainer>
+      <ClubInfoHeader
+        clubType={mockProfile.type || ''}
+        categories={mockProfile.categories || []}
+      />
       <ClubProfile profile={mockProfile} />
       <TabMenuWrapper>
         <TabMenu>
@@ -52,8 +59,7 @@ export default function ClubMain() {
               <li
                 key={index}
                 className={currentTab === index ? 'submenu focused' : 'submenu'}
-                onClick={() => selectMenuHandler(index)}
-              >
+                onClick={() => selectMenuHandler(index)}>
                 <div>
                   {tap.icon}&nbsp;
                   {tap.name}

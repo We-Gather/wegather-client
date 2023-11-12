@@ -41,8 +41,7 @@ export default function Pagination({
         disabled={page === 1}
         onClick={() => {
           if (page !== 1) setPage(page - 1);
-        }}
-      >
+        }}>
         {'< 이전'}
       </PrevNextButton>
       <ButtonWrapper>
@@ -56,8 +55,7 @@ export default function Pagination({
         disabled={page === totalPage}
         onClick={() => {
           if (page !== totalPage) setPage(page + 1);
-        }}
-      >
+        }}>
         {'다음 >'}
       </PrevNextButton>
     </PaginationWrapper>

@@ -21,11 +21,7 @@ function ConfirmPopup({
 }) {
   return (
     <Modal show={show} onCloseModal={onClose}>
-      <Container
-        onClick={e => {
-          e.stopPropagation();
-        }}
-      >
+      <Container>
         <PopupHeader>
           <div>
             알림

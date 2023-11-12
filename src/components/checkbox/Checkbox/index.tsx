@@ -11,7 +11,7 @@ function Checkbox({
   onClickHandler?: () => void;
 }) {
   return (
-    <CheckBoxDiv onClick={onClickHandler}>
+    <CheckBoxDiv onClick={onClickHandler} $checked={checked}>
       <div>{checked && <CheckIcon size='13' />}</div>
     </CheckBoxDiv>
   );

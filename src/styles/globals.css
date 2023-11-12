@@ -152,3 +152,8 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
+
+a:-webkit-any-link {
+  text-decoration: none !important;
+  color: inherit !important;
+}
