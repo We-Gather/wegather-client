@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { useState } from 'react';
 
 import Checkbox from '@/components/checkbox/Checkbox';
@@ -99,8 +100,7 @@ export default function SelectSchool(): JSX.Element {
                 selected={sortBy.label == curSortBy.label}
                 onClick={() => {
                   setCurSortBy(sortBy);
-                }}
-              >
+                }}>
                 {sortBy.label}
               </SortButton>
             ))}
@@ -116,8 +116,7 @@ export default function SelectSchool(): JSX.Element {
               <div
                 onClick={() => {
                   setChecked(prev => !prev);
-                }}
-              >
+                }}>
                 항상 <span>내 학교</span>로 시작
               </div>
             </CheckWrapper>
@@ -128,11 +127,9 @@ export default function SelectSchool(): JSX.Element {
           {/* 학교 목록 조회 컴포넌트 */}
           <SchoolCardWrapper>
             {schoolList.map((school, i) => (
-              <SchoolInfo
-                key={i}
-                school={school}
-                authenticationSchool={i == 0}
-              />
+              <Link key={i} href='/select/club'>
+                <SchoolInfo school={school} authenticationSchool={i == 0} />
+              </Link>
             ))}
           </SchoolCardWrapper>
         </SchoolListContentDiv>
