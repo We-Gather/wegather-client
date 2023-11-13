@@ -8,6 +8,7 @@ import TagList from '@/components/tag/TagList';
 import TextEditor from '@/components/TextEditor';
 import { ClubCategory, ClubCreationInfo } from '@/types/clubCreationInfo';
 
+import RequestCategoryPopup from './RequestCategoryPopup';
 import {
   ClubExplanationInput,
   ClubIntroductionInput,
@@ -25,13 +26,15 @@ import {
   InfoText,
   InfoType,
   MainContainer,
+  RequestCategoryButton,
   SchoolSelectInput,
   SchoolSelectWrapper,
+  SearchIcon,
   TagAddInput,
   TagContainer,
   TagRowWrapper,
   TextCountInputWrapper,
-  TextCountWrapper
+  TextCountWrapper,
 } from './style';
 
 // import { axios } from '@/config/axiosConfig';
@@ -51,6 +54,7 @@ export default function CreateClub() {
   const [tag, setTag] = useState<string>('');
 
   const [isComposing, setIsComposing] = useState(false);
+  const [showCategoryPopup, setShowCategoryPopup] = useState(false);
 
   const clubCategoryList: ClubCategory[] = [
     {
@@ -197,7 +201,10 @@ export default function CreateClub() {
                   </div>
                   <SchoolSelectWrapper>
                     <InfoText required>③ 학교명</InfoText>
-                    <SchoolSelectInput />
+                    <SchoolSelectInput>
+                      <input placeholder='검색' />
+                      <SearchIcon />
+                    </SchoolSelectInput>
                   </SchoolSelectWrapper>
                 </ClubTypeWrapper>
               </ClubTypeContainer>
@@ -267,6 +274,17 @@ export default function CreateClub() {
                 clubCategoryList={clubCategoryList}
                 // setClubCreationInfo로 다시 가져와야함.
               />
+              <RequestCategoryButton>
+                <span>원하는 카테고리가 없으신가요?</span>
+                <button
+                  onClick={e => {
+                    e.preventDefault();
+                    setShowCategoryPopup(true);
+                  }}>
+                  카테고리 <span>신청</span>하기
+                  <div>→</div>
+                </button>
+              </RequestCategoryButton>
             </ClubRowWrapper>
             <ClubRowWrapper>
               <InfoText>⑧ 태그</InfoText>
@@ -324,6 +342,12 @@ export default function CreateClub() {
           </InfoConatainer>
         </CreateForm>
       </MainContainer>
+      <RequestCategoryPopup
+        show={showCategoryPopup}
+        onClose={() => {
+          setShowCategoryPopup(false);
+        }}
+      />
     </>
   );
 }

@@ -1,26 +1,43 @@
+import { Close as CloseIcon } from '@styled-icons/ionicons-outline/Close';
 import React, { ReactNode } from 'react';
 
-import { ModalContainer } from './style';
+import { Container, ModalContainer, PopupHeader } from './style';
 
 type ModalProps = {
   children: ReactNode;
   show: boolean;
+  title: ReactNode;
   onCloseModal: () => void;
 };
 
 /**
- * 모달 레이아웃
+ * 모달 팝업 컴포넌트
  */
-export default function Modal({ children, show, onCloseModal }: ModalProps) {
+export default function Modal({
+  children,
+  show,
+  onCloseModal,
+  title,
+}: ModalProps) {
   if (!show) return null;
   return (
     <ModalContainer onClick={onCloseModal}>
-      <div
+      <Container
         onClick={e => {
           e.stopPropagation();
         }}>
+        <PopupHeader>
+          <div>
+            {title}
+            <CloseIcon
+              size='21'
+              style={{ cursor: 'pointer' }}
+              onClick={onCloseModal}
+            />
+          </div>
+        </PopupHeader>
         {children}
-      </div>
+      </Container>
     </ModalContainer>
   );
 }

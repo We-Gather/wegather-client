@@ -1,3 +1,4 @@
+import { Search } from '@styled-icons/boxicons-regular/Search';
 import styled from 'styled-components';
 
 export const MainContainer = styled.div`
@@ -162,15 +163,33 @@ export const SchoolSelectWrapper = styled.div`
   flex-direction: row;
   align-items: center;
 `;
-export const SchoolSelectInput = styled.input`
-  width: 15.625rem;
-  height: 1.875rem;
-  border-radius: 5px;
-  border: 1px solid #c9c9c9;
-  background: #fff;
-  padding: 0;
-  text-indent: 10px;
+
+export const SchoolSelectInput = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+  & input {
+    width: 15.625rem;
+    height: 1.875rem;
+    border-radius: 5px;
+    border: 1px solid #c9c9c9;
+    background: #fff;
+    padding: 0;
+    text-indent: 10px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
 `;
+
+export const SearchIcon = styled(Search)`
+  width: 1.07588rem;
+  height: 1.32963rem;
+  flex-shrink: 0;
+  color: #585858;
+  position: absolute;
+  right: 1rem;
+`;
+
 export const CreateForm = styled.form`
   width: 66.875rem;
   padding-top: 100px;
@@ -249,4 +268,34 @@ export const TagAddButtom = styled.button`
 export const TagRowWrapper = styled.div`
   display: flex;
   flex-direction: row;
+`;
+
+export const RequestCategoryButton = styled.div`
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 5.75rem;
+  > span {
+    color: #585858;
+    font-size: 0.6875rem;
+    font-weight: 400;
+  }
+  > button {
+    cursor: pointer;
+    width: 8.625rem;
+    height: 3.125rem;
+    flex-shrink: 0;
+    border-radius: 0.3125rem;
+    border: 1px solid #585858;
+    background: #fff;
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 400;
+    > span {
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+  }
 `;

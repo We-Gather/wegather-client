@@ -1,33 +1,5 @@
 import { styled } from 'styled-components';
 
-export const Container = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  width: 40.625rem;
-  flex-direction: column;
-  flex-shrink: 0;
-  box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.25);
-  background-color: #fff;
-`;
-
-export const PopupHeader = styled.div`
-  border-bottom: 1px solid #d9d9d9;
-  padding: 0.87rem 0;
-  box-sizing: border-box;
-  & div {
-    padding: 0 1.37rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #9c9c9c;
-    font-size: 0.875rem;
-    font-weight: 700;
-  }
-`;
-
 export const PopupContent = styled.div`
   padding: 2rem 1rem;
   display: flex;

@@ -1,4 +1,3 @@
-import { Close as CloseIcon } from '@styled-icons/ionicons-outline/Close';
 import dayjs from 'dayjs';
 import React, { useCallback, useState } from 'react';
 
@@ -8,16 +7,14 @@ import Modal from '@/components/Modal';
 import {
   BasicInfoWrapper,
   BottomWrapper,
-  Container,
   ExileButton,
   GroupBox,
   InfoItemWrapper,
   InfoText,
   Label,
   PopupContent,
-  PopupHeader,
   RoleBox,
-  SaveButton
+  SaveButton,
 } from './style';
 
 function DetailPopup({
@@ -53,81 +50,62 @@ function DetailPopup({
       roleList[index].checked = !roleList[index].checked;
       setRoleList([...roleList]);
     },
-    [roleList]
+    [roleList],
   );
 
   return (
-    <Modal show={show} onCloseModal={onClose}>
-      <Container
-        onClick={e => {
-          e.stopPropagation();
-        }}
-      >
-        <PopupHeader>
+    <Modal show={show} onCloseModal={onClose} title='자세히 보기 : 운영진'>
+      <PopupContent>
+        <BasicInfoWrapper>
           <div>
-            자세히 보기 : 운영진
-            <CloseIcon
-              size='21'
-              style={{ cursor: 'pointer' }}
-              onClick={onClose}
-            />
+            <InfoItemWrapper>
+              <Label>이름</Label>
+              <InfoText>{member.name}</InfoText>
+            </InfoItemWrapper>
+            <InfoItemWrapper>
+              <Label>학번</Label>
+              <InfoText>{member.studentNumber}</InfoText>
+            </InfoItemWrapper>
           </div>
-        </PopupHeader>
-        <PopupContent>
-          <BasicInfoWrapper>
-            <div>
-              <InfoItemWrapper>
-                <Label>이름</Label>
-                <InfoText>{member.name}</InfoText>
-              </InfoItemWrapper>
-              <InfoItemWrapper>
-                <Label>학번</Label>
-                <InfoText>{member.studentNumber}</InfoText>
-              </InfoItemWrapper>
-            </div>
-            <div>
-              <InfoItemWrapper>
-                <Label>역할</Label>
-                <InfoText>{member.role}</InfoText>
-              </InfoItemWrapper>
-              <InfoItemWrapper>
-                <Label>가입일</Label>
-                <InfoText>
-                  {dayjs(member.joinDate).format('YYYY.MM.DD')}
-                </InfoText>
-              </InfoItemWrapper>
-            </div>
-          </BasicInfoWrapper>
-          <InfoItemWrapper $alignItems='start'>
-            <Label>권한</Label>
-            <RoleBox>
-              {roleList.map((role, i) => (
-                <div
-                  key={role.label}
-                  onClick={() => {
-                    onClickCheckBox(i);
-                  }}
-                >
-                  {role.label}
-                  <CheckBox checked={role.checked} />
-                </div>
-              ))}
-            </RoleBox>
-          </InfoItemWrapper>
-          <InfoItemWrapper $alignItems='start'>
-            <Label>그룹</Label>
-            <GroupBox>
-              {groupList.map(group => (
-                <div key={group}>{group}</div>
-              ))}
-            </GroupBox>
-          </InfoItemWrapper>
-        </PopupContent>
-        <BottomWrapper>
-          <SaveButton>저장</SaveButton>
-          <ExileButton>추방하기</ExileButton>
-        </BottomWrapper>
-      </Container>
+          <div>
+            <InfoItemWrapper>
+              <Label>역할</Label>
+              <InfoText>{member.role}</InfoText>
+            </InfoItemWrapper>
+            <InfoItemWrapper>
+              <Label>가입일</Label>
+              <InfoText>{dayjs(member.joinDate).format('YYYY.MM.DD')}</InfoText>
+            </InfoItemWrapper>
+          </div>
+        </BasicInfoWrapper>
+        <InfoItemWrapper $alignItems='start'>
+          <Label>권한</Label>
+          <RoleBox>
+            {roleList.map((role, i) => (
+              <div
+                key={role.label}
+                onClick={() => {
+                  onClickCheckBox(i);
+                }}>
+                {role.label}
+                <CheckBox checked={role.checked} />
+              </div>
+            ))}
+          </RoleBox>
+        </InfoItemWrapper>
+        <InfoItemWrapper $alignItems='start'>
+          <Label>그룹</Label>
+          <GroupBox>
+            {groupList.map(group => (
+              <div key={group}>{group}</div>
+            ))}
+          </GroupBox>
+        </InfoItemWrapper>
+      </PopupContent>
+      <BottomWrapper>
+        <SaveButton>저장</SaveButton>
+        <ExileButton>추방하기</ExileButton>
+      </BottomWrapper>
     </Modal>
   );
 }

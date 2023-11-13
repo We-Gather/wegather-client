@@ -1,5 +1,5 @@
+import { Search } from '@styled-icons/boxicons-regular/Search';
 import styled from 'styled-components';
-import { SearchAlt2 } from 'styled-icons/boxicons-regular';
 
 export const CategoryContainer = styled.div`
   display: flex;
@@ -64,7 +64,7 @@ export const SearchButton = styled.button`
   border: none;
   color: #fff;
 `;
-export const SearchIcon = styled(SearchAlt2)`
+export const SearchIcon = styled(Search)`
   width: 1rem;
   height: 1rem;
   color: #585858;
