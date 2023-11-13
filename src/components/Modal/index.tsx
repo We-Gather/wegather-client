@@ -13,5 +13,14 @@ type ModalProps = {
  */
 export default function Modal({ children, show, onCloseModal }: ModalProps) {
   if (!show) return null;
-  return <ModalContainer onClick={onCloseModal}>{children}</ModalContainer>;
+  return (
+    <ModalContainer onClick={onCloseModal}>
+      <div
+        onClick={e => {
+          e.stopPropagation();
+        }}>
+        {children}
+      </div>
+    </ModalContainer>
+  );
 }

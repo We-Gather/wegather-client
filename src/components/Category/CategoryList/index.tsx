@@ -40,11 +40,20 @@ export default function CategoryList({ clubCategoryList }:CategoryProps) {
           categoryStep={categoryStep}
           clubCategoryList={clubCategoryList}
           setCategoryStep={((categoryStep: ClubCategoryStep, category: ClubCategory) => setCategoryStep({
-            ...categoryStep,
             first: {
               id: category.id,
               name: category.name,
               sub: category.sub,
+            },
+            second: {
+              id: '',
+              name: '',
+              sub: [],
+            },
+            third: {
+              id: '',
+              name: '',
+              sub: [],
             },
           }))}
         />
@@ -57,6 +66,11 @@ export default function CategoryList({ clubCategoryList }:CategoryProps) {
               id: category.id,
               name: category.name,
               sub: category.sub,
+            },
+            third: {
+              id: '',
+              name: '',
+              sub: [],
             },
           }))}
         />

@@ -1,14 +1,20 @@
 import styled from 'styled-components';
 
 export const StyledButton = styled.button<{
-  background?: string;
-  textcolor?: string;
+  backgroundColor?: string;
+  textColor?: string;
 }>`
-  width: 5.625rem;
-  height: 2.1875rem;
   flex-shrink: 0;
-  border-radius: 5px;
-  border: 1px solid #36bf7f;
-  background: ${props => props.background || '#36BF7F'};
-  color: ${props => props.textcolor || '#36BF7F'};
+  display: inline-block;
+  height: 1.5625rem;
+  padding: 0.19rem 0.63rem;
+  border-radius: 0.3125rem;
+  box-sizing: border-box;
+  border: 1px solid #1ca526;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 400;
+  cursor: pointer;
+  background: ${props => props.backgroundColor || '#fff;'};
+  color: ${props => props.textColor || '#1ca526'};
 `;

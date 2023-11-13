@@ -18,10 +18,9 @@ export default function GreenMediumButton({
   return (
     <StyledButton
       type='button'
-      background={background}
-      textcolor={textcolor}
-      onClick={onClick}
-    >
+      backgroundColor={background}
+      textColor={textcolor}
+      onClick={onClick}>
       {text}
     </StyledButton>
   );

@@ -27,7 +27,6 @@ import {
   MainContainer,
   SchoolSelectInput,
   SchoolSelectWrapper,
-  TagAddButtom,
   TagAddInput,
   TagContainer,
   TagRowWrapper,
@@ -50,6 +49,8 @@ export default function CreateClub() {
     poster: undefined,
   });
   const [tag, setTag] = useState<string>('');
+
+  const [isComposing, setIsComposing] = useState(false);
 
   const clubCategoryList: ClubCategory[] = [
     {
@@ -115,36 +116,30 @@ export default function CreateClub() {
     <>
       <MainContainer>
         <HeaderMenuConatainer>
-          <p>동아리 생성</p>
+          <span>동아리 생성</span>
           <HeaderButtonContainer>
             <GreenBorderButton
-              background="#FFF"
-              text="미리보기"
-              textcolor="#36BF7F"
+              text='미리보기'
               onClick={() => {
                 console.log(clubCreationInfo);
               }}
             />
             <GreenBorderButton
-              background="#DDF8EB"
-              text="불러오기"
-              textcolor="#36BF7F"
+              text='불러오기'
               onClick={() => {
                 console.log(clubCreationInfo);
               }}
             />
             <GreenBorderButton
-              background="#DDF8EB"
-              text="임시저장"
-              textcolor="#36BF7F"
+              text='임시저장'
               onClick={() => {
                 console.log(clubCreationInfo);
               }}
             />
             <GreenBorderButton
-              background="#36BF7F"
-              text="생성하기"
-              textcolor="#FFF"
+              background='#1CA526'
+              text='생성하기'
+              textcolor='#FFF'
               onClick={() => {
                 console.log(clubCreationInfo);
               }}
@@ -152,14 +147,14 @@ export default function CreateClub() {
           </HeaderButtonContainer>
         </HeaderMenuConatainer>
         <CreateForm>
-          <InfoType>필수정보</InfoType>
+          <InfoType required>필수정보</InfoType>
           <InfoConatainer>
             <ClubRowWrapper>
-              <InfoText>동아리 명</InfoText>
+              <InfoText required>① 동아리명</InfoText>
               <ClubNameInput
-                type="text"
+                type='text'
                 value={clubCreationInfo.name}
-                placeholder="동아리 명"
+                placeholder='최대 20자'
                 onChange={(e: any) =>
                   setClubCreationInfo({
                     ...clubCreationInfo,
@@ -171,13 +166,13 @@ export default function CreateClub() {
             </ClubRowWrapper>
             <ClubRowWrapper>
               <ClubTypeContainer>
-                <InfoText>타입</InfoText>
+                <InfoText required>② 타입</InfoText>
                 <ClubTypeWrapper>
                   <div>
                     <ClubTypeRadio
-                      id="general"
-                      value="general"
-                      name="type"
+                      id='general'
+                      value='general'
+                      name='type'
                       onChange={(e: any) =>
                         setClubCreationInfo({
                           ...clubCreationInfo,
@@ -188,9 +183,9 @@ export default function CreateClub() {
                     />
                     <ClubTypeRadioSpan>일반동아리</ClubTypeRadioSpan>
                     <ClubTypeRadio
-                      id="union"
-                      value="union"
-                      name="type"
+                      id='union'
+                      value='union'
+                      name='type'
                       onChange={(e: any) =>
                         setClubCreationInfo({
                           ...clubCreationInfo,
@@ -201,26 +196,28 @@ export default function CreateClub() {
                     <ClubTypeRadioSpan>연합동아리</ClubTypeRadioSpan>
                   </div>
                   <SchoolSelectWrapper>
-                    <InfoText>학교명</InfoText>
+                    <InfoText required>③ 학교명</InfoText>
                     <SchoolSelectInput />
                   </SchoolSelectWrapper>
                 </ClubTypeWrapper>
               </ClubTypeContainer>
             </ClubRowWrapper>
             <ClubRowWrapper>
-              <InfoText>로고</InfoText>
+              <InfoText required>④ 로고</InfoText>
               <ImagePreview
-							  inputId='logo'
-                setFile={(file:File) => setClubCreationInfo({
-                  ...clubCreationInfo,
-                  logo: file,
-                })} 
+                inputId='logo'
+                setFile={(file: File) =>
+                  setClubCreationInfo({
+                    ...clubCreationInfo,
+                    logo: file,
+                  })
+                }
               />
             </ClubRowWrapper>
             <ClubRowWrapper>
               <TextCountWrapper>
                 <TextCountInputWrapper>
-                  <InfoText>간단소개</InfoText>
+                  <InfoText required>⑤ 간단소개</InfoText>
                   <ClubIntroductionInput
                     value={clubCreationInfo.introduction}
                     onChange={(e: any) =>
@@ -240,7 +237,7 @@ export default function CreateClub() {
             <ClubRowWrapper>
               <TextCountWrapper>
                 <TextCountInputWrapper>
-                  <InfoText>상세설명</InfoText>
+                  <InfoText required>⑥ 상세설명</InfoText>
                   <ClubExplanationInput>
                     <TextEditor
                       value={clubCreationInfo.explanation}
@@ -250,8 +247,8 @@ export default function CreateClub() {
                           explanation: value,
                         })
                       }
-                      minHeight="16rem"
-                      borderRadius="5px"
+                      minHeight='16rem'
+                      borderRadius='5px'
                       placeholder={'상세설명'}
                     />
                   </ClubExplanationInput>
@@ -262,30 +259,30 @@ export default function CreateClub() {
               </TextCountWrapper>
             </ClubRowWrapper>
           </InfoConatainer>
-          <InfoType>추가정보</InfoType>
+          <InfoType>선택정보</InfoType>
           <InfoConatainer>
             <ClubRowWrapper>
-              <InfoText>카테고리</InfoText>
+              <InfoText>⑦ 카테고리</InfoText>
               <CategoryList
                 clubCategoryList={clubCategoryList}
                 // setClubCreationInfo로 다시 가져와야함.
               />
             </ClubRowWrapper>
             <ClubRowWrapper>
-              <InfoText>태그</InfoText>
+              <InfoText>⑧ 태그</InfoText>
               <TagContainer>
                 <TagRowWrapper>
                   <TagAddInput
                     value={tag}
-                    onChange={(e: any) => 
-                      setTag(e.target.value)
-                    }
-                  />
-                  <TagAddButtom 
-                    onClick={(e: any) => {
+                    onChange={(e: any) => setTag(e.target.value)}
+                    onCompositionStart={() => setIsComposing(true)}
+                    onCompositionEnd={() => setIsComposing(false)}
+                    onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                      if (isComposing) return;
+                      if (e.key !== 'Enter') return;
                       e.preventDefault();
                       if (tag.trim() !== '') {
-                        setClubCreationInfo((prevInfo) => ({
+                        setClubCreationInfo(prevInfo => ({
                           ...prevInfo,
                           tag: [...prevInfo.tag, tag],
                         }));
@@ -294,13 +291,13 @@ export default function CreateClub() {
                     }}
                   />
                 </TagRowWrapper>
-                <TagList 
+                <TagList
                   tagList={clubCreationInfo.tag}
-                  deleteFunc={(index:number) => {
+                  deleteFunc={(index: number) => {
                     const updatedTags = [...clubCreationInfo.tag];
                     updatedTags.splice(index, 1);
-                
-                    setClubCreationInfo((prevInfo) => ({
+
+                    setClubCreationInfo(prevInfo => ({
                       ...prevInfo,
                       tag: updatedTags,
                     }));
@@ -311,13 +308,15 @@ export default function CreateClub() {
               </TagContainer>
             </ClubRowWrapper>
             <ClubRowWrapper>
-              <InfoText>포스터</InfoText>
+              <InfoText>⑨ 포스터</InfoText>
               <ImagePreview
                 inputId='poster'
-                setFile={(file:File) => setClubCreationInfo({
-                  ...clubCreationInfo,
-                  poster: file,
-                })} 
+                setFile={(file: File) =>
+                  setClubCreationInfo({
+                    ...clubCreationInfo,
+                    poster: file,
+                  })
+                }
                 height={200}
                 width={200}
               />
