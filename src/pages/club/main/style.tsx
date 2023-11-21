@@ -6,6 +6,8 @@ export const ClubMainContainer = styled.div`
   justify-content: center;
   place-content: center;
   align-items: center;
+  gap: 4.5rem;
+  width: 71.875rem;
 `;
 
 export const TabMenu = styled.div`
@@ -68,7 +70,6 @@ export const TabMenu = styled.div`
 export const TabMenuWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
 `;
 
 export const Desc = styled.div`

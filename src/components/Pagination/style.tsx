@@ -9,7 +9,8 @@ export const PaginationWrapper = styled.div`
 
 export const PageButton = styled.div<{ selected?: boolean }>`
   width: 1.625rem;
-  height: calc(1.625rem - 1px);
+  height: 1.625rem;
+  box-sizing: border-box;
   flex-shrink: 0;
   border-radius: 50%;
   color: ${props => (props.selected ? 'white' : 'black')};
@@ -24,7 +25,6 @@ export const PageButton = styled.div<{ selected?: boolean }>`
 export const PrevNextButton = styled.button`
   color: #585858;
   text-align: center;
-  font-family: NanumSquareOTF_ac;
   font-size: 1rem;
   font-style: normal;
   font-weight: 700;
