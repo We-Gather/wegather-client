@@ -1,0 +1,36 @@
+#footer {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10vh 50px;
+  font-size: 12px;
+
+  .left {
+    display: flex;
+    .detail {
+      margin-left: 5vh;
+      display: flex;
+      color: #585858;
+      .detailtxt {
+        margin: 0 20px;
+      }
+    }
+  }
+
+  .sns {
+    justify-self: flex-end;
+    color: #9f9f9f;
+    .snstxt {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .icon-container {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 5px;
+      .icon {
+        margin-left: 20px;
+      }
+    }
+  }
+}
